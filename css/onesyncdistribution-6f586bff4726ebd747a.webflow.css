@@ -21031,17 +21031,41 @@ body {
 
 @media screen and (max-width: 480px) {
   .display-1 {
-    font-size: 28px !important;
-    line-height: 1.0 !important;
+    font-size: 20px !important;
+    line-height: 0.9 !important;
+    margin-bottom: 5px !important;
   }
   
   .hero-tagline {
-    font-size: 12px !important;
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+    padding: 8px 12px !important;
+    margin-top: 5px !important;
+    max-width: 95% !important;
+  }
+  
+  /* Ultra-compress margins on mobile */
+  .margin-30px {
+    margin-top: 8px !important;
+  }
+  
+  .margin-40px {
+    margin-top: 10px !important;
+  }
+  
+  /* Move logo up and compress on mobile */
+  .hero-logo-center {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .hero-main-logo {
+    max-width: 60px !important;
+    height: auto !important;
   }
   
   .hero {
-    padding: 60px 3% 15px !important;
-    min-height: 65vh !important;
+    padding: 45px 3% 10px !important;
+    min-height: 50vh !important;
   }
   
   /* Bring logo carousel up and reduce padding on mobile */
@@ -21243,6 +21267,31 @@ body {
     width: auto !important;
   }
   
+  /* Compress hero content on tablet */
+  .hero-tagline {
+    font-size: 0.95rem !important;
+    padding: 18px 22px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .display-1 {
+    font-size: 36px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .margin-30px {
+    margin-top: 20px !important;
+  }
+  
+  .margin-40px {
+    margin-top: 25px !important;
+  }
+  
+  /* Move logo up on tablet */
+  .hero-logo-center {
+    margin-bottom: 1.5rem !important;
+  }
+  
   .section {
     padding: 40px 4% !important;
   }
@@ -21398,19 +21447,41 @@ body {
 
 @media screen and (max-width: 375px) {
   .display-1 {
-    font-size: 22px !important;
-    line-height: 0.9 !important;
-    margin-bottom: 8px !important;
+    font-size: 18px !important;
+    line-height: 0.8 !important;
+    margin-bottom: 3px !important;
   }
   
   .hero-tagline {
-    font-size: 10px !important;
-    margin-top: 8px !important;
+    font-size: 8px !important;
+    line-height: 1.0 !important;
+    padding: 6px 10px !important;
+    margin-top: 3px !important;
+    max-width: 98% !important;
+  }
+  
+  /* Minimal margins for very small screens */
+  .margin-30px {
+    margin-top: 5px !important;
+  }
+  
+  .margin-40px {
+    margin-top: 6px !important;
+  }
+  
+  /* Move logo way up on tiny screens */
+  .hero-logo-center {
+    margin-bottom: 0.2rem !important;
+  }
+  
+  .hero-main-logo {
+    max-width: 45px !important;
+    height: auto !important;
   }
   
   .hero {
-    padding: 50px 2% 15px !important;
-    min-height: 60vh !important;
+    padding: 35px 2% 8px !important;
+    min-height: 45vh !important;
   }
   
   .container-2.aboslute {
