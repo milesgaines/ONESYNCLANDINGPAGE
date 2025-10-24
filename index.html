@@ -10,7 +10,7 @@
   <meta content="DISTRIBUTION | SYNC | PUBLISHING ADMIN" property="twitter:description">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
-  <meta content="width=device-width, initial-scale=0.6, maximum-scale=3.0, user-scalable=yes, viewport-fit=cover" name="viewport">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes, viewport-fit=cover" name="viewport">
   <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
@@ -43,13 +43,13 @@
       <div data-w-id="ed14d1cd-f262-5c26-daf8-8e6804729107" class="hero hero-with-video">
         <!-- Multi-Video Background System -->
         <div class="hero-video-wrapper">
-          <video id="hero-video-1" class="hero-background-video active" autoplay muted playsinline>
+          <video id="hero-video-1" class="hero-background-video active" autoplay muted playsinline webkit-playsinline preload="metadata">
             <source src="VIDS/Warm-Realism-8a24eb44.mp4" type="video/mp4">
           </video>
-          <video id="hero-video-2" class="hero-background-video" muted playsinline>
+          <video id="hero-video-2" class="hero-background-video" muted playsinline webkit-playsinline preload="metadata">
             <source src="VIDS/text-to-video-8f7839b8.mp4" type="video/mp4">
           </video>
-          <video id="hero-video-3" class="hero-background-video" muted playsinline>
+          <video id="hero-video-3" class="hero-background-video" muted playsinline webkit-playsinline preload="metadata">
             <source src="VIDS/text-to-video-9bb42e9d.mp4" type="video/mp4">
           </video>
           <div class="hero-video-overlay"></div>
@@ -601,17 +601,47 @@
         }, 2000);
       }
       
-      // Set up video switching intervals with error handling
+      // Mobile detection
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      
+      // Set up video handling with enhanced mobile support
       videos.forEach((video, index) => {
+        // Enhanced mobile video attributes
+        if (isMobile) {
+          video.setAttribute('playsinline', 'true');
+          video.setAttribute('webkit-playsinline', 'true');
+          video.muted = true;
+          video.loop = true;
+        }
+        
         video.addEventListener('loadeddata', function() {
           if (index === 0) {
-            // Start first video
-            video.play().catch(e => {
-              console.log('Video autoplay prevented:', e);
-              // Add fallback background if video fails
-              document.querySelector('.hero-video-wrapper').style.background = 
-                'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)';
-            });
+            // Start first video with mobile-friendly approach
+            const playPromise = video.play();
+            
+            if (playPromise !== undefined) {
+              playPromise.then(() => {
+                // Video started successfully
+                console.log('Video playing successfully');
+              }).catch(error => {
+                console.log('Video autoplay prevented:', error);
+                
+                // For mobile, try user interaction approach
+                if (isMobile) {
+                  document.addEventListener('touchstart', function() {
+                    video.play().catch(e => console.log('Touch play failed:', e));
+                  }, { once: true });
+                  
+                  document.addEventListener('click', function() {
+                    video.play().catch(e => console.log('Click play failed:', e));
+                  }, { once: true });
+                }
+                
+                // Fallback background
+                document.querySelector('.hero-video-wrapper').style.background = 
+                  'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)';
+              });
+            }
           }
         });
         
@@ -628,6 +658,11 @@
             switchToNextVideo();
           }
         });
+        
+        // Force load for mobile
+        if (isMobile) {
+          video.load();
+        }
       });
       
       // Fallback: Switch videos every 45 seconds if they don't end naturally
