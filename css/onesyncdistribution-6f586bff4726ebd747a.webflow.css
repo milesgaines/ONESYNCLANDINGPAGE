@@ -3568,6 +3568,7 @@ figcaption {
   padding: 0;
   margin: 0;
   list-style: none;
+  will-change: transform;
 }
 
 .logo-carousel-2 li {
@@ -3579,15 +3580,24 @@ figcaption {
 
 @keyframes infinite-scroll {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(calc(-100% / 2));
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 .logo-carousel-2:hover {
   animation-play-state: paused;
+}
+
+/* Prevent flicker and improve performance */
+.logo-carousel-2,
+.logo-carousel-item-2,
+.logo-carousel-item-2 img {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 /* Remove the shadow overlays - using CSS mask instead */
@@ -21033,6 +21043,37 @@ body {
     margin-top: -30px !important;
   }
   
+  /* Optimize logo carousel for mobile */
+  .logo-carousel-wrap {
+    mask: linear-gradient(90deg, transparent, black 15%, black 85%, transparent) !important;
+    -webkit-mask: linear-gradient(90deg, transparent, black 15%, black 85%, transparent) !important;
+  }
+  
+  .logo-carousel-2 {
+    gap: 60px !important;
+    animation-duration: 45s !important;
+  }
+  
+  .logo-carousel-item-2 img {
+    max-height: 40px !important;
+    width: auto !important;
+  }
+  
+  /* Disable hover effects on mobile to prevent glitches */
+  .logo-carousel-2:hover {
+    animation-play-state: running !important;
+  }
+  
+  .logo-carousel-item-2:hover {
+    transform: none !important;
+    background: none !important;
+  }
+  
+  .logo-carousel-item-2:hover img {
+    transform: none !important;
+    filter: none !important;
+  }
+  
   /* Reduce section padding on mobile */
   .section {
     padding: 30px 3% !important;
@@ -21181,6 +21222,16 @@ body {
   .container-2.aboslute {
     padding: 0.75rem 0 !important;
     margin-top: -25px !important;
+  }
+  
+  /* Optimize logo carousel for tablet */
+  .logo-carousel-2 {
+    gap: 70px !important;
+  }
+  
+  .logo-carousel-item-2 img {
+    max-height: 50px !important;
+    width: auto !important;
   }
   
   .section {
