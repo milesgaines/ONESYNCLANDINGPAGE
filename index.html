@@ -90,6 +90,33 @@
                 <div class="left-part-shadow-2 right"></div>
                 <div class="logo-carousel-wrap">
                   <ul role="list" class="logo-carousel-2">
+                    <!-- First set of logos -->
+                    <li class="logo-carousel-item-2">
+                      <a href="#" class="logo-link-2 w-inline-block"><img width="95" sizes="(max-width: 479px) 59vw, (max-width: 1279px) 94.99999237060547px, (max-width: 1439px) 7vw, 94.99999237060547px" alt="" src="images/Beatport-White.png" srcset="images/Beatport-White-p-500.png 500w, images/Beatport-White.png 600w"></a>
+                    </li>
+                    <li class="logo-carousel-item-2">
+                      <a href="#" class="logo-link-2 w-inline-block"><img width="100" sizes="(max-width: 479px) 59vw, 99.99999237060547px" alt="" src="images/APPLE-MUSIC.png" srcset="images/APPLE-MUSIC-p-500.png 500w, images/APPLE-MUSIC.png 600w"></a>
+                    </li>
+                    <li class="logo-carousel-item-2">
+                      <a href="#" class="logo-link-2 w-inline-block"><img width="90" sizes="(max-width: 479px) 59vw, 89.99999237060547px" alt="" src="images/SPOTI-WHITE.png" srcset="images/SPOTI-WHITE-p-500.png 500w, images/SPOTI-WHITE.png 600w"></a>
+                    </li>
+                    <li class="logo-carousel-item-2">
+                      <a href="#" class="logo-link-2 w-inline-block"><img width="75" src="images/allmusic-logo-66ECF95ADC-seeklogo.com.png" alt=""></a>
+                    </li>
+                    <li class="logo-carousel-item-2">
+                      <a href="#" class="logo-link-2 w-inline-block"><img width="83" sizes="(max-width: 479px) 59vw, (max-width: 1279px) 82.9963150024414px, (max-width: 1439px) 6vw, 82.9963150024414px" alt="" src="images/ASCAP_Logo_Horizontal_Black.png" srcset="images/ASCAP_Logo_Horizontal_Black-p-500.png 500w, images/ASCAP_Logo_Horizontal_Black-p-800.png 800w, images/ASCAP_Logo_Horizontal_Black.png 857w"></a>
+                    </li>
+                    <li class="logo-carousel-item-2">
+                      <a href="#" class="logo-link-2 w-inline-block"><img width="50" src="images/soundcloud.png" alt=""></a>
+                    </li>
+                    <li class="logo-carousel-item-2">
+                      <a href="#" class="logo-link-2 w-inline-block"><img width="35" src="images/tiktok_PNG22.png" alt=""></a>
+                    </li>
+                    <li class="logo-carousel-item-2">
+                      <a href="#" class="logo-link-2 w-inline-block"><img width="71" sizes="(max-width: 479px) 59vw, 70.99264526367188px" alt="" src="images/82796_imdb_4096x4096.png" srcset="images/82796_imdb_4096x4096-p-500.png 500w, images/82796_imdb_4096x4096.png 691w"></a>
+                    </li>
+                    
+                    <!-- Duplicate set for seamless loop -->
                     <li class="logo-carousel-item-2">
                       <a href="#" class="logo-link-2 w-inline-block"><img width="95" sizes="(max-width: 479px) 59vw, (max-width: 1279px) 94.99999237060547px, (max-width: 1439px) 7vw, 94.99999237060547px" alt="" src="images/Beatport-White.png" srcset="images/Beatport-White-p-500.png 500w, images/Beatport-White.png 600w"></a>
                     </li>
@@ -562,13 +589,26 @@
         }, 2000);
       }
       
-      // Set up video switching intervals
+      // Set up video switching intervals with error handling
       videos.forEach((video, index) => {
         video.addEventListener('loadeddata', function() {
           if (index === 0) {
             // Start first video
-            video.play();
+            video.play().catch(e => {
+              console.log('Video autoplay prevented:', e);
+              // Add fallback background if video fails
+              document.querySelector('.hero-video-wrapper').style.background = 
+                'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)';
+            });
           }
+        });
+        
+        video.addEventListener('error', function() {
+          console.log('Video failed to load:', video.src);
+          // Hide failed video and show fallback
+          video.style.display = 'none';
+          document.querySelector('.hero-video-wrapper').style.background = 
+            'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)';
         });
         
         video.addEventListener('ended', function() {
