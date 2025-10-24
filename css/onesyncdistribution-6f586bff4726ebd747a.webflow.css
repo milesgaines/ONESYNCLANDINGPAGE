@@ -21023,8 +21023,30 @@ body {
   }
   
   .hero {
-    padding-top: 100px !important;
-    padding-bottom: 40px !important;
+    padding: 80px 3% 25px !important;
+    min-height: 65vh !important;
+  }
+  
+  /* Reduce logo carousel padding on mobile */
+  .container-2.aboslute {
+    padding: 0.5rem 0 !important;
+  }
+  
+  /* Reduce section padding on mobile */
+  .section {
+    padding: 30px 3% !important;
+  }
+  
+  /* Tighter container spacing */
+  .container {
+    padding-left: 3% !important;
+    padding-right: 3% !important;
+  }
+  
+  /* Reduce margins between elements */
+  .margin-50px-2 {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
   }
   
   .navbar-minimal {
@@ -21059,6 +21081,31 @@ body {
 
 /* Touch-friendly interactions */
 @media screen and (max-width: 767px) {
+  /* Reduce overall spacing on tablets/mobile */
+  .hero {
+    padding: 90px 4% 35px !important;
+    min-height: 70vh !important;
+  }
+  
+  .container-2.aboslute {
+    padding: 1rem 0 !important;
+  }
+  
+  .section {
+    padding: 40px 4% !important;
+  }
+  
+  .container {
+    padding-left: 4% !important;
+    padding-right: 4% !important;
+  }
+  
+  /* Reduce margins between elements */
+  .margin-50px-2 {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+  }
+  
   /* Improve touch targets */
   a, button, .nav-link, .nav-cta, .button-with-animation {
     touch-action: manipulation !important;
@@ -21132,21 +21179,38 @@ body {
 
 @media screen and (max-width: 375px) {
   .display-1 {
-    font-size: 20px !important;
+    font-size: 22px !important;
     line-height: 0.9 !important;
+    margin-bottom: 8px !important;
   }
   
   .hero-tagline {
-    font-size: 9px !important;
+    font-size: 10px !important;
+    margin-top: 8px !important;
   }
   
   .hero {
-    padding: 30px 2% 15px !important;
-    min-height: 50vh !important;
+    padding: 70px 2% 20px !important;
+    min-height: 60vh !important;
+  }
+  
+  .container-2.aboslute {
+    padding: 0.25rem 0 !important;
   }
   
   .section {
-    padding: 20px 2% !important;
+    padding: 25px 2% !important;
+  }
+  
+  .container {
+    padding-left: 2% !important;
+    padding-right: 2% !important;
+  }
+  
+  /* Minimal margins on small screens */
+  .margin-50px-2 {
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
   }
 }
 
