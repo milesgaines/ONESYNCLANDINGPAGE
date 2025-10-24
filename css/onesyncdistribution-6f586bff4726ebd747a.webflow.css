@@ -1823,9 +1823,10 @@ figcaption {
   margin-top: 0;
   margin-bottom: 0;
   font-family: Montserrat, sans-serif;
-  font-size: 50px;
-  font-weight: 600;
-  line-height: 1.2;
+  font-size: 65px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .display-1.biger {
@@ -2917,23 +2918,53 @@ figcaption {
   font-weight: 600 !important;
   line-height: 1.6 !important;
   margin-top: 25px !important;
-  color: rgba(255, 255, 255, 0.95) !important;
-  background: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: blur(15px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 12px !important;
-  padding: 25px 30px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  color: rgba(255, 255, 255, 0.98) !important;
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.85), rgba(26, 26, 26, 0.75)) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 30px 35px !important;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
   text-align: center !important;
   max-width: 750px !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 1px 2px rgba(0, 0, 0, 0.6) !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+}
+
+.hero-tagline:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 12px 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 30px rgba(0, 123, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.hero-tagline::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.03), rgba(255, 255, 255, 0.02)) !important;
+  border-radius: 16px !important;
+  pointer-events: none !important;
 }
 
 .hero-tagline strong {
   color: #ffffff !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9) !important;
 }
 
 /* Removed shimmer effect that was causing weird rectangle */
@@ -20218,9 +20249,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-logo-small {
-  height: 40px;
+  height: 50px;
   width: auto;
-  transition: opacity 0.2s ease;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .navbar-logo-small:hover {
@@ -20246,24 +20278,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link {
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 0.9rem !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: rgba(255, 255, 255, 0.95) !important;
   text-decoration: none !important;
-  padding: 0.7rem 1.5rem !important;
-  border-radius: 4px !important;
-  transition: all 0.2s ease !important;
+  padding: 12px 20px !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
   position: relative !important;
-  background: transparent !important;
-  border: none !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   text-align: center !important;
   display: inline-block !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
 .nav-link:hover {
   color: #ffffff !important;
-  background: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
 .nav-link::before {
@@ -20285,17 +20322,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-cta {
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 0.9rem !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
   color: #000 !important;
   text-decoration: none !important;
-  padding: 0.7rem 1.5rem !important;
-  background: #ffffff !important;
-  border: none !important;
-  border-radius: 4px !important;
-  transition: all 0.2s ease !important;
+  padding: 12px 24px !important;
+  background: linear-gradient(135deg, #ffffff, #f8f9fa) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease !important;
   position: relative !important;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 .nav-cta::before {
@@ -21031,17 +21072,22 @@ body {
 
 @media screen and (max-width: 480px) {
   .display-1 {
-    font-size: 20px !important;
-    line-height: 0.9 !important;
-    margin-bottom: 5px !important;
+    font-size: 28px !important;
+    line-height: 0.95 !important;
+    margin-bottom: 8px !important;
   }
   
   .hero-tagline {
     font-size: 9px !important;
     line-height: 1.1 !important;
-    padding: 8px 12px !important;
+    padding: 12px 15px !important;
     margin-top: 5px !important;
     max-width: 95% !important;
+    border-radius: 12px !important;
+    box-shadow: 
+      0 8px 20px rgba(0, 0, 0, 0.4),
+      0 4px 8px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
   }
   
   /* Ultra-compress margins on mobile */
@@ -21059,7 +21105,7 @@ body {
   }
   
   .hero-main-logo {
-    max-width: 60px !important;
+    max-width: 45px !important;
     height: auto !important;
   }
   
@@ -21447,17 +21493,22 @@ body {
 
 @media screen and (max-width: 375px) {
   .display-1 {
-    font-size: 18px !important;
-    line-height: 0.8 !important;
-    margin-bottom: 3px !important;
+    font-size: 24px !important;
+    line-height: 0.85 !important;
+    margin-bottom: 5px !important;
   }
   
   .hero-tagline {
     font-size: 8px !important;
     line-height: 1.0 !important;
-    padding: 6px 10px !important;
+    padding: 10px 12px !important;
     margin-top: 3px !important;
     max-width: 98% !important;
+    border-radius: 10px !important;
+    box-shadow: 
+      0 6px 15px rgba(0, 0, 0, 0.4),
+      0 3px 6px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
   }
   
   /* Minimal margins for very small screens */
@@ -21475,7 +21526,7 @@ body {
   }
   
   .hero-main-logo {
-    max-width: 45px !important;
+    max-width: 35px !important;
     height: auto !important;
   }
   
