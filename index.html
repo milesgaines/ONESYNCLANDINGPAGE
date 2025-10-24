@@ -57,13 +57,6 @@
           <div class="content-wrapper">
             <div class="hero-grid main">
               <div class="hero-title-flex">
-                <div class="hero-logo-center">
-                  <img src="images/ONESYNC-LOGO-WHITE.PNG" 
-                       alt="OneSync Logo" 
-                       class="hero-main-logo"
-                       sizes="(max-width: 479px) 80vw, (max-width: 991px) 60vw, 400px"
-                       srcset="images/ONESYNC-LOGO-WHITE-p-500.png 500w, images/ONESYNC-LOGO-WHITE-p-800.png 800w, images/ONESYNC-LOGO-WHITE.PNG 1000w">
-                </div>
                 <div>
                   <h1 fb-text-highlight-once="false" fb-text-highlight="true" fb-text-highlight-type="4" fb-text-highlight-offset="6" fb-text-highlight-speed="3" data-w-id="10b6b5d1-ff64-ba5d-8f1c-5abdad1a521a" style="opacity:0" class="display-1">All in One Platform<br> for Musicians &amp; Creator&#x27;s Worldwide</h1>
                   <div class="margin-30px">
@@ -630,35 +623,7 @@
     });
   </script>
 
-  <!-- Smooth Navbar Scroll Effect -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const navbar = document.querySelector('.navbar-minimal');
-      
-      function handleScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Add/remove scrolled class for subtle background change
-        if (scrollTop > 30) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      }
-      
-      // Throttle scroll events for smooth performance
-      let ticking = false;
-      function requestTick() {
-        if (!ticking) {
-          requestAnimationFrame(handleScroll);
-          ticking = true;
-          setTimeout(() => ticking = false, 16);
-        }
-      }
-      
-      window.addEventListener('scroll', requestTick, { passive: true });
-    });
-  </script>
+  <!-- No navbar scroll effects -->
 
   <!-- Cookies Popup JavaScript -->
   <script>
