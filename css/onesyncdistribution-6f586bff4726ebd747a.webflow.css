@@ -21027,9 +21027,10 @@ body {
     min-height: 65vh !important;
   }
   
-  /* Reduce logo carousel padding on mobile */
+  /* Bring logo carousel up and reduce padding on mobile */
   .container-2.aboslute {
     padding: 0.5rem 0 !important;
+    margin-top: -20px !important;
   }
   
   /* Reduce section padding on mobile */
@@ -21050,7 +21051,33 @@ body {
   }
   
   .navbar-minimal {
-    padding: 10px 3% !important;
+    padding: 8px 3% !important;
+    min-height: 50px !important;
+  }
+  
+  .navbar-simple {
+    padding: 0 !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .nav-left, .nav-right {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .nav-left {
+    gap: 8px !important;
+  }
+  
+  .nav-right {
+    gap: 8px !important;
+    flex-direction: row !important;
+  }
+  
+  .navbar-logo-small {
+    max-width: 28px !important;
+    height: auto !important;
   }
   
   .nav-link {
@@ -21058,9 +21085,62 @@ body {
     padding: 8px 12px !important;
   }
   
+  /* Fix navbar buttons on mobile */
   .nav-cta {
-    padding: 10px 16px !important;
+    padding: 12px 20px !important;
     font-size: 14px !important;
+    text-align: center !important;
+    display: inline-block !important;
+    min-width: 90px !important;
+    border-radius: 6px !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  .nav-cta:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    transform: none !important;
+  }
+  
+  .nav-cta::before {
+    display: none !important;
+    content: none !important;
+  }
+  
+  /* Disable button animations on mobile */
+  .button-with-animation {
+    animation: none !important;
+    transition: background-color 0.2s ease !important;
+    text-align: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+  
+  .button-with-animation::before {
+    display: none !important;
+    content: none !important;
+  }
+  
+  .button-with-animation:hover {
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  .button-with-animation:hover::before {
+    display: none !important;
+  }
+  
+  /* Center text inside buttons */
+  .text-button {
+    text-align: center !important;
+    width: 100% !important;
   }
   
   /* Stack navigation vertically on very small screens */
@@ -21089,6 +21169,7 @@ body {
   
   .container-2.aboslute {
     padding: 1rem 0 !important;
+    margin-top: -15px !important;
   }
   
   .section {
@@ -21104,6 +21185,44 @@ body {
   .margin-50px-2 {
     margin-top: 25px !important;
     margin-bottom: 25px !important;
+  }
+  
+  /* Fix buttons on tablet/mobile */
+  .nav-cta {
+    text-align: center !important;
+    display: inline-block !important;
+    overflow: hidden !important;
+  }
+  
+  .nav-cta::before {
+    display: none !important;
+    content: none !important;
+  }
+  
+  .nav-cta:hover::before {
+    display: none !important;
+  }
+  
+  .button-with-animation {
+    text-align: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important;
+  }
+  
+  .button-with-animation::before {
+    display: none !important;
+    content: none !important;
+  }
+  
+  .button-with-animation:hover::before {
+    display: none !important;
+  }
+  
+  .text-button {
+    text-align: center !important;
+    width: 100% !important;
   }
   
   /* Improve touch targets */
@@ -21196,6 +21315,7 @@ body {
   
   .container-2.aboslute {
     padding: 0.25rem 0 !important;
+    margin-top: -25px !important;
   }
   
   .section {
