@@ -630,50 +630,33 @@
     });
   </script>
 
-  <!-- Premium Navbar Scroll Effect -->
+  <!-- Smooth Navbar Scroll Effect -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const navbar = document.querySelector('.navbar-minimal');
-      let lastScrollTop = 0;
       
       function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // Add/remove scrolled class based on scroll position
-        if (scrollTop > 50) {
+        // Add/remove scrolled class for subtle background change
+        if (scrollTop > 30) {
           navbar.classList.add('scrolled');
         } else {
           navbar.classList.remove('scrolled');
         }
-        
-        // Hide/show navbar on scroll direction (optional premium effect)
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-          // Scrolling down - hide navbar
-          navbar.style.transform = 'translateY(-100%)';
-        } else {
-          // Scrolling up - show navbar
-          navbar.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
       }
       
-      // Throttle scroll events for performance
+      // Throttle scroll events for smooth performance
       let ticking = false;
       function requestTick() {
         if (!ticking) {
           requestAnimationFrame(handleScroll);
           ticking = true;
-          setTimeout(() => ticking = false, 10);
+          setTimeout(() => ticking = false, 16);
         }
       }
       
       window.addEventListener('scroll', requestTick, { passive: true });
-      
-      // Smooth reveal on page load
-      setTimeout(() => {
-        document.querySelector('.page-wrapper').style.opacity = '1';
-      }, 100);
     });
   </script>
 
