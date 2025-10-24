@@ -2877,36 +2877,27 @@ figcaption {
 
 /* Custom styles for catchy taglines */
 .hero-tagline {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 1.25rem !important;
+  font-family: 'Inter', 'Montserrat', sans-serif !important;
+  font-size: 1.15rem !important;
   font-weight: 400 !important;
-  line-height: 1.7 !important;
-  margin-top: 20px !important;
-  color: rgba(255, 255, 255, 0.95) !important;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06)) !important;
-  backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 20px !important;
-  padding: 25px 30px !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 
-              inset 0 1px 0 rgba(255, 255, 255, 0.25),
-              0 0 60px rgba(99, 102, 241, 0.1) !important;
+  line-height: 1.6 !important;
+  margin-top: 25px !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 20px 28px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
   text-align: center !important;
-  position: relative !important;
-  overflow: hidden !important;
-  max-width: 900px !important;
+  max-width: 800px !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
 .hero-tagline strong {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #d946ef) !important;
-  background-size: 200% 200% !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  animation: gradient-text 3s ease infinite !important;
-  font-weight: 600 !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
 }
 
 .hero-tagline::before {
@@ -3063,7 +3054,11 @@ figcaption {
   backface-visibility: hidden;
   flex: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   transform: perspective(1px);
+  overflow: hidden;
 }
 
 .quick-stack {
@@ -3605,13 +3600,15 @@ figcaption {
 .logo-grid {
   grid-column-gap: 60px;
   grid-row-gap: 60px;
-  grid-template: ". Area"
-  / .5fr minmax(200px, 1fr);
+  grid-template: "Area"
+  / 1fr;
   grid-auto-columns: 1fr;
   align-content: center;
   align-items: center;
+  justify-items: center;
   width: 100%;
   max-width: 1180px;
+  margin: 0 auto;
   display: grid;
 }
 
@@ -20129,22 +20126,28 @@ h1, h2, h3, h4, h5, h6 {
 ======================================== */
 
 .navbar-minimal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   padding: 0;
-  background: transparent;
-  backdrop-filter: none;
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.15) 0%, rgba(75, 0, 130, 0.15) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: none;
-  box-shadow: none;
+  box-shadow: 0 8px 32px rgba(138, 43, 226, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar-simple {
-  padding: 2rem;
+  padding: 1.5rem 3rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .nav-menu {
@@ -20154,10 +20157,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link {
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 0.95rem !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  font-family: 'Inter', 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-decoration: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 12px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
   text-decoration: none !important;
   transition: all 0.3s ease !important;
   position: relative !important;
@@ -20165,44 +20174,131 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link:hover {
   color: #ffffff !important;
-  transform: translateY(-1px) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(138, 43, 226, 0.3) !important;
 }
 
-.nav-link::after {
+.nav-link::before {
   content: '';
   position: absolute;
-  bottom: -4px;
+  top: 0;
   left: 0;
-  width: 0;
-  height: 1px;
-  background: #ffffff;
-  transition: width 0.3s ease;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
 }
 
-.nav-link:hover::after {
-  width: 100%;
+.nav-link:hover::before {
+  opacity: 1;
 }
 
 .nav-cta {
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 0.9rem !important;
+  font-family: 'Inter', 'Montserrat', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
   color: #ffffff !important;
   text-decoration: none !important;
-  padding: 0.6rem 1.2rem !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  border-radius: 25px !important;
-  transition: all 0.3s ease !important;
+  padding: 0.75rem 1.5rem !important;
+  background: linear-gradient(135deg, #8A2BE2 0%, #4B0082 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   backdrop-filter: blur(10px) !important;
-  background: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.nav-cta:hover::before {
+  left: 100%;
 }
 
 .nav-cta:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1) !important;
+  background: linear-gradient(135deg, #9932CC 0%, #6A0DAD 100%) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 12px 35px rgba(138, 43, 226, 0.5) !important;
   color: #ffffff !important;
+}
+
+/* Navigation Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 45px;
+  width: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(138, 43, 226, 0.3));
+}
+
+/* Premium Navbar Scroll Effect */
+.navbar-minimal.scrolled {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.25) 0%, rgba(75, 0, 130, 0.25) 100%);
+  backdrop-filter: blur(25px) saturate(200%);
+  box-shadow: 0 12px 40px rgba(138, 43, 226, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Premium page transitions */
+.page-wrapper {
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced content flow */
+.container {
+  position: relative;
+  z-index: 10;
+  padding-top: 100px;
+}
+
+.hero-grid.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px);
+  text-align: center;
 }
 
 /* Mobile navbar */
@@ -20339,6 +20435,9 @@ body {
 .hero-with-video {
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .hero-video-wrapper {

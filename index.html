@@ -28,10 +28,13 @@
     <div class="page-wrapper">
       <div data-w-id="6b2f2b79-e5ac-15c5-1b19-a2bc7f1f7956" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-minimal w-nav">
         <div class="navbar-simple">
+          <div class="nav-logo">
+            <img src="images/ONESYNC-LOGO-WHITE.PNG" alt="OneSync" class="navbar-logo">
+          </div>
           <nav role="navigation" class="nav-menu">
             <a href="mailto:support@onesync.music" class="nav-link">Contact</a>
-            <a href="https://app.onesync.music" class="nav-link">Login</a>
-            <a href="https://app.onesync.music" target="_blank" class="nav-cta">Join Now</a>
+            <a href="http://app.onesync.music/auth/login" class="nav-link">Login</a>
+            <a href="http://app.onesync.music/auth/login" target="_blank" class="nav-cta">Join Now</a>
           </nav>
         </div>
       </div>
@@ -69,7 +72,7 @@
                       <div class="margin-40px">
                         <div class="button-flex add-to-center">
                           <div>
-                            <a href="https://app.onesync.music" data-ms-modal="signup" data-w-id="266b4347-6ba3-6984-b742-4aea074f9433" target="_blank" class="button-with-animation w-inline-block">
+                            <a href="http://app.onesync.music/auth/login" data-ms-modal="signup" data-w-id="266b4347-6ba3-6984-b742-4aea074f9433" target="_blank" class="button-with-animation w-inline-block">
                               <div class="text-button">Join Now</div><img loading="lazy" alt="" src="images/icons8-arrow-3.svg" class="arrow-button">
                             </a>
                           </div>
@@ -349,7 +352,7 @@
                 </div>
                 <div class="margin-30px">
                   <div class="button-flex add-to-center">
-                    <a href="https://app.onesync.music" data-ms-modal="signup" data-w-id="53d75d0d-0756-b2cf-3834-5af92db65e30" target="_blank" class="button-with-animation w-inline-block">
+                    <a href="http://app.onesync.music/auth/login" data-ms-modal="signup" data-w-id="53d75d0d-0756-b2cf-3834-5af92db65e30" target="_blank" class="button-with-animation w-inline-block">
                       <div class="text-button">Join Now</div><img loading="lazy" alt="" src="images/icons8-arrow-3.svg" class="arrow-button">
                     </a>
                   </div>
@@ -366,7 +369,7 @@
                 </div>
                 <div class="margin-30px">
                   <div class="button-flex add-to-center">
-                    <a href="https://app.onesync.music" data-ms-modal="signup" data-w-id="516b7bd4-a2b6-d2b1-59b1-4a9cf6d6940e" target="_blank" class="button-with-animation w-inline-block">
+                    <a href="http://app.onesync.music/auth/login" data-ms-modal="signup" data-w-id="516b7bd4-a2b6-d2b1-59b1-4a9cf6d6940e" target="_blank" class="button-with-animation w-inline-block">
                       <div class="text-button">Join Now</div><img loading="lazy" alt="" src="images/icons8-arrow-3.svg" class="arrow-button">
                     </a>
                   </div>
@@ -437,7 +440,7 @@
             <h3 data-w-id="eea1e29a-216e-c103-259e-4c6a31792eba" class="display-1 biger">Supercharge your Music Career</h3>
             <div data-w-id="231f1242-4c65-4bda-da2e-f372d2a39a52" class="margin-30px">
               <div class="button-flex add-to-center">
-                <a href="https://app.onesync.music" data-ms-modal="signup" data-w-id="690feb40-8e17-01e0-991e-762465bda045" target="_blank" class="button-with-animation w-inline-block">
+                <a href="http://app.onesync.music/auth/login" data-ms-modal="signup" data-w-id="690feb40-8e17-01e0-991e-762465bda045" target="_blank" class="button-with-animation w-inline-block">
                   <div class="text-button">Join Now</div><img loading="lazy" src="images/icons8-arrow-3.svg" alt="" class="arrow-button">
                 </a>
                 <a href="mailto:support@onesync.music" class="button-first-line w-inline-block">
@@ -624,6 +627,53 @@
           switchToNextVideo();
         }
       }, 45000);
+    });
+  </script>
+
+  <!-- Premium Navbar Scroll Effect -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navbar = document.querySelector('.navbar-minimal');
+      let lastScrollTop = 0;
+      
+      function handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add/remove scrolled class based on scroll position
+        if (scrollTop > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+        
+        // Hide/show navbar on scroll direction (optional premium effect)
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling down - hide navbar
+          navbar.style.transform = 'translateY(-100%)';
+        } else {
+          // Scrolling up - show navbar
+          navbar.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      }
+      
+      // Throttle scroll events for performance
+      let ticking = false;
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(handleScroll);
+          ticking = true;
+          setTimeout(() => ticking = false, 10);
+        }
+      }
+      
+      window.addEventListener('scroll', requestTick, { passive: true });
+      
+      // Smooth reveal on page load
+      setTimeout(() => {
+        document.querySelector('.page-wrapper').style.opacity = '1';
+      }, 100);
     });
   </script>
 
