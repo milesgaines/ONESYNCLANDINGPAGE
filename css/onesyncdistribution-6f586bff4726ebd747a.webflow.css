@@ -21023,14 +21023,14 @@ body {
   }
   
   .hero {
-    padding: 80px 3% 25px !important;
+    padding: 60px 3% 15px !important;
     min-height: 65vh !important;
   }
   
   /* Bring logo carousel up and reduce padding on mobile */
   .container-2.aboslute {
-    padding: 0.5rem 0 !important;
-    margin-top: -20px !important;
+    padding: 0.25rem 0 !important;
+    margin-top: -30px !important;
   }
   
   /* Reduce section padding on mobile */
@@ -21051,8 +21051,8 @@ body {
   }
   
   .navbar-minimal {
-    padding: 8px 3% !important;
-    min-height: 50px !important;
+    padding: 6px 3% !important;
+    min-height: 45px !important;
   }
   
   .navbar-simple {
@@ -21085,30 +21085,41 @@ body {
     padding: 8px 12px !important;
   }
   
-  /* Fix navbar buttons on mobile */
+  /* Keep navbar button styling consistent with desktop */
   .nav-cta {
-    padding: 12px 20px !important;
-    font-size: 14px !important;
-    text-align: center !important;
-    display: inline-block !important;
-    min-width: 90px !important;
-    border-radius: 6px !important;
-    background: #ffffff !important;
-    color: #000000 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    color: #000 !important;
     text-decoration: none !important;
-    transition: background-color 0.2s ease !important;
+    padding: 0.7rem 1.5rem !important;
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    transition: all 0.2s ease !important;
     position: relative !important;
+    display: inline-block !important;
+    text-align: center !important;
     overflow: hidden !important;
   }
   
   .nav-cta:hover {
     background: rgba(255, 255, 255, 0.9) !important;
-    transform: none !important;
   }
   
   .nav-cta::before {
-    display: none !important;
-    content: none !important;
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+    transition: left 0.5s !important;
+  }
+  
+  .nav-cta:hover::before {
+    left: 100% !important;
   }
   
   /* Disable button animations on mobile */
@@ -21163,13 +21174,13 @@ body {
 @media screen and (max-width: 767px) {
   /* Reduce overall spacing on tablets/mobile */
   .hero {
-    padding: 90px 4% 35px !important;
+    padding: 70px 4% 25px !important;
     min-height: 70vh !important;
   }
   
   .container-2.aboslute {
-    padding: 1rem 0 !important;
-    margin-top: -15px !important;
+    padding: 0.75rem 0 !important;
+    margin-top: -25px !important;
   }
   
   .section {
@@ -21187,20 +21198,37 @@ body {
     margin-bottom: 25px !important;
   }
   
-  /* Fix buttons on tablet/mobile */
+  /* Keep navbar button consistent on tablet/mobile */
   .nav-cta {
-    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    color: #000 !important;
+    text-decoration: none !important;
+    padding: 0.7rem 1.5rem !important;
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
     display: inline-block !important;
+    text-align: center !important;
     overflow: hidden !important;
   }
   
   .nav-cta::before {
-    display: none !important;
-    content: none !important;
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+    transition: left 0.5s !important;
   }
   
   .nav-cta:hover::before {
-    display: none !important;
+    left: 100% !important;
   }
   
   .button-with-animation {
@@ -21309,13 +21337,13 @@ body {
   }
   
   .hero {
-    padding: 70px 2% 20px !important;
+    padding: 50px 2% 15px !important;
     min-height: 60vh !important;
   }
   
   .container-2.aboslute {
-    padding: 0.25rem 0 !important;
-    margin-top: -25px !important;
+    padding: 0.1rem 0 !important;
+    margin-top: -35px !important;
   }
   
   .section {
