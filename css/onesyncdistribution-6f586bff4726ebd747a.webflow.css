@@ -20885,8 +20885,8 @@ body {
   }
 }
 
-/* Mobile - Show More Content (Zoomed Out) */
-@media screen and (max-width: 767px) {
+/* Mobile - Show More Content (Small Screens Only) */
+@media screen and (max-width: 480px) {
   .display-1 {
     font-size: 24px !important;
     line-height: 0.95 !important;
@@ -20925,7 +20925,7 @@ body {
   }
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 375px) {
   .display-1 {
     font-size: 20px !important;
     line-height: 0.9 !important;
