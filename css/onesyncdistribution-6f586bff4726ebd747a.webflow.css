@@ -21040,6 +21040,111 @@ body {
   }
 }
 
+/* ULTRA-AGGRESSIVE MOBILE OVERRIDE - MUST BE LAST */
+@media screen and (max-width: 991px) {
+  .w-layout-grid.hero-grid.main,
+  .hero-grid.main,
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    gap: 1rem !important;
+  }
+  
+  .w-layout-grid {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* Force override ALL Webflow grid and flex classes */
+  .w-layout-grid,
+  .w-layout-grid.hero-grid,
+  .w-layout-grid.hero-grid.main,
+  .hero-grid,
+  .hero-grid.main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    grid-auto-columns: none !important;
+    grid-column-gap: 0 !important;
+    grid-row-gap: 1rem !important;
+    gap: 1rem !important;
+    padding: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Force mobile layout on container classes */
+  .container,
+  .hero .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem 4% !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Force column layout on title flex */
+  .hero-title-flex {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Override any grid positioning */
+  #w-node-d9c244f9-65c8-9d82-c54a-3e9024a71a70-4779b734,
+  [id*="w-node"] {
+    width: 100% !important;
+    grid-area: auto !important;
+  }
+  
+  /* Force mobile typography */
+  .display-1,
+  h1.display-1 {
+    font-size: 2rem !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero-tagline,
+  p.hero-tagline {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  /* Force button layout */
+  .button-flex,
+  .button-flex.add-to-center {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 15px !important;
+  }
+  
+  .button-with-animation {
+    width: 100% !important;
+    max-width: 280px !important;
+    text-align: center !important;
+  }
+}
+
 /* Mobile optimizations */
 @media screen and (max-width: 768px) {
   .hero-background-video.active {
