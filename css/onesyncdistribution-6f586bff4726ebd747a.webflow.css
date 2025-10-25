@@ -20750,6 +20750,149 @@ html {
   box-shadow: 0 6px 24px rgba(139, 92, 246, 0.2) !important;
 }
 
+/* Tablet breakpoints for hero elements */
+@media (max-width: 991px) {
+  .hero-tagline {
+    font-size: 1.25rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  .hero-primary-btn,
+  .hero-secondary-btn {
+    padding: 15px 28px !important;
+    font-size: 15px !important;
+    min-width: 180px !important;
+  }
+  
+  .hero-card {
+    padding: 2rem !important;
+    margin: 1.5rem !important;
+  }
+  
+  /* Tablet service grid */
+  .grid-3-columns {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Mobile breakpoints for hero elements */
+@media (max-width: 767px) {
+  .hero-tagline {
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero-buttons-container {
+    margin-top: 1.5rem !important;
+    gap: 10px !important;
+  }
+  
+  .hero-primary-btn,
+  .hero-secondary-btn {
+    padding: 14px 24px !important;
+    font-size: 14px !important;
+    min-width: 160px !important;
+  }
+  
+  .hero-card {
+    padding: 1.5rem !important;
+    margin: 1rem !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-tagline {
+    font-size: 1rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+  
+  .hero-buttons-container {
+    margin-top: 1.2rem !important;
+    gap: 8px !important;
+  }
+  
+  .hero-primary-btn,
+  .hero-secondary-btn {
+    padding: 12px 20px !important;
+    font-size: 13px !important;
+    min-width: 140px !important;
+  }
+  
+  .hero-card {
+    padding: 1rem !important;
+    margin: 0.5rem !important;
+  }
+  
+  /* Mobile carousel adjustments */
+  .logo-carousel-2 {
+    gap: 20px !important;
+  }
+  
+  .logo-carousel-2 img {
+    height: 20px !important;
+    width: auto !important;
+  }
+  
+  /* Fix navbar on mobile */
+  .navbar-simple {
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .navbar-logo {
+    max-height: 35px !important;
+  }
+  
+  .nav-cta {
+    font-size: 12px !important;
+    padding: 0.4rem 0.8rem !important;
+  }
+  
+  /* Mobile service grid */
+  .grid-3-columns {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .step-box-main {
+    padding: 1rem !important;
+  }
+  
+  .step-main-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .small-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  /* General mobile improvements */
+  .display-1 {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .display-1.smaller {
+    font-size: 1.6rem !important;
+  }
+  
+  .features-subtitle {
+    font-size: 0.9rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .max-w-wrapper {
+    padding: 0 1rem !important;
+  }
+  
+  .margin-60px {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
+
 /* Desktop - side by side layout */
 @media (min-width: 768px) {
   .hero-buttons-container {
