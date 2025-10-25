@@ -3681,18 +3681,18 @@ figcaption {
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 120px;
-  mask: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
-  -webkit-mask: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+  height: 100px;
+  mask: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
 }
 
 .logo-carousel-2 {
   display: flex !important;
   align-items: center !important;
-  gap: 40px !important;
-  animation: carousel-slide 25s linear infinite !important;
+  gap: 50px !important;
+  animation: carousel-slide 15s linear infinite !important;
   width: max-content !important;
-  padding: 2rem 0 !important;
+  padding: 1.5rem 0 !important;
   margin: 0 !important;
   list-style: none !important;
   will-change: transform !important;
@@ -19454,8 +19454,8 @@ figcaption {
   .logo-carousel-2 {
     display: flex !important;
     align-items: center !important;
-    gap: 30px !important;
-    animation: carousel-slide 25s linear infinite !important;
+    gap: 40px !important;
+    animation: carousel-slide 15s linear infinite !important;
     width: max-content !important;
     padding: 2rem 0 !important;
     margin: 0 !important;
@@ -20843,7 +20843,8 @@ html {
   
   /* Mobile carousel */
   .logo-carousel-2 {
-    gap: 25px !important;
+    gap: 35px !important;
+    animation: carousel-slide 15s linear infinite !important;
   }
   
   .logo-carousel-2 img {
@@ -20940,6 +20941,10 @@ html {
   }
   
   /* Logo carousel better size on mobile */
+  .logo-carousel-2 {
+    animation: carousel-slide 15s linear infinite !important;
+  }
+  
   .logo-carousel-2 img {
     height: 28px !important;
   }
