@@ -6,193 +6,7 @@ html, body {
   box-sizing: border-box !important;
 }
 
-/* ========================================
-   CLEAN NAVBAR STYLES - NEW NAVBAR SYSTEM
-======================================== */
 
-.navbar-clean {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1rem 0;
-}
-
-.navbar-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.brand-link {
-  display: flex;
-  align-items: center;
-}
-
-.brand-logo {
-  height: 40px;
-  width: auto;
-  transition: opacity 0.3s ease;
-}
-
-.brand-logo:hover {
-  opacity: 0.8;
-}
-
-.nav-contact {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav-contact:hover {
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.nav-login {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav-login:hover {
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.nav-signup {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #000;
-  text-decoration: none;
-  padding: 10px 20px;
-  background: linear-gradient(135deg, #ffffff, #f0f0f0);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.nav-signup:hover {
-  background: linear-gradient(135deg, #f8f8f8, #e8e8e8);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Mobile navbar responsive styles */
-@media screen and (max-width: 991px) {
-  .navbar-container {
-    padding: 0 1.5rem;
-  }
-  
-  .nav-brand {
-    gap: 1.5rem;
-  }
-  
-  .nav-contact {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
-  
-  .nav-actions {
-    gap: 0.8rem;
-  }
-  
-  .nav-login,
-  .nav-signup {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .navbar-container {
-    padding: 0 1rem;
-  }
-  
-  .nav-brand {
-    gap: 1rem;
-  }
-  
-  .brand-logo {
-    height: 35px;
-  }
-  
-  .nav-contact {
-    display: none;
-  }
-  
-  .nav-actions {
-    gap: 0.6rem;
-  }
-  
-  .nav-login,
-  .nav-signup {
-    font-size: 0.85rem;
-    padding: 6px 12px;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .navbar-container {
-    padding: 0 0.8rem;
-  }
-  
-  .brand-logo {
-    height: 30px;
-  }
-  
-  .nav-actions {
-    gap: 0.4rem;
-  }
-  
-  .nav-login {
-    font-size: 0.8rem;
-    padding: 5px 10px;
-  }
-  
-  .nav-signup {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-  }
-}
 
 *, *::before, *::after {
   box-sizing: border-box !important;
@@ -3924,15 +3738,16 @@ br.mobile-only { display: none; }
   overflow: hidden;
   position: relative;
   width: 100%;
-  mask: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
-  -webkit-mask: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+  mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  padding: 1rem 0;
 }
 
 .logo-carousel-2 {
   display: flex;
   align-items: center;
-  gap: 80px;
-  animation: infinite-scroll 60s linear infinite;
+  gap: 40px;
+  animation: infinite-scroll 30s linear infinite;
   width: max-content;
   padding: 0;
   margin: 0;
@@ -3967,15 +3782,8 @@ br.mobile-only { display: none; }
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform-style: preserve-3d;
-}
-
-/* Remove the shadow overlays - using CSS mask instead */
-.left-part-shadow-2 {
-  display: none;
-}
-
-.left-part-shadow-2.right {
-  display: none;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* Logo items styling */
@@ -3984,9 +3792,10 @@ br.mobile-only { display: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.7;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  height: 60px;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  height: 50px;
+  transform-origin: center center;
 }
 
 .logo-carousel-item-2:hover {
@@ -3998,22 +3807,67 @@ br.mobile-only { display: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   height: 100%;
+  padding: 0 5px;
 }
 
 .logo-link-2 img {
-  max-height: 45px;
-  max-width: 120px;
-  width: auto;
   height: auto;
+  width: auto;
+  max-height: 35px;
+  max-width: 100px;
   object-fit: contain;
   filter: brightness(1.2) contrast(1.1);
-  transition: filter 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .logo-carousel-item-2:hover .logo-link-2 img {
   filter: brightness(1.4) contrast(1.2);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 991px) {
+  .logo-carousel-2 {
+    gap: 30px;
+    animation-duration: 25s;
+  }
+  
+  .logo-link-2 img {
+    max-height: 30px;
+    max-width: 90px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .logo-carousel-2 {
+    gap: 25px;
+    animation-duration: 20s;
+  }
+  
+  .logo-carousel-item-2 {
+    height: 45px;
+  }
+  
+  .logo-link-2 img {
+    max-height: 25px;
+    max-width: 80px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .logo-carousel-2 {
+    gap: 20px;
+    animation-duration: 15s;
+  }
+  
+  .logo-carousel-item-2 {
+    height: 40px;
+  }
+  
+  .logo-link-2 img {
+    max-height: 22px;
+    max-width: 70px;
+  }
 }
 
 .carousel-2 {
@@ -20976,73 +20830,110 @@ body {
 
 /* Mobile platforms carousel - responsive for all screen sizes */
 .mobile-platforms-carousel {
-  display: block !important;
-  margin: 1.5rem auto !important;
-  overflow: hidden !important;
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-.mobile-platforms-carousel .carousel-2 {
-  margin: 0 auto;
+  display: block;
+  margin: 1.5rem auto;
   width: 100%;
-  position: relative;
+  overflow: hidden;
 }
 
 .mobile-platforms-carousel .logo-carousel-wrap {
+  position: relative;
   overflow: hidden;
-  width: 100%;
+  padding: 0.5rem 0;
+  mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
 }
 
 .mobile-platforms-carousel .logo-carousel-2 {
   display: flex;
-  animation: scroll-logos 25s linear infinite;
-  gap: 2rem;
   align-items: center;
-  width: fit-content;
-  margin: 0;
+  width: max-content;
+  animation: infinite-scroll 40s linear infinite;
+  gap: 50px;
   padding: 0;
+  margin: 0;
+  list-style: none;
+  will-change: transform;
 }
 
 .mobile-platforms-carousel .logo-carousel-item-2 {
   flex-shrink: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.mobile-platforms-carousel .logo-link-2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem 0.6rem;
-  transition: transform 0.3s ease;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  transform-origin: center center;
+  height: 40px;
 }
 
-.mobile-platforms-carousel .logo-link-2:hover {
-  transform: scale(1.05);
-}
-
-.mobile-platforms-carousel img {
-  max-height: 28px;
+.mobile-platforms-carousel .logo-carousel-item-2 img {
+  height: 100%;
   width: auto;
-  filter: brightness(1.1);
-  transition: filter 0.3s ease;
+  max-width: 120px;
+  object-fit: contain;
+  filter: brightness(1.2) contrast(1.1);
+  transition: all 0.3s ease;
+  opacity: 0.9;
 }
 
-@keyframes scroll-logos {
+.mobile-platforms-carousel .logo-carousel-item-2:hover img {
+  opacity: 1;
+  filter: brightness(1.4) contrast(1.2);
+  transform: scale(1.1);
+}
+
+@keyframes infinite-scroll {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
-/* Desktop responsiveness */
-@media (min-width: 768px) {
-  .mobile-platforms-carousel {
-    margin: 2rem auto;
+/* Responsive adjustments */
+@media screen and (max-width: 991px) {
+  .mobile-platforms-carousel .logo-carousel-2 {
+    gap: 30px;
+    animation-duration: 25s;
+  }
+  
+  .mobile-platforms-carousel .logo-link-2 img {
+    max-height: 30px;
+    max-width: 90px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mobile-platforms-carousel .logo-carousel-2 {
+    gap: 25px;
+    animation-duration: 20s;
+  }
+  
+  .mobile-platforms-carousel .logo-carousel-item-2 {
+    opacity: 0.9;
+  }
+  
+  .mobile-platforms-carousel .logo-link-2 img {
+    max-height: 25px;
+    max-width: 80px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .mobile-platforms-carousel .logo-carousel-2 {
+    gap: 20px;
+    animation-duration: 15s;
+  }
+  
+  .mobile-platforms-carousel .logo-carousel-item-2 {
+    opacity: 1;
+  }
+  
+  .mobile-platforms-carousel .logo-link-2 img {
+    max-height: 22px;
+    max-width: 70px;
   }
   
   .mobile-platforms-carousel .logo-carousel-2 {
