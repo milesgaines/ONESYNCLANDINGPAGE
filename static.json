@@ -1,0 +1,25 @@
+{
+  "root": ".",
+  "clean_urls": true,
+  "https_only": true,
+  "routes": {
+    "/**": "index.html"
+  },
+  "headers": {
+    "/**": {
+      "Cache-Control": "max-age=86400"
+    },
+    "/css/**": {
+      "Cache-Control": "max-age=31536000"
+    },
+    "/js/**": {
+      "Cache-Control": "max-age=31536000"
+    },
+    "/images/**": {
+      "Cache-Control": "max-age=31536000"
+    },
+    "/VIDS/**": {
+      "Cache-Control": "max-age=31536000"
+    }
+  }
+}
