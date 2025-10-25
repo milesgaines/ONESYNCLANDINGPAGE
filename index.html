@@ -207,11 +207,22 @@
                     <p class="paragraph-17">Custom curated marketing plan. Tailored to your needs.</p>
                   </div>
                 </div>
-                <div id="w-node-_74f768cf-ae30-9a37-4b1c-9d6405dbc71e-4779b734" class="step-box-main">
+                <div id="w-node-_74f768cf-ae30-9a37-4b1c-9d6405dbc71e-4779b734" class="step-box-main analytics-card-interactive" onclick="openAnalyticsDashboard()">
                   <div class="step-icon"><img src="images/icons8-bar-chart-96_1icons8-bar-chart-96.webp" loading="lazy" alt="" class="small-icon"></div>
-                  <h3 class="step-main-title">Real-Time Analytics</h3>
+                  <h3 class="step-main-title">Real-Time Analytics <span class="demo-badge">LIVE DEMO</span></h3>
                   <div>
                     <p class="paragraph-15">Watch your streams and sales in real-time, to comprehensively understand your engagement.</p>
+                    <div class="mini-analytics-preview">
+                      <div class="mini-stat">
+                        <span class="mini-stat-value">2.4M</span>
+                        <span class="mini-stat-label">Total Streams</span>
+                      </div>
+                      <div class="mini-stat">
+                        <span class="mini-stat-value growth">+12%</span>
+                        <span class="mini-stat-label">This Month</span>
+                      </div>
+                    </div>
+                    <button class="analytics-cta-btn">View Full Dashboard →</button>
                   </div>
                 </div>
                 <div id="w-node-_13669621-79b5-1b86-3309-fa6797480575-4779b734" class="step-box-main">
@@ -357,6 +368,165 @@
               </div>
             </div>
           </section>
+          
+          <!-- Analytics Demo Section -->
+          <section class="analytics-demo-section">
+            <div class="max-w-wrapper center">
+              <h2 class="display-1 smaller">Real-Time Analytics Dashboard</h2>
+              <p class="features-subtitle">Track your music performance across all platforms with live data and insights</p>
+            </div>
+            <div class="margin-60px">
+              <div class="analytics-dashboard">
+                <div class="analytics-grid">
+                  <!-- Streams Chart -->
+                  <div class="analytics-card">
+                    <div class="analytics-card-header">
+                      <h3 class="analytics-title">Total Streams</h3>
+                      <span class="analytics-period">Last 30 Days</span>
+                    </div>
+                    <div class="analytics-chart-container">
+                      <canvas id="streamsChart" width="400" height="200"></canvas>
+                    </div>
+                    <div class="analytics-stats">
+                      <div class="stat-item">
+                        <span class="stat-value">2.4M</span>
+                        <span class="stat-label">Total Streams</span>
+                      </div>
+                      <div class="stat-item">
+                        <span class="stat-value growth">+12%</span>
+                        <span class="stat-label">vs Last Month</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Revenue Chart -->
+                  <div class="analytics-card">
+                    <div class="analytics-card-header">
+                      <h3 class="analytics-title">Revenue</h3>
+                      <span class="analytics-period">This Year</span>
+                    </div>
+                    <div class="analytics-chart-container">
+                      <canvas id="revenueChart" width="400" height="200"></canvas>
+                    </div>
+                    <div class="analytics-stats">
+                      <div class="stat-item">
+                        <span class="stat-value">$18,432</span>
+                        <span class="stat-label">Total Revenue</span>
+                      </div>
+                      <div class="stat-item">
+                        <span class="stat-value growth">+28%</span>
+                        <span class="stat-label">vs Last Year</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Top Songs -->
+                  <div class="analytics-card full-width">
+                    <div class="analytics-card-header">
+                      <h3 class="analytics-title">Top Performing Songs</h3>
+                      <span class="analytics-period">Current Month</span>
+                    </div>
+                    <div class="top-songs-list">
+                      <div class="song-item">
+                        <div class="song-info">
+                          <span class="song-title">Midnight Vibes</span>
+                          <span class="song-artist">Miles Gaines</span>
+                        </div>
+                        <div class="song-stats">
+                          <span class="song-streams">342.1K streams</span>
+                          <div class="song-progress">
+                            <div class="progress-bar" style="width: 85%"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="song-item">
+                        <div class="song-info">
+                          <span class="song-title">Summer Dreams</span>
+                          <span class="song-artist">Various Artists</span>
+                        </div>
+                        <div class="song-stats">
+                          <span class="song-streams">298.7K streams</span>
+                          <div class="song-progress">
+                            <div class="progress-bar" style="width: 72%"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="song-item">
+                        <div class="song-info">
+                          <span class="song-title">City Lights</span>
+                          <span class="song-artist">King Combs</span>
+                        </div>
+                        <div class="song-stats">
+                          <span class="song-streams">256.3K streams</span>
+                          <div class="song-progress">
+                            <div class="progress-bar" style="width: 63%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Platform Distribution -->
+                  <div class="analytics-card">
+                    <div class="analytics-card-header">
+                      <h3 class="analytics-title">Platform Distribution</h3>
+                      <span class="analytics-period">All Time</span>
+                    </div>
+                    <div class="platform-stats">
+                      <div class="platform-item">
+                        <div class="platform-info">
+                          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/spotify.svg" alt="Spotify" class="platform-icon">
+                          <span class="platform-name">Spotify</span>
+                        </div>
+                        <div class="platform-percentage">
+                          <span>42%</span>
+                          <div class="platform-bar">
+                            <div class="platform-fill spotify" style="width: 42%"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="platform-item">
+                        <div class="platform-info">
+                          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/applemusic.svg" alt="Apple Music" class="platform-icon">
+                          <span class="platform-name">Apple Music</span>
+                        </div>
+                        <div class="platform-percentage">
+                          <span>28%</span>
+                          <div class="platform-bar">
+                            <div class="platform-fill apple" style="width: 28%"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="platform-item">
+                        <div class="platform-info">
+                          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/youtube.svg" alt="YouTube Music" class="platform-icon">
+                          <span class="platform-name">YouTube Music</span>
+                        </div>
+                        <div class="platform-percentage">
+                          <span>18%</span>
+                          <div class="platform-bar">
+                            <div class="platform-fill youtube" style="width: 18%"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="platform-item">
+                        <div class="platform-info">
+                          <span class="platform-name">Other Platforms</span>
+                        </div>
+                        <div class="platform-percentage">
+                          <span>12%</span>
+                          <div class="platform-bar">
+                            <div class="platform-fill other" style="width: 12%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
           <div class="margin-150px">
             <div class="grid-2-columns reverse">
               <div id="w-node-_914c12f5-4837-a18a-92c4-02bf2f9479c2-4779b734" data-w-id="914c12f5-4837-a18a-92c4-02bf2f9479c2" style="opacity:0" class="relative-div"><img width="427" sizes="(max-width: 479px) 100vw, 426.9852600097656px" alt="" src="images/Shape-2_1Shape-2.webp" loading="lazy" srcset="images/Shape-2_1Shape-2.webp 500w, images/Shape-2_1Shape-2.webp 800w, images/Shape-2_1Shape-2.webp 1080w, images/Shape-2_1Shape-2.webp 1700w" class="image-rounded"><img src="images/users-by-country-map-dashdark-webflow-template.png" loading="lazy" width="345" sizes="(max-width: 479px) 100vw, 344.9999694824219px" alt="" srcset="images/users-by-country-map-dashdark-webflow-template-p-500.png 500w, images/users-by-country-map-dashdark-webflow-template.png 1128w" class="aboslute-card"></div>
@@ -683,6 +853,203 @@
         
         console.log('Cookies declined');
       });
+    });
+  </script>
+
+  <!-- Analytics Dashboard -->
+  <div id="analyticsDashboard" class="analytics-dashboard">
+    <div class="dashboard-header">
+      <h1 class="dashboard-title">OneSync Analytics Dashboard</h1>
+      <button class="close-dashboard" onclick="closeAnalyticsDashboard()">×</button>
+    </div>
+    
+    <div class="platform-tabs">
+      <button class="platform-tab active" onclick="switchPlatform('all')">All Platforms</button>
+      <button class="platform-tab" onclick="switchPlatform('spotify')">Spotify</button>
+      <button class="platform-tab" onclick="switchPlatform('apple')">Apple Music</button>
+      <button class="platform-tab" onclick="switchPlatform('youtube')">YouTube Music</button>
+      <button class="platform-tab" onclick="switchPlatform('amazon')">Amazon Music</button>
+      <button class="platform-tab" onclick="switchPlatform('deezer')">Deezer</button>
+    </div>
+    
+    <div class="dashboard-content">
+      <div class="analytics-widget">
+        <h3 class="widget-title">Total Streams This Month</h3>
+        <canvas id="streamsChart" class="chart-container"></canvas>
+      </div>
+      
+      <div class="analytics-widget">
+        <h3 class="widget-title">Revenue by Platform</h3>
+        <canvas id="revenueChart" class="chart-container"></canvas>
+      </div>
+      
+      <div class="analytics-widget">
+        <h3 class="widget-title">Top Performing Songs</h3>
+        <ul class="song-list" id="topSongs">
+          <li class="song-item">
+            <div class="song-info">
+              <div class="song-title">Midnight Dreams</div>
+              <div class="song-artist">Alex Rivera</div>
+            </div>
+            <div class="song-streams">2.1M streams</div>
+          </li>
+          <li class="song-item">
+            <div class="song-info">
+              <div class="song-title">Electric Nights</div>
+              <div class="song-artist">Neon Pulse</div>
+            </div>
+            <div class="song-streams">1.8M streams</div>
+          </li>
+          <li class="song-item">
+            <div class="song-info">
+              <div class="song-title">Summer Vibes</div>
+              <div class="song-artist">Beach House Collective</div>
+            </div>
+            <div class="song-streams">1.5M streams</div>
+          </li>
+          <li class="song-item">
+            <div class="song-info">
+              <div class="song-title">City Lights</div>
+              <div class="song-artist">Urban Echo</div>
+            </div>
+            <div class="song-streams">1.2M streams</div>
+          </li>
+          <li class="song-item">
+            <div class="song-info">
+              <div class="song-title">Acoustic Soul</div>
+              <div class="song-artist">Maya Chen</div>
+            </div>
+            <div class="song-streams">950K streams</div>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="analytics-widget">
+        <h3 class="widget-title">Monthly Revenue</h3>
+        <div style="color: white; font-size: 2em; margin: 20px 0;">
+          <span class="revenue-stat">$18,247.50</span>
+        </div>
+        <div style="color: rgba(255,255,255,0.7);">
+          <span class="revenue-stat" style="font-size: 0.9em;">+23% from last month</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Analytics Dashboard Functions
+    function openAnalyticsDashboard() {
+      document.getElementById('analyticsDashboard').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      initCharts();
+    }
+
+    function closeAnalyticsDashboard() {
+      document.getElementById('analyticsDashboard').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function switchPlatform(platform) {
+      // Update active tab
+      document.querySelectorAll('.platform-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Update charts with platform-specific data
+      updateChartsForPlatform(platform);
+    }
+
+    function initCharts() {
+      // Streams Chart
+      const streamsCtx = document.getElementById('streamsChart').getContext('2d');
+      new Chart(streamsCtx, {
+        type: 'line',
+        data: {
+          labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+          datasets: [{
+            label: 'Streams',
+            data: [850000, 920000, 1100000, 1250000],
+            borderColor: '#8b45ff',
+            backgroundColor: 'rgba(139, 69, 255, 0.1)',
+            fill: true,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: { color: 'white' }
+            }
+          },
+          scales: {
+            y: {
+              ticks: { color: 'white' },
+              grid: { color: 'rgba(255,255,255,0.1)' }
+            },
+            x: {
+              ticks: { color: 'white' },
+              grid: { color: 'rgba(255,255,255,0.1)' }
+            }
+          }
+        }
+      });
+
+      // Revenue Chart
+      const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+      new Chart(revenueCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Spotify', 'Apple Music', 'YouTube Music', 'Amazon Music', 'Others'],
+          datasets: [{
+            data: [45, 25, 15, 10, 5],
+            backgroundColor: [
+              '#1db954',
+              '#ff6b6b',
+              '#ff0000',
+              '#ff9f43',
+              '#8b45ff'
+            ]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'right',
+              labels: { 
+                color: 'white',
+                padding: 20
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function updateChartsForPlatform(platform) {
+      // Mock data for different platforms
+      const platformData = {
+        spotify: { streams: [400000, 450000, 520000, 580000], revenue: [8500, 9200, 10100, 11200] },
+        apple: { streams: [250000, 280000, 310000, 340000], revenue: [5200, 5800, 6400, 7000] },
+        youtube: { streams: [150000, 170000, 190000, 210000], revenue: [2100, 2400, 2700, 3000] },
+        amazon: { streams: [100000, 110000, 125000, 140000], revenue: [1800, 2000, 2200, 2500] },
+        deezer: { streams: [50000, 55000, 62000, 68000], revenue: [900, 1000, 1100, 1200] },
+        all: { streams: [850000, 920000, 1100000, 1250000], revenue: [18500, 20400, 22500, 24900] }
+      };
+      
+      console.log(`Switched to ${platform} platform data`);
+    }
+
+    // Close dashboard when clicking outside
+    document.getElementById('analyticsDashboard').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeAnalyticsDashboard();
+      }
     });
   </script>
 </body>

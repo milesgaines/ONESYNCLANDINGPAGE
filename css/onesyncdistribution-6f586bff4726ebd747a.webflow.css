@@ -21548,7 +21548,255 @@ body {
 
 .step-box-main:hover .step-main-title {
   color: inherit;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Interactive Analytics Card */
+.analytics-card-interactive {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.analytics-card-interactive:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(139, 69, 255, 0.3);
+  border: 1px solid rgba(139, 69, 255, 0.4);
+}
+
+.demo-badge {
+  background: linear-gradient(135deg, #8b45ff, #ff6b6b);
+  color: white;
+  font-size: 0.7em;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.mini-analytics-preview {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+  padding: 15px;
+  background: rgba(139, 69, 255, 0.1);
+  border-radius: 10px;
+}
+
+.mini-stat {
+  text-align: center;
+  flex: 1;
+}
+
+.mini-stat-value {
+  display: block;
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #8b45ff;
+}
+
+.mini-stat-value.growth {
+  color: #00ff88;
+}
+
+.mini-stat-label {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.analytics-cta-btn {
+  background: linear-gradient(135deg, #8b45ff, #6a35cc);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.analytics-cta-btn:hover {
+  background: linear-gradient(135deg, #9d56ff, #7a42dd);
+  transform: translateY(-1px);
+}
+
+/* Analytics Dashboard Overlay */
+.analytics-dashboard {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(10, 10, 15, 0.95), rgba(20, 20, 30, 0.95));
+  backdrop-filter: blur(20px);
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.analytics-dashboard.active {
+  display: block;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.dashboard-title {
+  color: white;
+  font-size: 2em;
+  margin: 0;
+}
+
+.close-dashboard {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-dashboard:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.platform-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.platform-tab {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(139, 69, 255, 0.3);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9em;
+}
+
+.platform-tab.active,
+.platform-tab:hover {
+  background: rgba(139, 69, 255, 0.3);
+  border-color: rgba(139, 69, 255, 0.6);
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.analytics-widget {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 69, 255, 0.2);
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.widget-title {
+  color: white;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.chart-container {
+  height: 250px;
+  margin: 20px 0;
+}
+
+.song-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.song-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.song-item:last-child {
+  border-bottom: none;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-title {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.song-artist {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9em;
+}
+
+.song-streams {
+  color: #8b45ff;
+  font-weight: 700;
+}
+
+.revenue-stat {
+  color: #00ff88;
+  font-weight: 700;
+}
+
+/* Mobile Responsive for Analytics */
+@media screen and (max-width: 767px) {
+  .analytics-dashboard {
+    padding: 10px;
+  }
+  
+  .dashboard-content {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+  
+  .platform-tabs {
+    padding: 0 10px;
+  }
+  
+  .mini-analytics-preview {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .mini-stat {
+    padding: 8px 0;
+  }
 }
 
 /* Ensure content stays above background effect */
