@@ -20215,17 +20215,52 @@ figcaption {
   color: rgba(138, 77, 255, 1);
 }
 
-/* Hero Carousel Section - Directly Under Main Heading */
+/* Hero Carousel Section - Full Width with Fade Effects */
 .hero-carousel-section {
   padding: 15px 0;
   margin: 5px 0;
-  width: 100%;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .hero-carousel-container {
   overflow: hidden;
   position: relative;
   padding: 10px 0;
+  width: 100%;
+}
+
+.hero-carousel-container::before,
+.hero-carousel-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero-carousel-container::before {
+  left: 0;
+  background: linear-gradient(90deg, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 0.8) 20%,
+    rgba(0, 0, 0, 0.4) 60%,
+    transparent 100%);
+}
+
+.hero-carousel-container::after {
+  right: 0;
+  background: linear-gradient(270deg, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 0.8) 20%,
+    rgba(0, 0, 0, 0.4) 60%,
+    transparent 100%);
 }
 
 .hero-carousel-track {
@@ -20233,7 +20268,7 @@ figcaption {
   animation: hero-platform-scroll 4s ease-in-out infinite;
   gap: 18px;
   width: max-content;
-  padding: 0;
+  padding: 0 140px;
   transform-style: preserve-3d;
   will-change: transform;
 }
@@ -20408,21 +20443,34 @@ figcaption {
 .hero-carousel-slide:nth-child(23) { animation-delay: 1.32s, 6.6s; }
 .hero-carousel-slide:nth-child(24) { animation-delay: 1.38s, 6.9s; }
 
-/* Mobile Responsive - Wider and More Distribution-Focused */
+/* Mobile Responsive - Full Width with Fade Effects */
 @media screen and (max-width: 767px) {
   .hero-carousel-section {
     padding: 10px 0;
     margin: 5px 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
   }
   
   .hero-carousel-container {
-    padding: 8px 8px;
+    padding: 8px 0;
     overflow: hidden;
+  }
+  
+  .hero-carousel-container::before,
+  .hero-carousel-container::after {
+    width: 80px;
+  }
   }
   
   .hero-carousel-track {
     animation: hero-platform-scroll 5s ease-in-out infinite;
     gap: 16px;
+    padding: 0 90px;
   }
   
   .hero-carousel-slide {
@@ -20441,11 +20489,26 @@ figcaption {
   }
 }
 
-/* Tablet Responsive */
+/* Tablet Responsive - Full Width with Fade Effects */
 @media screen and (max-width: 991px) and (min-width: 768px) {
+  .hero-carousel-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+  
+  .hero-carousel-container::before,
+  .hero-carousel-container::after {
+    width: 100px;
+  }
+  
   .hero-carousel-track {
     animation: hero-platform-scroll 6s ease-in-out infinite;
     gap: 25px;
+    padding: 0 110px;
   }
   
   .hero-carousel-slide {
