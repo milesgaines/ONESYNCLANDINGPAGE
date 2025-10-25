@@ -1,19 +1,25 @@
-server {
-    listen <%= ENV["PORT"] %>;
-    server_name _;
-    root .;
-    index index.html;
+http {
+    include mime.types;
+    default_type application/octet-stream;
+    sendfile on;
 
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
+    server {
+        listen <%= ENV["PORT"] %>;
+        server_name _;
+        root .;
+        index index.html;
 
-    location ~* \.(css|js|png|jpg|jpeg|gif|ico|svg|webp|mp4|webm|mov)$ {
-        expires 1y;
-        add_header Cache-Control "public, immutable";
-    }
+        location / {
+            try_files $uri $uri/ /index.html;
+        }
 
-    location ~* \.(html)$ {
-        add_header Cache-Control "public, max-age=3600";
+        location ~* \.(css|js|png|jpg|jpeg|gif|ico|svg|webp|mp4|webm|mov)$ {
+            expires 1y;
+            add_header Cache-Control "public, immutable";
+        }
+
+        location ~* \.(html)$ {
+            add_header Cache-Control "public, max-age=3600";
+        }
     }
 }
