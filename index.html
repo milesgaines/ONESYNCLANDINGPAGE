@@ -48,22 +48,8 @@
         </div>
       </div>
       <div data-w-id="ed14d1cd-f262-5c26-daf8-8e6804729107" class="hero hero-with-video">
-        <!-- Multi-Video Background System -->
-        <div class="hero-video-wrapper">
-          <video id="hero-video-1" class="hero-background-video active" autoplay muted playsinline loop>
-            <source src="VIDS/Warm-Realism-8a24eb44.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video id="hero-video-2" class="hero-background-video" muted playsinline loop>
-            <source src="VIDS/text-to-video-8f7839b8.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video id="hero-video-3" class="hero-background-video" muted playsinline loop>
-            <source src="VIDS/text-to-video-9bb42e9d.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="hero-video-overlay"></div>
-        </div>
+        <!-- Clean Background (Removed Colorful Videos) -->
+        <div class="hero-clean-background"></div>
         
         <div class="container">
           <div class="content-wrapper">
@@ -79,12 +65,7 @@
                 <div>
                   <h1 fb-text-highlight-once="false" fb-text-highlight="true" fb-text-highlight-type="4" fb-text-highlight-offset="6" fb-text-highlight-speed="3" data-w-id="10b6b5d1-ff64-ba5d-8f1c-5abdad1a521a" style="opacity:0" class="display-1">All in One Platform<br> for Musicians &amp; Creator&#x27;s Worldwide</h1>
                   
-                  <!-- Distribution Network Label -->
-                  <div class="distribution-label">
-                    <span class="distribution-text">🌍 Global Distribution Network ⚡</span>
-                  </div>
-                  
-                  <!-- Platform Carousel Right Under Heading -->
+                  <!-- Platform Carousel Directly Under Heading -->
                   <div class="hero-carousel-section">
                     <div class="hero-carousel-container">
                       <div class="hero-carousel-track">
@@ -817,85 +798,7 @@
     });
   </script>
 
-  <!-- Multi-Video Background JavaScript -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const videos = [
-        document.getElementById('hero-video-1'),
-        document.getElementById('hero-video-2'),
-        document.getElementById('hero-video-3')
-      ];
-      
-      let currentVideoIndex = 0;
-      
-      // Function to switch to next video
-      function switchToNextVideo() {
-        const currentVideo = videos[currentVideoIndex];
-        const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
-        const nextVideo = videos[nextVideoIndex];
-        
-        // Start fade out of current video
-        currentVideo.classList.remove('active');
-        currentVideo.classList.add('fade-out');
-        
-        // Prepare next video
-        nextVideo.currentTime = 0;
-        nextVideo.play();
-        
-        // After fade transition, switch videos
-        setTimeout(() => {
-          currentVideo.pause();
-          currentVideo.classList.remove('fade-out');
-          
-          nextVideo.classList.add('active');
-          nextVideo.classList.add('fade-in');
-          
-          currentVideoIndex = nextVideoIndex;
-          
-          // Remove fade-in class after transition
-          setTimeout(() => {
-            nextVideo.classList.remove('fade-in');
-          }, 4000);
-        }, 2000);
-      }
-      
-      // Set up video switching intervals with error handling
-      videos.forEach((video, index) => {
-        video.addEventListener('loadeddata', function() {
-          if (index === 0) {
-            // Start first video
-            video.play().catch(e => {
-              console.log('Video autoplay prevented:', e);
-              // Add fallback background if video fails
-              document.querySelector('.hero-video-wrapper').style.background = 
-                'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)';
-            });
-          }
-        });
-        
-        video.addEventListener('error', function() {
-          console.log('Video failed to load:', video.src);
-          // Hide failed video and show fallback
-          video.style.display = 'none';
-          document.querySelector('.hero-video-wrapper').style.background = 
-            'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)';
-        });
-        
-        video.addEventListener('ended', function() {
-          if (video.classList.contains('active')) {
-            switchToNextVideo();
-          }
-        });
-      });
-      
-      // Fallback: Switch videos every 45 seconds if they don't end naturally
-      setInterval(() => {
-        if (videos[currentVideoIndex].classList.contains('active')) {
-          switchToNextVideo();
-        }
-      }, 45000);
-    });
-  </script>
+  <!-- Clean Background (Removed Video JavaScript) -->
 
   <!-- No navbar scroll effects -->
 

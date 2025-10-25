@@ -2841,8 +2841,8 @@ figcaption {
 }
 
 .button-with-animation {
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%) !important;
-  border: none !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
   border-radius: 16px !important;
   color: #ffffff !important;
   flex-direction: row !important;
@@ -2859,10 +2859,10 @@ figcaption {
   overflow: hidden !important;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   box-shadow: 
-    0 8px 32px rgba(99, 102, 241, 0.4),
-    0 0 40px rgba(139, 92, 246, 0.2) !important;
-  animation: buttonPulse 3s ease-in-out infinite !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
 }
 
 .button-with-animation::before {
@@ -2882,11 +2882,12 @@ figcaption {
 }
 
 .button-with-animation:hover {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #c026d3 100%) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 2px solid rgba(255, 255, 255, 0.6) !important;
   transform: translateY(-4px) scale(1.05) !important;
   box-shadow: 
-    0 16px 48px rgba(99, 102, 241, 0.6),
-    0 0 80px rgba(139, 92, 246, 0.4) !important;
+    0 16px 48px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(255, 255, 255, 0.3) !important;
   color: #ffffff !important;
 }
 
@@ -2952,25 +2953,14 @@ figcaption {
 .hero-tagline strong {
   color: #ffffff !important;
   font-weight: 700 !important;
-  background: linear-gradient(90deg, #ffffff, #a855f7, #06b6d4, #ffffff) !important;
-  background-size: 200% 100% !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  animation: gradient-text 3s ease-in-out infinite !important;
-  text-shadow: none !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
 }
 
 .hero-tagline em {
-  color: #a855f7 !important;
+  color: #cccccc !important;
   font-style: italic !important;
   font-weight: 600 !important;
-  text-shadow: 0 2px 8px rgba(168, 85, 247, 0.4) !important;
-  background: linear-gradient(45deg, #a855f7, #06b6d4) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  animation: pulse-glow-text 2s ease-in-out infinite alternate !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
 }
 
 .hero-tagline::before {
@@ -20225,17 +20215,17 @@ figcaption {
   color: rgba(138, 77, 255, 1);
 }
 
-/* Hero Carousel Section - Under Main Heading */
+/* Hero Carousel Section - Directly Under Main Heading */
 .hero-carousel-section {
-  padding: 25px 0;
-  margin: 15px 0;
+  padding: 15px 0;
+  margin: 5px 0;
   width: 100%;
 }
 
 .hero-carousel-container {
   overflow: hidden;
   position: relative;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .hero-carousel-track {
@@ -20421,12 +20411,12 @@ figcaption {
 /* Mobile Responsive - Wider and More Distribution-Focused */
 @media screen and (max-width: 767px) {
   .hero-carousel-section {
-    padding: 15px 0;
-    margin: 10px 0;
+    padding: 10px 0;
+    margin: 5px 0;
   }
   
   .hero-carousel-container {
-    padding: 12px 8px;
+    padding: 8px 8px;
     overflow: hidden;
   }
   
@@ -21540,14 +21530,14 @@ body {
   padding: 2rem 0;
 }
 
-.hero-video-wrapper {
+.hero-clean-background {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
   z-index: 1 !important;
-  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460) !important;
+  background: linear-gradient(135deg, #000000, #1a1a1a, #2a2a2a) !important;
   display: block !important;
   overflow: hidden !important;
 }
