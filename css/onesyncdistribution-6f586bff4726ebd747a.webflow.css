@@ -20190,11 +20190,12 @@ figcaption {
 
 .hero-carousel-track {
   display: flex;
-  animation: hero-platform-scroll 35s linear infinite;
-  gap: 40px;
+  animation: hero-platform-scroll 18s linear infinite;
+  gap: 35px;
   width: max-content;
   padding: 0;
   transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .hero-carousel-slide {
@@ -20209,7 +20210,7 @@ figcaption {
     rgba(255, 255, 255, 0.1) 50%, 
     rgba(138, 77, 255, 0.15) 100%);
   border-radius: 20px;
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(20px) saturate(1.8);
   position: relative;
@@ -20218,25 +20219,31 @@ figcaption {
     0 8px 32px rgba(138, 77, 255, 0.12),
     0 2px 8px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: float-in 2s ease-out, pulse-glow 4s ease-in-out infinite;
+  will-change: transform, filter;
 }
 
 .hero-carousel-slide::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
+  left: -120%;
+  width: 120%;
   height: 100%;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(255, 255, 255, 0.4), 
-    transparent);
-  transition: left 0.6s ease;
+  background: linear-gradient(110deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(138, 77, 255, 0.3) 75%,
+    transparent 100%);
+  transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border-radius: 20px;
+  transform: skewX(-15deg);
 }
 
 .hero-carousel-slide:hover::before {
-  left: 100%;
+  left: 120%;
+  transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .hero-carousel-slide::after {
@@ -20257,17 +20264,19 @@ figcaption {
 }
 
 .hero-carousel-slide:hover {
-  transform: translateY(-8px) scale(1.05) rotateY(5deg);
+  transform: translateY(-12px) scale(1.08) rotateY(8deg) rotateX(2deg);
   background: linear-gradient(145deg, 
-    rgba(255, 255, 255, 0.35) 0%, 
-    rgba(138, 77, 255, 0.25) 50%, 
-    rgba(138, 77, 255, 0.4) 100%);
-  border-color: rgba(138, 77, 255, 0.6);
+    rgba(255, 255, 255, 0.4) 0%, 
+    rgba(138, 77, 255, 0.3) 40%, 
+    rgba(138, 77, 255, 0.5) 100%);
+  border-color: rgba(138, 77, 255, 0.8);
   box-shadow: 
-    0 20px 60px rgba(138, 77, 255, 0.25),
-    0 8px 25px rgba(0, 0, 0, 0.15),
-    inset 0 2px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -2px 0 rgba(138, 77, 255, 0.3);
+    0 25px 80px rgba(138, 77, 255, 0.35),
+    0 12px 35px rgba(0, 0, 0, 0.2),
+    inset 0 3px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -3px 0 rgba(138, 77, 255, 0.4),
+    0 0 40px rgba(138, 77, 255, 0.3);
+  filter: brightness(1.1) saturate(1.3);
 }
 
 .hero-platform-logo {
@@ -20292,9 +20301,52 @@ figcaption {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 40px));
+    transform: translateX(calc(-50% - 35px));
   }
 }
+
+@keyframes float-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8) rotateY(-15deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-5px) scale(1.05) rotateY(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateY(0deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 
+      0 8px 32px rgba(138, 77, 255, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 8px 32px rgba(138, 77, 255, 0.2),
+      0 2px 8px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      0 0 20px rgba(138, 77, 255, 0.1);
+  }
+}
+
+/* Staggered animation delays for wave effect */
+.hero-carousel-slide:nth-child(1) { animation-delay: 0s, 0s; }
+.hero-carousel-slide:nth-child(2) { animation-delay: 0.1s, 0.5s; }
+.hero-carousel-slide:nth-child(3) { animation-delay: 0.2s, 1s; }
+.hero-carousel-slide:nth-child(4) { animation-delay: 0.3s, 1.5s; }
+.hero-carousel-slide:nth-child(5) { animation-delay: 0.4s, 2s; }
+.hero-carousel-slide:nth-child(6) { animation-delay: 0.5s, 2.5s; }
+.hero-carousel-slide:nth-child(7) { animation-delay: 0.6s, 3s; }
+.hero-carousel-slide:nth-child(8) { animation-delay: 0.7s, 3.5s; }
+.hero-carousel-slide:nth-child(9) { animation-delay: 0.8s, 4s; }
+.hero-carousel-slide:nth-child(10) { animation-delay: 0.9s, 4.5s; }
 
 /* Platform Carousel Section */
 .platform-carousel-section {
