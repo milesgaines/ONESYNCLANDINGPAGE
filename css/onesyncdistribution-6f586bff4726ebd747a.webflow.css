@@ -20069,21 +20069,40 @@ figcaption {
 }
 
 /* Logo Carousel Complete Redesign */
+.carousel-container {
+  padding: 40px 20px !important;
+  background: rgba(138, 77, 255, 0.05) !important;
+  border-radius: 20px !important;
+  margin: 30px 0 !important;
+  border: 1px solid rgba(138, 77, 255, 0.1) !important;
+  overflow: hidden !important;
+}
+
 .logo-carousel-2 {
-  animation: smooth-scroll 40s linear infinite !important;
-  gap: 40px !important;
-  padding: 3rem 0 !important;
+  animation: infinite-carousel 25s linear infinite !important;
+  gap: 80px !important;
+  display: flex !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: max-content !important;
+}
+
+.logo-carousel-2.infinite-scroll {
+  animation: infinite-carousel 25s linear infinite !important;
 }
 
 .logo-carousel-item-2 {
-  min-width: 180px !important;
-  height: 80px !important;
+  min-width: 120px !important;
+  height: 60px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   padding: 0 !important;
-  opacity: 0.85 !important;
-  transition: all 0.4s ease !important;
+  margin-right: 80px !important;
+  opacity: 0.75 !important;
+  transition: all 0.3s ease !important;
+  flex-shrink: 0 !important;
 }
 
 .logo-carousel-item-2:hover {
@@ -20104,6 +20123,15 @@ figcaption {
   }
   100% {
     transform: translateX(calc(-100% / 2));
+  }
+}
+
+@keyframes infinite-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-33.33% - 160px));
   }
 }
 
