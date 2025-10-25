@@ -1,0 +1,14 @@
+{
+  "name": "onesync-distribution",
+  "version": "1.0.0",
+  "description": "OneSync Music Distribution Platform",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
