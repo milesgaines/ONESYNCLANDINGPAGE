@@ -6,6 +6,194 @@ html, body {
   box-sizing: border-box !important;
 }
 
+/* ========================================
+   CLEAN NAVBAR STYLES - NEW NAVBAR SYSTEM
+======================================== */
+
+.navbar-clean {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+  transition: opacity 0.3s ease;
+}
+
+.brand-logo:hover {
+  opacity: 0.8;
+}
+
+.nav-contact {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-contact:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-login {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-login:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-signup {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-signup:hover {
+  background: linear-gradient(135deg, #f8f8f8, #e8e8e8);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile navbar responsive styles */
+@media screen and (max-width: 991px) {
+  .navbar-container {
+    padding: 0 1.5rem;
+  }
+  
+  .nav-brand {
+    gap: 1.5rem;
+  }
+  
+  .nav-contact {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+  
+  .nav-actions {
+    gap: 0.8rem;
+  }
+  
+  .nav-login,
+  .nav-signup {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+  
+  .nav-brand {
+    gap: 1rem;
+  }
+  
+  .brand-logo {
+    height: 35px;
+  }
+  
+  .nav-contact {
+    display: none;
+  }
+  
+  .nav-actions {
+    gap: 0.6rem;
+  }
+  
+  .nav-login,
+  .nav-signup {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .navbar-container {
+    padding: 0 0.8rem;
+  }
+  
+  .brand-logo {
+    height: 30px;
+  }
+  
+  .nav-actions {
+    gap: 0.4rem;
+  }
+  
+  .nav-login {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+  
+  .nav-signup {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
 *, *::before, *::after {
   box-sizing: border-box !important;
   max-width: 100% !important;
