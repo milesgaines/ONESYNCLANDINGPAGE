@@ -20665,71 +20665,60 @@ body {
   display: none;
 }
 
-/* Platforms grid layout */
-.platforms-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  padding: 1rem;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.platform-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.platform-item:hover {
-  transform: scale(1.05);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.platform-logo {
-  max-width: 100%;
-  max-height: 40px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  filter: brightness(1.1);
-}
-
 @media (max-width: 767px) {
   .mobile-platforms-carousel {
     display: block;
     margin: 2rem 0;
+    overflow: hidden;
   }
   
-  .platforms-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-    padding: 1rem 0.5rem;
-    max-width: 280px;
+  .mobile-platforms-carousel .carousel-2 {
+    margin: 0 auto;
+    max-width: 100%;
   }
   
-  .platform-logo {
-    max-height: 35px;
+  .mobile-platforms-carousel .logo-carousel-wrap {
+    overflow: hidden;
+  }
+  
+  .mobile-platforms-carousel .logo-carousel-2 {
+    display: flex;
+    animation: scroll-logos 20s linear infinite;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .mobile-platforms-carousel .logo-carousel-item-2 {
+    flex-shrink: 0;
+    list-style: none;
+  }
+  
+  .mobile-platforms-carousel .logo-link-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  
+  .mobile-platforms-carousel img {
+    max-height: 40px;
+    width: auto;
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
 @media (max-width: 480px) {
-  .platforms-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.6rem;
-    max-width: 240px;
-  }
-  
-  .platform-item {
-    padding: 0.4rem;
-  }
-  
-  .platform-logo {
-    max-height: 30px;
+  .mobile-platforms-carousel img {
+    max-height: 35px;
   }
 }
 
