@@ -2981,6 +2981,34 @@ figcaption {
   margin-top: 35px !important;
 }
 
+/* Mobile-only line breaks for long sentences */
+br.mobile-only { display: none; }
+@media (max-width: 767px) {
+  br.mobile-only { display: initial; }
+}
+
+/* Hero tagline responsive sizing and wrapping */
+@media (max-width: 767px) {
+  .hero-tagline {
+    font-size: 0.98rem !important;
+    line-height: 1.55 !important;
+    padding: 16px 14px !important;
+    max-width: 92vw !important;
+    margin-top: 16px !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+    hyphens: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-tagline {
+    font-size: 0.92rem !important;
+    padding: 14px 12px !important;
+    max-width: 94vw !important;
+  }
+}
+
 /* Hero login button styling */
 .hero-login-button {
   display: flex;
