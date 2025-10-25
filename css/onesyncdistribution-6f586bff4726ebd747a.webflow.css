@@ -20662,11 +20662,11 @@ body {
 
 /* Mobile platforms carousel - responsive for all screen sizes */
 .mobile-platforms-carousel {
-  display: block;
-  margin: 2rem auto;
-  overflow: hidden;
-  width: 100%;
-  max-width: 100%;
+  display: block !important;
+  margin: 2rem auto !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .mobile-platforms-carousel .carousel-2 {
@@ -20899,6 +20899,144 @@ body {
   .hero-main-logo {
     max-width: 160px !important;
     margin-bottom: 1rem !important;
+  }
+}
+
+/* FORCE MOBILE BREAKPOINTS - Override all Webflow styles */
+@media screen and (max-width: 991px) {
+  .hero-grid.main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 2rem 1rem !important;
+    min-height: 70vh !important;
+  }
+  
+  .hero-title-flex {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  .container {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 14px !important;
+  }
+  
+  body {
+    overflow-x: hidden !important;
+  }
+  
+  .hero {
+    padding: 80px 4% 40px !important;
+    min-height: 70vh !important;
+  }
+  
+  .hero-grid.main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 1rem !important;
+    gap: 1rem !important;
+  }
+  
+  .hero-title-flex {
+    max-width: 100% !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  .display-1 {
+    font-size: 2rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+  }
+  
+  .hero-tagline {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  .button-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 15px !important;
+  }
+  
+  .button-with-animation {
+    width: 100% !important;
+    max-width: 280px !important;
+    padding: 1rem 1.3rem !important;
+    text-align: center !important;
+  }
+  
+  .text-button {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+  }
+  
+  .hero-main-logo {
+    max-width: 180px !important;
+    margin-bottom: 1.2rem !important;
+  }
+  
+  .container {
+    padding-left: 4% !important;
+    padding-right: 4% !important;
+  }
+  
+  .margin-30px, .margin-40px {
+    margin-top: 1.5rem !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hero {
+    padding: 70px 3% 30px !important;
+    min-height: 65vh !important;
+  }
+  
+  .display-1 {
+    font-size: 1.7rem !important;
+    line-height: 1.05 !important;
+  }
+  
+  .hero-tagline {
+    font-size: 0.85rem !important;
+    padding: 0 0.3rem !important;
+  }
+  
+  .button-with-animation {
+    max-width: 260px !important;
+    padding: 0.9rem 1.1rem !important;
+  }
+  
+  .text-button {
+    font-size: 0.8rem !important;
+  }
+  
+  .hero-main-logo {
+    max-width: 160px !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .container {
+    padding-left: 3% !important;
+    padding-right: 3% !important;
   }
 }
 
