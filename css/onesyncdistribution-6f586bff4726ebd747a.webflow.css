@@ -20773,6 +20773,47 @@ body {
   }
 }
 
+/* ========================================
+   HERO STACKED LINES + VERTICAL BADGE
+======================================== */
+.display-1 .hero-line { 
+  display: block; 
+}
+.display-1 .hero-line.small { 
+  opacity: 0.95; 
+}
+
+@media (max-width: 767px) {
+  .display-1 { 
+    letter-spacing: 0.01em; 
+    word-break: normal; 
+    hyphens: auto; 
+  }
+  .display-1 .hero-line { 
+    display: block; 
+  }
+}
+
+/* Tiny screens: add a vertical badge to reinforce music context */
+@media (max-width: 380px) {
+  .vertical-music-badge {
+    position: absolute;
+    left: 6px;
+    top: 110px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: #fff;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 8px 6px;
+    backdrop-filter: blur(2px);
+    z-index: 4;
+  }
+}
+
 /* Enhanced mobile responsiveness */
 @media (min-width: 768px) {
   .display-1 {
