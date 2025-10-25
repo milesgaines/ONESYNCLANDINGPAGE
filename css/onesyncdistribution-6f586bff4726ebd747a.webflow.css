@@ -3689,8 +3689,8 @@ figcaption {
 .logo-carousel-2 {
   display: flex !important;
   align-items: center !important;
-  gap: 50px !important;
-  animation: carousel-slide 15s linear infinite !important;
+  gap: 80px !important;
+  animation: carousel-slide 12s linear infinite !important;
   width: max-content !important;
   padding: 1.5rem 0 !important;
   margin: 0 !important;
@@ -3747,16 +3747,17 @@ figcaption {
   filter: brightness(1.1) !important;
 }
 
-/* Hide broken images */
-.logo-carousel-item-2 img[alt]:after {
-  content: "" !important;
+/* Hide broken images completely */
+.logo-carousel-item-2 img[alt]:empty {
   display: none !important;
 }
 
-.logo-carousel-item-2 img[src=""]:after,
-.logo-carousel-item-2 img:not([src]):after {
-  content: "" !important;
+.logo-carousel-item-2 img:not([src]),
+.logo-carousel-item-2 img[src=""],
+.logo-carousel-item-2 img[src*="data:"],
+.logo-carousel-item-2 img[alt=""]:before {
   display: none !important;
+  visibility: hidden !important;
 }
 
 .logo-carousel-item-2:hover {
@@ -19466,8 +19467,8 @@ figcaption {
   .logo-carousel-2 {
     display: flex !important;
     align-items: center !important;
-    gap: 40px !important;
-    animation: carousel-slide 15s linear infinite !important;
+    gap: 60px !important;
+    animation: carousel-slide 12s linear infinite !important;
     width: max-content !important;
     padding: 2rem 0 !important;
     margin: 0 !important;
