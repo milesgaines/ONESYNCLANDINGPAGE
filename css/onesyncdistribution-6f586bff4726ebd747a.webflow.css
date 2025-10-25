@@ -1981,7 +1981,7 @@ figcaption {
   align-items: flex-end;
   width: 70%;
   padding-right: 70px;
-  display: flex;
+        display: block;
 }
 
 .category-tag {
@@ -1997,6 +1997,22 @@ figcaption {
 
 .category-tag:hover {
   opacity: .76;
+    margin-bottom: 2.2rem;
+    margin-top: 1.2rem;
+    padding: 1.7rem 0.7rem 1.7rem 0.7rem;
+    background: linear-gradient(90deg, #1db954 0%, #191414 100%);
+    border-radius: 22px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+    border: 2px solid #1db954;
+  }
+  .mobile-music-intro h2 {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.22);
+    margin-bottom: 1.1rem;
+    letter-spacing: 0.03em;
+  }
 }
 
 .cta-wrapper {
@@ -20610,11 +20626,11 @@ body {
   height: 100%;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.05) 0%,
-    rgba(0, 0, 0, 0.1) 30%,
-    rgba(0, 0, 0, 0.2) 70%,
-    rgba(0, 0, 0, 0.3) 90%,
-    rgba(0, 0, 0, 0.5) 100%
+    rgba(0, 0, 0, 0.01) 0%,
+    rgba(0, 0, 0, 0.04) 30%,
+    rgba(0, 0, 0, 0.09) 70%,
+    rgba(0, 0, 0, 0.13) 90%,
+    rgba(0, 0, 0, 0.18) 100%
   );
   z-index: 2;
 }
@@ -20642,6 +20658,39 @@ body {
 /* Enhance button visibility */
 .hero-with-video .button-with-animation {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile platforms carousel positioning */
+.mobile-platforms-carousel {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  /* Show mobile carousel between heading and card */
+  .mobile-platforms-carousel {
+    display: block;
+    margin: 2rem 0;
+    padding: 1rem 0;
+  }
+  
+  /* Hide the original carousel section on mobile */
+  .container-2.aboslute {
+    display: none !important;
+  }
+  
+  /* Style the mobile carousel */
+  .mobile-platforms-carousel .carousel-2 {
+    margin: 0 auto;
+  }
+  
+  .mobile-platforms-carousel .logo-carousel-2 {
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .mobile-platforms-carousel .logo-carousel-item-2 {
+    flex-shrink: 0;
+  }
 }
 
 /* Mobile optimizations */
