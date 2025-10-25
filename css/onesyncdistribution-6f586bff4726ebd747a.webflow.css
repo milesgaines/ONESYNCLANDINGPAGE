@@ -20194,8 +20194,8 @@ figcaption {
 
 .hero-carousel-track {
   display: flex;
-  animation: hero-platform-scroll 25s linear infinite;
-  gap: 80px;
+  animation: hero-platform-scroll 35s linear infinite;
+  gap: 60px;
   width: max-content;
 }
 
