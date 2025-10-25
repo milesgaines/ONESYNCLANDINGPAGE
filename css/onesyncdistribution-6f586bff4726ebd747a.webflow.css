@@ -20177,62 +20177,40 @@ figcaption {
 
 /* Hero Carousel Section - Under Main Heading */
 .hero-carousel-section {
-  padding: 40px 0;
-  margin: 30px 0;
+  padding: 30px 0;
+  margin: 20px 0;
   width: 100%;
 }
 
 .hero-carousel-container {
   overflow: hidden;
   position: relative;
-  padding: 40px 20px;
-  background: linear-gradient(135deg, 
-    rgba(138, 77, 255, 0.08), 
-    rgba(138, 77, 255, 0.04), 
-    rgba(255, 255, 255, 0.06));
-  border-radius: 25px;
-  border: 1px solid rgba(138, 77, 255, 0.2);
-  backdrop-filter: blur(15px);
-  box-shadow: 
-    0 8px 32px rgba(138, 77, 255, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  position: relative;
-}
-
-.hero-carousel-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, transparent 30%, rgba(138, 77, 255, 0.05) 50%, transparent 70%);
-  border-radius: 25px;
-  pointer-events: none;
+  padding: 20px 0;
 }
 
 .hero-carousel-track {
   display: flex;
   animation: hero-platform-scroll 40s linear infinite;
-  gap: 70px;
+  gap: 50px;
   width: max-content;
-  padding: 10px 0;
+  padding: 0;
 }
 
 .hero-carousel-slide {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 140px;
-  height: 80px;
-  padding: 20px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
-  border-radius: 18px;
+  min-width: 130px;
+  height: 75px;
+  padding: 18px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(138, 77, 255, 0.08));
+  border-radius: 16px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 77, 255, 0.2);
+  backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .hero-carousel-slide::before {
