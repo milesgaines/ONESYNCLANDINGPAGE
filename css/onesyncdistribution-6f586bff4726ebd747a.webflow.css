@@ -20814,6 +20814,35 @@ body {
   }
 }
 
+/* ========================================
+   GLOBAL LAYOUT GUARDS (Prevent horizontal overflow)
+======================================== */
+html, body, .page-wrapper, .page-content {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.hero-with-video, .hero, .container, .container-2, .content-wrapper {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+img, video, canvas, svg {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Ensure carousel never causes page width overflow */
+.mobile-platforms-carousel, .logo-carousel-wrap {
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.logo-carousel-2 {
+  will-change: transform;
+  padding: 0 2vw;
+}
+
 /* Enhanced mobile responsiveness */
 @media (min-width: 768px) {
   .display-1 {
