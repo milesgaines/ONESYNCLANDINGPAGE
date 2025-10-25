@@ -3747,6 +3747,18 @@ figcaption {
   filter: brightness(1.1) !important;
 }
 
+/* Hide broken images */
+.logo-carousel-item-2 img[alt]:after {
+  content: "" !important;
+  display: none !important;
+}
+
+.logo-carousel-item-2 img[src=""]:after,
+.logo-carousel-item-2 img:not([src]):after {
+  content: "" !important;
+  display: none !important;
+}
+
 .logo-carousel-item-2:hover {
   opacity: 1;
   transform: scale(1.1);

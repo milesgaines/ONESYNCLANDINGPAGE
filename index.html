@@ -100,25 +100,22 @@
                                   <a href="#" class="logo-link-2"><img alt="Spotify" src="images/SPOTI-WHITE.png"></a>
                                 </li>
                                 <li class="logo-carousel-item-2">
-                                  <a href="#" class="logo-link-2"><img alt="Amazon Music" src="images/AMAZON-MUSIC.png"></a>
+                                  <a href="#" class="logo-link-2"><img alt="ASCAP" src="images/ASCAP_Logo_Horizontal_Black.png"></a>
                                 </li>
                                 <li class="logo-carousel-item-2">
-                                  <a href="#" class="logo-link-2"><img alt="YouTube Music" src="images/YOUTUBE-MUSIC.png"></a>
-                                </li>
-                                <li class="logo-carousel-item-2">
-                                  <a href="#" class="logo-link-2"><img alt="Deezer" src="images/Deezer.png"></a>
-                                </li>
-                                <li class="logo-carousel-item-2">
-                                  <a href="#" class="logo-link-2"><img alt="Pandora" src="images/PANDORA.png"></a>
-                                </li>
-                                <li class="logo-carousel-item-2">
-                                  <a href="#" class="logo-link-2"><img alt="Tidal" src="images/TIDAL.png"></a>
+                                  <a href="#" class="logo-link-2"><img alt="AllMusic" src="images/allmusic-logo-66ECF95ADC-seeklogo.com.png"></a>
                                 </li>
                                 <li class="logo-carousel-item-2">
                                   <a href="#" class="logo-link-2"><img alt="SoundCloud" src="images/soundcloud.png"></a>
                                 </li>
                                 <li class="logo-carousel-item-2">
                                   <a href="#" class="logo-link-2"><img alt="TikTok" src="images/tiktok_PNG22.png"></a>
+                                </li>
+                                <li class="logo-carousel-item-2">
+                                  <a href="#" class="logo-link-2"><img alt="IMDB" src="images/82796_imdb_4096x4096.png"></a>
+                                </li>
+                                <li class="logo-carousel-item-2">
+                                  <a href="#" class="logo-link-2"><img alt="Snapchat" src="images/snapchat.png"></a>
                                 </li>
                                 
                                 <!-- Duplicate set for seamless loop -->
@@ -132,25 +129,22 @@
                                   <a href="#" class="logo-link-2"><img alt="Spotify" src="images/SPOTI-WHITE.png"></a>
                                 </li>
                                 <li class="logo-carousel-item-2">
-                                  <a href="#" class="logo-link-2"><img alt="Amazon Music" src="images/AMAZON-MUSIC.png"></a>
+                                  <a href="#" class="logo-link-2"><img alt="ASCAP" src="images/ASCAP_Logo_Horizontal_Black.png"></a>
                                 </li>
                                 <li class="logo-carousel-item-2">
-                                  <a href="#" class="logo-link-2"><img alt="YouTube Music" src="images/YOUTUBE-MUSIC.png"></a>
-                                </li>
-                                <li class="logo-carousel-item-2">
-                                  <a href="#" class="logo-link-2"><img alt="Deezer" src="images/Deezer.png"></a>
-                                </li>
-                                <li class="logo-carousel-item-2">
-                                  <a href="#" class="logo-link-2"><img alt="Pandora" src="images/PANDORA.png"></a>
-                                </li>
-                                <li class="logo-carousel-item-2">
-                                  <a href="#" class="logo-link-2"><img alt="Tidal" src="images/TIDAL.png"></a>
+                                  <a href="#" class="logo-link-2"><img alt="AllMusic" src="images/allmusic-logo-66ECF95ADC-seeklogo.com.png"></a>
                                 </li>
                                 <li class="logo-carousel-item-2">
                                   <a href="#" class="logo-link-2"><img alt="SoundCloud" src="images/soundcloud.png"></a>
                                 </li>
                                 <li class="logo-carousel-item-2">
                                   <a href="#" class="logo-link-2"><img alt="TikTok" src="images/tiktok_PNG22.png"></a>
+                                </li>
+                                <li class="logo-carousel-item-2">
+                                  <a href="#" class="logo-link-2"><img alt="IMDB" src="images/82796_imdb_4096x4096.png"></a>
+                                </li>
+                                <li class="logo-carousel-item-2">
+                                  <a href="#" class="logo-link-2"><img alt="Snapchat" src="images/snapchat.png"></a>
                                 </li>
                               </ul>
                             </div>
@@ -876,6 +870,21 @@
         
         video.addEventListener('canplay', function() {
           console.log(`Video ${index + 1} can play`);
+        });
+      });
+      
+      // Handle broken carousel images
+      const carouselImages = document.querySelectorAll('.logo-carousel-item-2 img');
+      
+      carouselImages.forEach((img, index) => {
+        img.addEventListener('error', function() {
+          console.log(`Carousel image ${index + 1} failed to load: ${img.src}`);
+          // Hide the broken image's container
+          img.parentElement.parentElement.style.display = 'none';
+        });
+        
+        img.addEventListener('load', function() {
+          console.log(`Carousel image ${index + 1} loaded successfully: ${img.alt}`);
         });
       });
     });
