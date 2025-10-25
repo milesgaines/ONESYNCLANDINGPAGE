@@ -20394,21 +20394,29 @@ figcaption {
 
 /* Staggered animation delays for wave effect */
 .hero-carousel-slide:nth-child(1) { animation-delay: 0s, 0s; }
-.hero-carousel-slide:nth-child(2) { animation-delay: 0.08s, 0.4s; }
-.hero-carousel-slide:nth-child(3) { animation-delay: 0.16s, 0.8s; }
-.hero-carousel-slide:nth-child(4) { animation-delay: 0.24s, 1.2s; }
-.hero-carousel-slide:nth-child(5) { animation-delay: 0.32s, 1.6s; }
-.hero-carousel-slide:nth-child(6) { animation-delay: 0.4s, 2s; }
-.hero-carousel-slide:nth-child(7) { animation-delay: 0.48s, 2.4s; }
-.hero-carousel-slide:nth-child(8) { animation-delay: 0.56s, 2.8s; }
-.hero-carousel-slide:nth-child(9) { animation-delay: 0.64s, 3.2s; }
-.hero-carousel-slide:nth-child(10) { animation-delay: 0.72s, 3.6s; }
-.hero-carousel-slide:nth-child(11) { animation-delay: 0.8s, 4s; }
-.hero-carousel-slide:nth-child(12) { animation-delay: 0.88s, 4.4s; }
-.hero-carousel-slide:nth-child(13) { animation-delay: 0.96s, 4.8s; }
-.hero-carousel-slide:nth-child(14) { animation-delay: 1.04s, 5.2s; }
-.hero-carousel-slide:nth-child(15) { animation-delay: 1.12s, 5.6s; }
-.hero-carousel-slide:nth-child(16) { animation-delay: 1.2s, 6s; }
+.hero-carousel-slide:nth-child(2) { animation-delay: 0.06s, 0.3s; }
+.hero-carousel-slide:nth-child(3) { animation-delay: 0.12s, 0.6s; }
+.hero-carousel-slide:nth-child(4) { animation-delay: 0.18s, 0.9s; }
+.hero-carousel-slide:nth-child(5) { animation-delay: 0.24s, 1.2s; }
+.hero-carousel-slide:nth-child(6) { animation-delay: 0.3s, 1.5s; }
+.hero-carousel-slide:nth-child(7) { animation-delay: 0.36s, 1.8s; }
+.hero-carousel-slide:nth-child(8) { animation-delay: 0.42s, 2.1s; }
+.hero-carousel-slide:nth-child(9) { animation-delay: 0.48s, 2.4s; }
+.hero-carousel-slide:nth-child(10) { animation-delay: 0.54s, 2.7s; }
+.hero-carousel-slide:nth-child(11) { animation-delay: 0.6s, 3s; }
+.hero-carousel-slide:nth-child(12) { animation-delay: 0.66s, 3.3s; }
+.hero-carousel-slide:nth-child(13) { animation-delay: 0.72s, 3.6s; }
+.hero-carousel-slide:nth-child(14) { animation-delay: 0.78s, 3.9s; }
+.hero-carousel-slide:nth-child(15) { animation-delay: 0.84s, 4.2s; }
+.hero-carousel-slide:nth-child(16) { animation-delay: 0.9s, 4.5s; }
+.hero-carousel-slide:nth-child(17) { animation-delay: 0.96s, 4.8s; }
+.hero-carousel-slide:nth-child(18) { animation-delay: 1.02s, 5.1s; }
+.hero-carousel-slide:nth-child(19) { animation-delay: 1.08s, 5.4s; }
+.hero-carousel-slide:nth-child(20) { animation-delay: 1.14s, 5.7s; }
+.hero-carousel-slide:nth-child(21) { animation-delay: 1.2s, 6s; }
+.hero-carousel-slide:nth-child(22) { animation-delay: 1.26s, 6.3s; }
+.hero-carousel-slide:nth-child(23) { animation-delay: 1.32s, 6.6s; }
+.hero-carousel-slide:nth-child(24) { animation-delay: 1.38s, 6.9s; }
 
 /* Mobile Responsive - Wider and More Distribution-Focused */
 @media screen and (max-width: 767px) {
