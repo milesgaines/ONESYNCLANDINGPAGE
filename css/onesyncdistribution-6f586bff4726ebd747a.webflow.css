@@ -20755,6 +20755,7 @@ html {
   .hero-tagline {
     font-size: 1.25rem !important;
     line-height: 1.5 !important;
+    text-align: center !important;
   }
   
   .hero-primary-btn,
@@ -20766,7 +20767,14 @@ html {
   
   .hero-card {
     padding: 2rem !important;
-    margin: 1.5rem !important;
+    margin: 1.5rem auto !important;
+    width: calc(100% - 3rem) !important;
+    max-width: 100% !important;
+  }
+  
+  .hero-buttons-container {
+    justify-content: center !important;
+    align-items: center !important;
   }
   
   /* Tablet service grid */
@@ -20782,11 +20790,14 @@ html {
     font-size: 1.1rem !important;
     line-height: 1.4 !important;
     margin-bottom: 1rem !important;
+    text-align: center !important;
   }
   
   .hero-buttons-container {
     margin-top: 1.5rem !important;
     gap: 10px !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
   
   .hero-primary-btn,
@@ -20798,7 +20809,9 @@ html {
   
   .hero-card {
     padding: 1.5rem !important;
-    margin: 1rem !important;
+    margin: 1rem auto !important;
+    width: calc(100% - 2rem) !important;
+    max-width: 100% !important;
   }
 }
 
@@ -20806,11 +20819,14 @@ html {
   .hero-tagline {
     font-size: 1rem !important;
     margin-bottom: 0.8rem !important;
+    text-align: center !important;
   }
   
   .hero-buttons-container {
     margin-top: 1.2rem !important;
     gap: 8px !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
   
   .hero-primary-btn,
@@ -20822,7 +20838,9 @@ html {
   
   .hero-card {
     padding: 1rem !important;
-    margin: 0.5rem !important;
+    margin: 0.5rem auto !important;
+    width: calc(100% - 1rem) !important;
+    max-width: 100% !important;
   }
   
   /* Mobile carousel adjustments */
@@ -20884,12 +20902,34 @@ html {
   }
   
   .max-w-wrapper {
-    padding: 0 1rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   
   .margin-60px {
     margin-top: 2rem !important;
     margin-bottom: 2rem !important;
+  }
+  
+  /* Fix any horizontal scroll/alignment issues */
+  body {
+    overflow-x: hidden !important;
+  }
+  
+  .hero-card {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .hero-tagline {
+    text-align: center !important;
+  }
+  
+  .hero-buttons-container {
+    justify-content: center !important;
+    align-items: center !important;
   }
 }
 
