@@ -20800,6 +20800,86 @@ html {
     padding: 1.5rem !important;
     margin: 1rem !important;
   }
+  
+  /* Mobile service grid */
+  .grid-3-columns {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  /* Mobile typography */
+  .display-1 {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .display-1.smaller {
+    font-size: 1.6rem !important;
+  }
+  
+  .features-subtitle {
+    font-size: 0.9rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .max-w-wrapper {
+    padding: 0 1rem !important;
+  }
+  
+  .margin-60px {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  /* Mobile carousel */
+  .logo-carousel-2 {
+    gap: 20px !important;
+  }
+  
+  .logo-carousel-2 img {
+    height: 18px !important;
+  }
+  
+  /* Navigation mobile fixes */
+  .navbar-simple {
+    padding: 0.75rem 1rem !important;
+  }
+  
+  .nav-brand-text {
+    display: none !important;
+  }
+  
+  .nav-trust-indicator {
+    display: none !important;
+  }
+  
+  .nav-cta {
+    font-size: 0.8rem !important;
+    padding: 0.5rem 1rem !important;
+  }
+  
+  /* Section spacing */
+  .section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  /* Fix any width/overflow issues */
+  body {
+    overflow-x: hidden !important;
+  }
+  
+  * {
+    max-width: 100% !important;
+  }
+  
+  .container,
+  .max-w-wrapper,
+  .w-container {
+    max-width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 }
 
 @media (max-width: 479px) {
@@ -20825,43 +20905,32 @@ html {
     margin: 0.5rem !important;
   }
   
-  /* Mobile carousel adjustments */
-  .logo-carousel-2 {
-    gap: 20px !important;
-  }
-  
-  .logo-carousel-2 img {
-    height: 18px !important;
-  }
-  
-  /* Mobile service grid */
-  .grid-3-columns {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-  }
-  
-  /* General mobile typography improvements */
+  /* Smaller mobile typography */
   .display-1 {
-    font-size: 1.8rem !important;
-    line-height: 1.3 !important;
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
   }
   
   .display-1.smaller {
-    font-size: 1.6rem !important;
+    font-size: 1.3rem !important;
   }
   
-  .max-w-wrapper {
-    padding: 0 1rem !important;
+  .features-subtitle {
+    font-size: 0.8rem !important;
   }
   
-  .margin-60px {
-    margin-top: 2rem !important;
-    margin-bottom: 2rem !important;
+  /* Logo carousel smaller on mobile */
+  .logo-carousel-2 img {
+    height: 16px !important;
   }
   
-  /* Fix any horizontal scroll/alignment issues */
-  body {
-    overflow-x: hidden !important;
+  /* Navigation for small mobile */
+  .nav-cta {
+    display: none !important;
+  }
+  
+  .navbar-logo {
+    max-height: 30px !important;
   }
 }
 
