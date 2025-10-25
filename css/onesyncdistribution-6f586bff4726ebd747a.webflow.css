@@ -20789,6 +20789,16 @@ html {
     gap: 10px !important;
   }
   
+  /* Hide checkmark features on mobile */
+  .hero-features {
+    display: none !important;
+  }
+  
+  /* Bring carousel closer up on mobile */
+  .carousel-container {
+    margin: 20px 0 !important;
+  }
+  
   .hero-primary-btn,
   .hero-secondary-btn {
     padding: 14px 24px !important;
@@ -20891,6 +20901,16 @@ html {
   .hero-buttons-container {
     margin-top: 1.2rem !important;
     gap: 8px !important;
+  }
+  
+  /* Hide checkmark features on mobile */
+  .hero-features {
+    display: none !important;
+  }
+  
+  /* Bring carousel closer up on mobile */
+  .carousel-container {
+    margin: 15px 0 !important;
   }
   
   .hero-primary-btn,
