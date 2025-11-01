@@ -59,15 +59,15 @@
     .hero-carousel-track {
       display: flex !important;
       width: fit-content !important;
-      animation: smooth-scroll 120s linear infinite !important;
-      gap: 8rem !important;
-      padding: 0 50vw !important;
+      animation: side-to-side-scroll 60s linear infinite !important;
+      gap: 6rem !important;
+      padding: 0 !important;
       align-items: center !important;
     }
     
-    @keyframes smooth-scroll {
+    @keyframes side-to-side-scroll {
       0% { 
-        transform: translateX(100%) !important; 
+        transform: translateX(100vw) !important; 
       }
       100% { 
         transform: translateX(-100%) !important; 
