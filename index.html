@@ -38,13 +38,23 @@
       filter: brightness(1.4) contrast(1.2) !important;
       transform: scale(1.08) translateZ(0);
     }
-    /* Hide broken images instead of showing question marks */
-    .hero-platform-logo[alt]:empty::before {
-      content: attr(alt) !important;
+    /* Hide broken images and question marks completely */
+    .hero-platform-logo[alt]:empty::before,
+    .hero-platform-logo[alt]:empty::after {
       display: none !important;
     }
     .hero-carousel-slide {
       min-height: 40px !important;
+      overflow: hidden !important;
+    }
+    /* Hide any broken image icons */
+    img[alt]:before { 
+      display: none !important; 
+    }
+    img:not([src]), 
+    img[src=""], 
+    img[src*="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48L3N2Zz4K"] {
+      display: none !important;
     }
     /* Fix carousel display - horizontal scrolling */
     .hero-carousel-container {
@@ -153,37 +163,28 @@
                           <img src="images/allmusic-logo-66ECF95ADC-seeklogo.com.png?v=94" alt="AllMusic" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Deezer-Logo-White.png" alt="Deezer" class="hero-platform-logo">
+                          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/deezer.svg" alt="Deezer" class="hero-platform-logo" style="filter: invert(1) brightness(2);">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="https://logos-world.net/wp-content/uploads/2021/03/Tidal-Logo-White.png" alt="Tidal" class="hero-platform-logo">
+                          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tidal.svg" alt="Tidal" class="hero-platform-logo" style="filter: invert(1) brightness(2);">
                         </div>
                         <div class="hero-carousel-slide">
                           <img src="images/twitch-official.svg?v=94" alt="Twitch" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Shazam-Logo-White.png" alt="Shazam" class="hero-platform-logo">
+                          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/shazam.svg" alt="Shazam" class="hero-platform-logo" style="filter: invert(1) brightness(2);">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Pandora-Logo-White.png" alt="Pandora" class="hero-platform-logo">
+                          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/pandora.svg" alt="Pandora" class="hero-platform-logo" style="filter: invert(1) brightness(2);">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Amazon-Music-Logo-White.png" alt="Amazon Music" class="hero-platform-logo">
+                          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/amazonmusic.svg" alt="Amazon Music" class="hero-platform-logo" style="filter: invert(1) brightness(2);">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="https://logos-world.net/wp-content/uploads/2020/12/YouTube-Music-Logo-White.png" alt="YouTube Music" class="hero-platform-logo">
+                          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtubemusic.svg" alt="YouTube Music" class="hero-platform-logo" style="filter: invert(1) brightness(2);">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="https://logos-world.net/wp-content/uploads/2021/08/Bandcamp-Logo-White.png" alt="Bandcamp" class="hero-platform-logo">
-                        </div>
-                        <div class="hero-carousel-slide">
-                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Last.fm-Logo-White.png" alt="Last.fm" class="hero-platform-logo">
-                        </div>
-                        <div class="hero-carousel-slide">
-                          <img src="https://logos-world.net/wp-content/uploads/2021/03/Napster-Logo-White.png" alt="Napster" class="hero-platform-logo">
-                        </div>
-                        <div class="hero-carousel-slide">
-                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Mixcloud-Logo-White.png" alt="Mixcloud" class="hero-platform-logo">
+                          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/bandcamp.svg" alt="Bandcamp" class="hero-platform-logo" style="filter: invert(1) brightness(2);">
                         </div>
                       </div>
                     </div>
@@ -755,17 +756,18 @@
       });
       
       // Handle broken carousel images
-      const carouselImages = document.querySelectorAll('.logo-carousel-item-2 img');
+      const carouselImages = document.querySelectorAll('.hero-platform-logo');
       
       carouselImages.forEach((img, index) => {
         img.addEventListener('error', function() {
-          console.log(`Carousel image ${index + 1} failed to load: ${img.src}`);
-          // Hide the broken image's container
-          img.parentElement.parentElement.style.display = 'none';
+          console.log(`Hero carousel image ${index + 1} failed to load: ${img.src}`);
+          // Hide the broken image completely
+          img.style.display = 'none';
+          img.parentElement.style.display = 'none';
         });
         
         img.addEventListener('load', function() {
-          console.log(`Carousel image ${index + 1} loaded successfully: ${img.alt}`);
+          console.log(`Hero carousel image ${index + 1} loaded successfully: ${img.alt}`);
         });
       });
     });
