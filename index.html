@@ -30,10 +30,21 @@
     .hero-platform-logo {
       filter: brightness(1.2) contrast(1.1) !important;
       opacity: 1 !important;
+      max-width: 80px !important;
+      max-height: 40px !important;
+      object-fit: contain !important;
     }
     .hero-carousel-slide:hover .hero-platform-logo {
       filter: brightness(1.4) contrast(1.2) !important;
       transform: scale(1.08) translateZ(0);
+    }
+    /* Hide broken images instead of showing question marks */
+    .hero-platform-logo[alt]:empty::before {
+      content: attr(alt) !important;
+      display: none !important;
+    }
+    .hero-carousel-slide {
+      min-height: 40px !important;
     }
     /* Fix carousel display - horizontal scrolling */
     .hero-carousel-container {
@@ -124,40 +135,55 @@
                     <div class="hero-carousel-container">
                       <div class="hero-carousel-track">
                         <div class="hero-carousel-slide">
-                          <img src="images/SPOTI-WHITE.png?v=91" alt="Spotify" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
+                          <img src="images/SPOTI-WHITE.png?v=94" alt="Spotify" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="images/APPLE-MUSIC.png?v=91" alt="Apple Music" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
+                          <img src="images/APPLE-MUSIC.png?v=94" alt="Apple Music" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="images/Beatport-White.png?v=91" alt="Beatport" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
+                          <img src="images/Beatport-White.png?v=94" alt="Beatport" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="images/soundcloud.png?v=91" alt="SoundCloud" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
+                          <img src="images/soundcloud.png?v=94" alt="SoundCloud" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="images/tiktok_PNG22.png?v=91" alt="TikTok" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
+                          <img src="images/tiktok_PNG22.png?v=94" alt="TikTok" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="images/allmusic-logo-66ECF95ADC-seeklogo.com.png?v=91" alt="AllMusic" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
-                        </div></div>
-                        <div class="hero-carousel-slide">
-                          <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Deezer_logo_white.svg?v=90" alt="Deezer" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
+                          <img src="images/allmusic-logo-66ECF95ADC-seeklogo.com.png?v=94" alt="AllMusic" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Tidal_logo_white.svg?v=90" alt="Tidal" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
+                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Deezer-Logo-White.png" alt="Deezer" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="images/twitch-official.svg?v=91" alt="Twitch" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
+                          <img src="https://logos-world.net/wp-content/uploads/2021/03/Tidal-Logo-White.png" alt="Tidal" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Shazam_logo_white.svg?v=90" alt="Shazam" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
+                          <img src="images/twitch-official.svg?v=94" alt="Twitch" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Pandora_logo_white.svg?v=90" alt="Pandora" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
+                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Shazam-Logo-White.png" alt="Shazam" class="hero-platform-logo">
                         </div>
                         <div class="hero-carousel-slide">
-                          <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Amazon_Music_logo_white.svg?v=90" alt="Amazon Music" class="hero-platform-logo" onerror="this.parentElement.style.display='none'">
+                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Pandora-Logo-White.png" alt="Pandora" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Amazon-Music-Logo-White.png" alt="Amazon Music" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="https://logos-world.net/wp-content/uploads/2020/12/YouTube-Music-Logo-White.png" alt="YouTube Music" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="https://logos-world.net/wp-content/uploads/2021/08/Bandcamp-Logo-White.png" alt="Bandcamp" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Last.fm-Logo-White.png" alt="Last.fm" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="https://logos-world.net/wp-content/uploads/2021/03/Napster-Logo-White.png" alt="Napster" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="https://logos-world.net/wp-content/uploads/2020/12/Mixcloud-Logo-White.png" alt="Mixcloud" class="hero-platform-logo">
                         </div>
                       </div>
                     </div>
