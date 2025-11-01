@@ -26,7 +26,7 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
-    /* True Full Page Continuous Carousel */
+    /* Slow Full Screen Carousel - No Early Cutoff */
     .hero-carousel-section {
       width: 100vw !important;
       margin-left: calc(-50vw + 50%) !important;
@@ -43,18 +43,19 @@
     
     .hero-carousel-track {
       display: flex !important;
-      width: max-content !important;
-      animation: truly-continuous 120s linear infinite !important;
-      gap: 6rem !important;
-      padding: 0 50vw !important;
+      width: 200% !important;
+      animation: super-slow-scroll 200s linear infinite !important;
+      gap: 8rem !important;
+      padding: 0 100vw 0 0 !important;
+      justify-content: space-evenly !important;
     }
     
-    @keyframes truly-continuous {
+    @keyframes super-slow-scroll {
       0% { 
-        transform: translateX(0); 
+        transform: translateX(100%); 
       }
       100% { 
-        transform: translateX(calc(-50% - 3rem)); 
+        transform: translateX(-100%); 
       }
     }
     
