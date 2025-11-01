@@ -66,15 +66,17 @@
       align-items: center !important;
       will-change: transform !important;
       width: fit-content !important;
+      transform: translate3d(0,0,0) !important;
+      backface-visibility: hidden !important;
     }
     
-    /* Scroll left (right-to-left) by exactly one group width for seamless wrap */
+    /* Scroll left (right-to-left) by one group width for seamless wrap */
     @keyframes infinite-scroll {
       0% { 
         transform: translateX(0) !important; 
       }
       100% { 
-        transform: translateX(calc(-100% / var(--groups))) !important; 
+        transform: translateX(-20%) !important; /* 1 / 5 groups = 20% */
       }
     }
     
