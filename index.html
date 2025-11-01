@@ -26,26 +26,34 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
-    /* Continuous scroll with logos always visible */
+    /* True continuous flow - no gaps ever */
     .hero-carousel-track {
-      animation: continuous-scroll 60s linear infinite !important;
-      width: calc(300% + 200px) !important;
-      gap: 80px !important;
-      padding: 0 200px !important;
+      animation: endless-flow 30s linear infinite !important;
+      width: 200% !important;
+      gap: 120px !important;
+      padding: 0 !important;
+      justify-content: space-around !important;
     }
     
-    @keyframes continuous-scroll {
+    @keyframes endless-flow {
       0% {
-        transform: translateX(0);
+        transform: translateX(0%);
       }
       100% {
-        transform: translateX(calc(-33.33% - 66px));
+        transform: translateX(-50%);
       }
     }
     
     .hero-carousel-container {
       overflow: hidden !important;
+      width: 100vw !important;
+      position: relative !important;
+    }
+    
+    .hero-carousel-section {
       width: 100% !important;
+      margin: 0 !important;
+      padding: 20px 0 !important;
     }
     
     /* White logos in carousel - lighter filter */
@@ -287,6 +295,41 @@
                         <div class="hero-carousel-slide">
                           <img src="images/allmusic-logo-66ECF95ADC-seeklogo.com.png" alt="AllMusic" class="hero-platform-logo">
                         </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/twitch-official.svg" alt="Twitch" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/tidal-white-icon.png" alt="Tidal" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="amazon-music-logo-0i3vzsf7ucszlyyb-0i3vzsf7ucszlyyb.png" alt="Amazon Music" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="youtube-play.png" alt="YouTube Music" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="image-1.png" alt="Pandora" class="hero-platform-logo">
+                        </div>
+                        <!-- Fourth set for complete coverage -->
+                        <div class="hero-carousel-slide">
+                          <img src="images/SPOTI-WHITE.png" alt="Spotify" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/APPLE-MUSIC.png" alt="Apple Music" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/Beatport-White.png" alt="Beatport" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/soundcloud.png" alt="SoundCloud" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/tiktok_PNG22.png" alt="TikTok" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/allmusic-logo-66ECF95ADC-seeklogo.com.png" alt="AllMusic" class="hero-platform-logo">
+                        </div>
+                        <!-- Fifth set for extra coverage -->
                         <div class="hero-carousel-slide">
                           <img src="images/twitch-official.svg" alt="Twitch" class="hero-platform-logo">
                         </div>
