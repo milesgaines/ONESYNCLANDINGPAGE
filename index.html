@@ -26,68 +26,70 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
-    /* Slow Full Screen Carousel - No Early Cutoff */
+    /* Clean, Simple, Slow Infinite Logo Carousel */
     .hero-carousel-section {
-      width: 100vw !important;
-      margin-left: calc(-50vw + 50%) !important;
-      padding: 30px 0 !important;
-      overflow: hidden !important;
-      position: relative !important;
+      width: 100%;
+      overflow: hidden;
+      padding: 2rem 0;
+      background: transparent;
     }
     
     .hero-carousel-container {
-      width: 100% !important;
-      overflow: hidden !important;
-      position: relative !important;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      mask: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
     }
     
     .hero-carousel-track {
-      display: flex !important;
-      width: 200% !important;
-      animation: super-slow-scroll 200s linear infinite !important;
-      gap: 8rem !important;
-      padding: 0 100vw 0 0 !important;
-      justify-content: space-evenly !important;
+      display: flex;
+      width: calc(200% + 6rem);
+      animation: smooth-scroll 180s linear infinite;
+      gap: 3rem;
+      padding: 0;
+      will-change: transform;
     }
     
-    @keyframes super-slow-scroll {
-      0% { 
-        transform: translateX(100%); 
-      }
-      100% { 
-        transform: translateX(-100%); 
-      }
+    @keyframes smooth-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     
     .hero-carousel-slide {
-      flex: 0 0 auto !important;
-      min-width: 140px !important;
-      height: 50px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      white-space: nowrap !important;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      min-width: 120px;
     }
     
-    /* Responsive adjustments */
+    .hero-platform-logo {
+      max-height: 100%;
+      max-width: 120px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(1.2);
+    }
+    
+    /* Mobile responsive */
     @media (max-width: 768px) {
-      .hero-carousel-slide {
-        min-width: 100px !important;
-        height: 45px !important;
+      .hero-carousel-track { gap: 2rem; }
+      .hero-carousel-slide { 
+        height: 40px; 
+        min-width: 100px; 
       }
-      .hero-carousel-track {
-        gap: 3rem !important;
-      }
+      .hero-platform-logo { max-width: 100px; }
     }
     
     @media (max-width: 480px) {
-      .hero-carousel-slide {
-        min-width: 80px !important;
-        height: 40px !important;
+      .hero-carousel-track { gap: 1.5rem; }
+      .hero-carousel-slide { 
+        height: 35px; 
+        min-width: 80px; 
       }
-      .hero-carousel-track {
-        gap: 2rem !important;
-      }
+      .hero-platform-logo { max-width: 80px; }
     }
     
     /* White logos in carousel - lighter filter */
@@ -344,7 +346,7 @@
                         <div class="hero-carousel-slide">
                           <img src="image-1.png" alt="Pandora" class="hero-platform-logo">
                         </div>
-                        <!-- Fourth set for complete coverage -->
+                        <!-- Duplicate for seamless loop -->
                         <div class="hero-carousel-slide">
                           <img src="images/SPOTI-WHITE.png" alt="Spotify" class="hero-platform-logo">
                         </div>
@@ -363,7 +365,6 @@
                         <div class="hero-carousel-slide">
                           <img src="images/allmusic-logo-66ECF95ADC-seeklogo.com.png" alt="AllMusic" class="hero-platform-logo">
                         </div>
-                        <!-- Fifth set for extra coverage -->
                         <div class="hero-carousel-slide">
                           <img src="images/twitch-official.svg" alt="Twitch" class="hero-platform-logo">
                         </div>
