@@ -59,18 +59,19 @@
     .hero-carousel-track {
       display: flex !important;
       width: max-content !important;
-      animation: scroll-left 20s linear infinite !important;
+      animation: scroll-left 15s linear infinite !important;
       gap: 3rem !important;
       padding: 0 !important;
       align-items: center !important;
       will-change: transform !important;
+      transform: translateX(0) !important;
     }
     
     @keyframes scroll-left {
-      0% { 
+      from { 
         transform: translateX(0) !important; 
       }
-      100% { 
+      to { 
         transform: translateX(-50%) !important; 
       }
     }
