@@ -20265,8 +20265,8 @@ figcaption {
 
 .hero-carousel-track {
   display: flex;
-  animation: hero-platform-scroll 4s ease-in-out infinite;
-  gap: 18px;
+  animation: hero-platform-scroll 20s linear infinite;
+  gap: 40px;
   width: max-content;
   padding: 0 140px;
   transform-style: preserve-3d;
@@ -20375,14 +20375,8 @@ figcaption {
   0% {
     transform: translateX(0);
   }
-  20% {
-    transform: translateX(calc(-10% - 4px));
-  }
-  80% {
-    transform: translateX(calc(-40% - 14px));
-  }
   100% {
-    transform: translateX(calc(-50% - 18px));
+    transform: translateX(calc(-50% - 20px));
   }
 }
 
@@ -20468,8 +20462,8 @@ figcaption {
   }
   
   .hero-carousel-track {
-    animation: hero-platform-scroll 5s ease-in-out infinite;
-    gap: 16px;
+    animation: hero-platform-scroll 20s linear infinite;
+    gap: 32px;
     padding: 0 90px;
   }
   
@@ -20506,8 +20500,8 @@ figcaption {
   }
   
   .hero-carousel-track {
-    animation: hero-platform-scroll 6s ease-in-out infinite;
-    gap: 25px;
+    animation: hero-platform-scroll 20s linear infinite;
+    gap: 35px;
     padding: 0 110px;
   }
   
