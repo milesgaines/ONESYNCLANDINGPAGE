@@ -26,48 +26,51 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
-    /* Ultra Slow Wide-Spaced Infinite Logo Carousel */
+    /* Full Page Width Smooth Logo Carousel */
     .hero-carousel-section {
       width: 100vw !important;
       margin-left: calc(-50vw + 50%) !important;
       overflow: hidden !important;
-      padding: 2rem 0 !important;
+      padding: 3rem 0 !important;
       position: relative !important;
+      left: 0 !important;
+      right: 0 !important;
     }
     
     .hero-carousel-container {
       width: 100vw !important;
       overflow: hidden !important;
       position: relative !important;
-      margin-left: calc(-50vw + 50%) !important;
+      margin: 0 !important;
+      left: calc(-50vw + 50%) !important;
       /* Subtle edge fade effects */
       -webkit-mask: linear-gradient(to right, 
         transparent 0%, 
-        black 5%, 
-        black 95%, 
+        black 3%, 
+        black 97%, 
         transparent 100%) !important;
       mask: linear-gradient(to right, 
         transparent 0%, 
-        black 5%, 
-        black 95%, 
+        black 3%, 
+        black 97%, 
         transparent 100%) !important;
     }
     
     .hero-carousel-track {
       display: flex !important;
       width: fit-content !important;
-      animation: ultra-slow-scroll 1200s linear infinite !important;
-      gap: 12rem !important;
-      padding: 0 100vw !important;
+      animation: smooth-scroll 120s linear infinite !important;
+      gap: 8rem !important;
+      padding: 0 50vw !important;
       align-items: center !important;
     }
     
-    @keyframes ultra-slow-scroll {
+    @keyframes smooth-scroll {
       0% { 
-        transform: translateX(0) !important; 
+        transform: translateX(100%) !important; 
       }
       100% { 
-        transform: translateX(calc(-33.33% - 4rem)) !important; 
+        transform: translateX(-100%) !important; 
       }
     }
     
