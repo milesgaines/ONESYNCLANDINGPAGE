@@ -60,7 +60,8 @@
       display: flex !important;
       /* Number of duplicated logo sets in markup */
       --groups: 5;
-      animation: infinite-scroll 12s linear infinite !important;
+      /* Faster duration for clearly visible sliding */
+      animation: infinite-scroll 8s linear infinite !important;
       gap: 3rem !important;
       padding: 0 !important;
       align-items: center !important;
@@ -143,6 +144,8 @@
     @media (max-width: 480px) {
       .hero-carousel-track { 
         gap: 2rem !important;
+        /* Slightly faster on small screens so motion is obvious */
+        animation-duration: 7s !important;
       }
       .hero-carousel-slide { 
         height: 35px !important; 
@@ -150,6 +153,19 @@
         padding: 6px 12px !important;
       }
       .hero-platform-logo { max-width: 70px !important; }
+    }
+    
+    /* Ultra-small screens */
+    @media (max-width: 380px) {
+      .hero-carousel-track {
+        gap: 1.25rem !important;
+      }
+      .hero-carousel-slide {
+        height: 32px !important;
+        min-width: 85px !important;
+        padding: 6px 10px !important;
+      }
+      .hero-platform-logo { max-width: 62px !important; }
     }
   </style>
   </head>
