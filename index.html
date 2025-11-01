@@ -26,34 +26,66 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
-    /* Smooth slow continuous flow */
-    .hero-carousel-track {
-      animation: smooth-slow-flow 80s linear infinite !important;
-      width: 200% !important;
-      gap: 60px !important;
-      padding: 0 100px !important;
-      justify-content: flex-start !important;
-    }
-    
-    @keyframes smooth-slow-flow {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+    /* Full Screen Left-to-Right Infinite Carousel */
+    .hero-carousel-section {
+      width: 100vw !important;
+      margin-left: calc(-50vw + 50%) !important;
+      padding: 20px 0 !important;
+      overflow: hidden !important;
     }
     
     .hero-carousel-container {
+      width: 100% !important;
       overflow: hidden !important;
-      width: 100vw !important;
       position: relative !important;
     }
     
-    .hero-carousel-section {
-      width: 100% !important;
-      margin: 0 !important;
-      padding: 20px 0 !important;
+    .hero-carousel-track {
+      display: flex !important;
+      width: 200% !important;
+      animation: full-screen-scroll 60s linear infinite !important;
+      gap: 4rem !important;
+      padding: 0 !important;
+    }
+    
+    @keyframes full-screen-scroll {
+      0% { 
+        transform: translateX(0); 
+      }
+      100% { 
+        transform: translateX(-50%); 
+      }
+    }
+    
+    .hero-carousel-slide {
+      flex: 0 0 auto !important;
+      min-width: 140px !important;
+      height: 50px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      white-space: nowrap !important;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-carousel-slide {
+        min-width: 100px !important;
+        height: 45px !important;
+      }
+      .hero-carousel-track {
+        gap: 3rem !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-carousel-slide {
+        min-width: 80px !important;
+        height: 40px !important;
+      }
+      .hero-carousel-track {
+        gap: 2rem !important;
+      }
     }
     
     /* White logos in carousel - lighter filter */
