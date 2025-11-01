@@ -26,6 +26,21 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
+    /* Perfect infinite scroll with no gaps */
+    .hero-carousel-track {
+      animation: seamless-scroll 40s linear infinite !important;
+      width: calc(200% + 80px) !important;
+    }
+    
+    @keyframes seamless-scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    
     /* White logos in carousel - lighter filter */
     .hero-platform-logo {
       filter: brightness(1.2) contrast(1.1) !important;
@@ -144,6 +159,75 @@
                   <div class="hero-carousel-section">
                     <div class="hero-carousel-container">
                       <div class="hero-carousel-track">
+                        <!-- First set of logos -->
+                        <div class="hero-carousel-slide">
+                          <img src="images/SPOTI-WHITE.png" alt="Spotify" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/APPLE-MUSIC.png" alt="Apple Music" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/Beatport-White.png" alt="Beatport" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/soundcloud.png" alt="SoundCloud" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/tiktok_PNG22.png" alt="TikTok" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/allmusic-logo-66ECF95ADC-seeklogo.com.png" alt="AllMusic" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/twitch-official.svg" alt="Twitch" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/tidal-white-icon.png" alt="Tidal" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="amazon-music-logo-0i3vzsf7ucszlyyb-0i3vzsf7ucszlyyb.png" alt="Amazon Music" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="youtube-play.png" alt="YouTube Music" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="image-1.png" alt="Pandora" class="hero-platform-logo">
+                        </div>
+                        <!-- Duplicate set for seamless infinite scroll -->
+                        <div class="hero-carousel-slide">
+                          <img src="images/SPOTI-WHITE.png" alt="Spotify" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/APPLE-MUSIC.png" alt="Apple Music" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/Beatport-White.png" alt="Beatport" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/soundcloud.png" alt="SoundCloud" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/tiktok_PNG22.png" alt="TikTok" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/allmusic-logo-66ECF95ADC-seeklogo.com.png" alt="AllMusic" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/twitch-official.svg" alt="Twitch" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="images/tidal-white-icon.png" alt="Tidal" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="amazon-music-logo-0i3vzsf7ucszlyyb-0i3vzsf7ucszlyyb.png" alt="Amazon Music" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="youtube-play.png" alt="YouTube Music" class="hero-platform-logo">
+                        </div>
+                        <div class="hero-carousel-slide">
+                          <img src="image-1.png" alt="Pandora" class="hero-platform-logo">
+                        </div>
+                        <!-- Duplicate set for seamless infinite scroll -->
                         <div class="hero-carousel-slide">
                           <img src="images/SPOTI-WHITE.png" alt="Spotify" class="hero-platform-logo">
                         </div>
