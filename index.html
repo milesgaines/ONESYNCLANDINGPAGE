@@ -26,16 +26,16 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
-    /* True continuous flow - no gaps ever */
+    /* Smooth slow continuous flow */
     .hero-carousel-track {
-      animation: endless-flow 30s linear infinite !important;
+      animation: smooth-slow-flow 80s linear infinite !important;
       width: 200% !important;
-      gap: 120px !important;
-      padding: 0 !important;
-      justify-content: space-around !important;
+      gap: 60px !important;
+      padding: 0 100px !important;
+      justify-content: flex-start !important;
     }
     
-    @keyframes endless-flow {
+    @keyframes smooth-slow-flow {
       0% {
         transform: translateX(0%);
       }
