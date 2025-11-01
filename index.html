@@ -35,33 +35,31 @@
       filter: brightness(1.4) contrast(1.2) !important;
       transform: scale(1.08) translateZ(0);
     }
-    /* Fix carousel display */
+    /* Fix carousel display - horizontal scrolling */
     .hero-carousel-container {
       width: 100% !important;
-      overflow: visible !important;
+      overflow: hidden !important;
       margin: 0 auto !important;
       position: relative !important;
     }
     .hero-carousel-track {
       display: flex !important;
-      justify-content: center !important;
       align-items: center !important;
-      flex-wrap: wrap !important;
-      gap: 20px !important;
-      width: 100% !important;
-      max-width: 1200px !important;
-      margin: 0 auto !important;
-      padding: 20px !important;
+      gap: 40px !important;
+      width: max-content !important;
+      animation: hero-platform-scroll 20s linear infinite !important;
     }
     .hero-carousel-slide {
       flex: 0 0 auto !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: auto !important;
-      min-width: 80px !important;
-      height: auto !important;
-      position: static !important;
+      min-width: 100px !important;
+      height: 60px !important;
+    }
+    @keyframes hero-platform-scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
   </style>
   </head>
