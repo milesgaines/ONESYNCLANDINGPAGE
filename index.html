@@ -58,6 +58,8 @@
     
     .hero-carousel-track {
       display: flex !important;
+      /* Number of duplicated logo sets in markup */
+      --groups: 5;
       animation: infinite-scroll 12s linear infinite !important;
       gap: 3rem !important;
       padding: 0 !important;
@@ -66,12 +68,13 @@
       width: fit-content !important;
     }
     
+    /* Scroll left (right-to-left) by exactly one group width for seamless wrap */
     @keyframes infinite-scroll {
       0% { 
-        transform: translateX(calc(-100% / 4)) !important; 
+        transform: translateX(0) !important; 
       }
       100% { 
-        transform: translateX(0) !important; 
+        transform: translateX(calc(-100% / var(--groups))) !important; 
       }
     }
     
