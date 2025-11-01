@@ -26,153 +26,123 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
-    /* Brand New Clean Infinite Logo Carousel */
+    /* Ultra Slow Wide-Spaced Infinite Logo Carousel */
     .hero-carousel-section {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      overflow: hidden;
-      padding: 2rem 0;
-      position: relative;
+      width: 100vw !important;
+      margin-left: calc(-50vw + 50%) !important;
+      overflow: hidden !important;
+      padding: 2rem 0 !important;
+      position: relative !important;
     }
     
     .hero-carousel-container {
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-      /* Fade edges at page boundaries */
+      width: 100vw !important;
+      overflow: hidden !important;
+      position: relative !important;
+      margin-left: calc(-50vw + 50%) !important;
+      /* Subtle edge fade effects */
       -webkit-mask: linear-gradient(to right, 
         transparent 0%, 
-        black 2%, 
-        black 98%, 
-        transparent 100%);
+        black 5%, 
+        black 95%, 
+        transparent 100%) !important;
       mask: linear-gradient(to right, 
         transparent 0%, 
-        black 2%, 
-        black 98%, 
-        transparent 100%);
+        black 5%, 
+        black 95%, 
+        transparent 100%) !important;
     }
     
     .hero-carousel-track {
-      display: flex;
-      width: fit-content;
-      animation: infinite-slide 240s linear infinite;
-      gap: 8rem;
-      padding: 0 50vw;
+      display: flex !important;
+      width: fit-content !important;
+      animation: ultra-slow-scroll 1200s linear infinite !important;
+      gap: 12rem !important;
+      padding: 0 100vw !important;
+      align-items: center !important;
     }
     
-    @keyframes infinite-slide {
+    @keyframes ultra-slow-scroll {
       0% { 
-        transform: translateX(0); 
+        transform: translateX(0) !important; 
       }
       100% { 
-        transform: translateX(calc(-50% - 4rem)); 
+        transform: translateX(calc(-33.33% - 4rem)) !important; 
       }
     }
     
     .hero-carousel-slide {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 50px;
-      min-width: 150px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 25px;
-      padding: 10px 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+      flex-shrink: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      height: 55px !important;
+      min-width: 170px !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-radius: 28px !important;
+      padding: 15px 25px !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      backdrop-filter: blur(15px) !important;
+      transition: all 0.3s ease !important;
     }
     
     .hero-platform-logo {
-      max-height: 100%;
-      max-width: 130px;
-      width: auto;
-      object-fit: contain;
-      filter: brightness(1.2) contrast(1.1);
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero-carousel-track { 
-        gap: 6rem;
-        padding: 0 30vw;
-      }
-      .hero-carousel-slide { 
-        height: 45px; 
-        min-width: 120px;
-        padding: 8px 16px;
-      }
-      .hero-platform-logo { max-width: 100px; }
-    }
-    
-    @media (max-width: 480px) {
-      .hero-carousel-track { 
-        gap: 4rem;
-        padding: 0 20vw;
-      }
-      .hero-carousel-slide { 
-        height: 40px; 
-        min-width: 100px;
-        padding: 6px 12px;
-      }
-      .hero-platform-logo { max-width: 80px; }
-    }
-    
-    /* White logos in carousel - lighter filter */
-    .hero-platform-logo {
-      filter: brightness(1.2) contrast(1.1) !important;
-      opacity: 1 !important;
-      max-width: 80px !important;
-      max-height: 40px !important;
+      max-height: 100% !important;
+      max-width: 140px !important;
+      width: auto !important;
       object-fit: contain !important;
+      filter: brightness(1.3) contrast(1.2) !important;
+      transition: all 0.3s ease !important;
     }
+    
+    .hero-carousel-slide:hover {
+      background: rgba(255, 255, 255, 0.12) !important;
+      transform: translateY(-2px) !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+    }
+    
     .hero-carousel-slide:hover .hero-platform-logo {
-      filter: brightness(1.4) contrast(1.2) !important;
-      transform: scale(1.08) translateZ(0);
+      filter: brightness(1.5) contrast(1.3) !important;
+      transform: scale(1.05) !important;
     }
-    /* Hide broken images and question marks completely */
+    
+    /* Hide broken images completely */
     .hero-platform-logo[alt]:empty::before,
     .hero-platform-logo[alt]:empty::after {
       display: none !important;
     }
-    .hero-carousel-slide {
-      min-height: 40px !important;
-      overflow: hidden !important;
-    }
-    /* Hide any broken image icons */
-    img[alt]:before { 
-      display: none !important; 
-    }
+    
     img:not([src]), 
     img[src=""], 
-    img[src*="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48L3N2Zz4K"] {
+    img[src*="data:image/svg+xml"] {
       display: none !important;
     }
-    /* Fix carousel display - horizontal scrolling */
-    .hero-carousel-container {
-      width: 100% !important;
-      overflow: hidden !important;
-      margin: 0 auto !important;
-      position: relative !important;
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-carousel-track { 
+        gap: 8rem !important;
+        padding: 0 50vw !important;
+      }
+      .hero-carousel-slide { 
+        height: 50px !important; 
+        min-width: 140px !important;
+        padding: 12px 20px !important;
+      }
+      .hero-platform-logo { max-width: 110px !important; }
     }
-    .hero-carousel-track {
-      display: flex !important;
-      align-items: center !important;
-      gap: 40px !important;
-      width: max-content !important;
-      animation: hero-platform-scroll 20s linear infinite !important;
-    }
-    .hero-carousel-slide {
-      flex: 0 0 auto !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      min-width: 100px !important;
-      height: 60px !important;
-    }
-    @keyframes hero-platform-scroll {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+    
+    @media (max-width: 480px) {
+      .hero-carousel-track { 
+        gap: 6rem !important;
+        padding: 0 30vw !important;
+      }
+      .hero-carousel-slide { 
+        height: 45px !important; 
+        min-width: 120px !important;
+        padding: 10px 16px !important;
+      }
+      .hero-platform-logo { max-width: 90px !important; }
     }
   </style>
   </head>
