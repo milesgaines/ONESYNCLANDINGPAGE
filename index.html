@@ -130,6 +130,15 @@
     
     /* Responsive adjustments */
     @media (max-width: 768px) {
+      .hero-carousel-section {
+        padding: 2rem 0 !important;
+        width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+      }
+      .hero-carousel-container {
+        width: 100vw !important;
+        left: calc(-50vw + 50%) !important;
+      }
       .hero-carousel-track { 
         gap: 2.5rem !important;
       }
@@ -142,6 +151,26 @@
     }
     
     @media (max-width: 480px) {
+      .hero-carousel-section {
+        padding: 1.5rem 0 !important;
+        width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+      }
+      .hero-carousel-container {
+        width: 100vw !important;
+        left: calc(-50vw + 50%) !important;
+        /* Reduce fade on mobile for better visibility */
+        -webkit-mask: linear-gradient(to right, 
+          transparent 0%, 
+          black 1%, 
+          black 99%, 
+          transparent 100%) !important;
+        mask: linear-gradient(to right, 
+          transparent 0%, 
+          black 1%, 
+          black 99%, 
+          transparent 100%) !important;
+      }
       .hero-carousel-track { 
         gap: 2rem !important;
         /* Slightly faster on small screens so motion is obvious */
@@ -157,6 +186,26 @@
     
     /* Ultra-small screens */
     @media (max-width: 380px) {
+      .hero-carousel-section {
+        padding: 1rem 0 !important;
+        width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+      }
+      .hero-carousel-container {
+        width: 100vw !important;
+        left: calc(-50vw + 50%) !important;
+        /* Minimal fade on very small screens */
+        -webkit-mask: linear-gradient(to right, 
+          transparent 0%, 
+          black 0.5%, 
+          black 99.5%, 
+          transparent 100%) !important;
+        mask: linear-gradient(to right, 
+          transparent 0%, 
+          black 0.5%, 
+          black 99.5%, 
+          transparent 100%) !important;
+      }
       .hero-carousel-track {
         gap: 1.25rem !important;
       }
