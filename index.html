@@ -71,13 +71,13 @@
       backface-visibility: hidden !important;
     }
     
-    /* Scroll left (right-to-left) by one group width for seamless wrap */
+    /* Scroll left (left-to-right) by one group width for seamless wrap */
     @keyframes infinite-scroll {
       0% { 
-        transform: translateX(0) !important; 
+        transform: translateX(-20%) !important; /* 1 / 5 groups = 20% */
       }
       100% { 
-        transform: translateX(-20%) !important; /* 1 / 5 groups = 20% */
+        transform: translateX(0) !important; 
       }
     }
     
