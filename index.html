@@ -28,26 +28,27 @@
   <style>
     /* Full Page Width Smooth Logo Carousel */
     .hero-carousel-section {
-      width: 100%;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
       overflow: hidden;
-      padding: 3rem 1rem;
+      padding: 3rem 0;
       position: relative;
     }
     
     .hero-carousel-container {
-      width: 100%;
+      width: 100vw;
       overflow: hidden;
       position: relative;
+      margin-left: calc(-50vw + 50%);
     }
     
     .hero-carousel-track {
       display: flex;
-      animation: infinite-scroll 8s linear infinite;
+      animation: infinite-scroll 20s linear infinite;
       gap: 3rem;
-      padding: 0;
+      padding: 1rem;
       align-items: center;
       will-change: transform;
-      width: fit-content;
       transform: translate3d(0,0,0);
       backface-visibility: hidden;
     }
@@ -55,10 +56,10 @@
     /* Scroll by one group width for seamless wrap */
     @keyframes infinite-scroll {
       0% { 
-        transform: translateX(-20%);
+        transform: translateX(0);
       }
       100% { 
-        transform: translateX(0);
+        transform: translateX(calc(-11 * 130px - 10 * 3rem));
       }
     }
     
@@ -100,10 +101,18 @@
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .hero-carousel-section {
-        padding: 2rem 1rem;
+        padding: 2rem 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+      }
+      .hero-carousel-container {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
       }
       .hero-carousel-track { 
         gap: 2rem;
+        padding: 1rem;
+        animation: infinite-scroll 20s linear infinite;
       }
       .hero-carousel-slide { 
         height: 40px;
@@ -115,10 +124,18 @@
     
     @media (max-width: 480px) {
       .hero-carousel-section {
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+      }
+      .hero-carousel-container {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
       }
       .hero-carousel-track { 
         gap: 1.5rem;
+        padding: 1rem;
+        animation: infinite-scroll 20s linear infinite;
       }
       .hero-carousel-slide { 
         height: 36px;
@@ -131,10 +148,18 @@
     
     @media (max-width: 380px) {
       .hero-carousel-section {
-        padding: 1rem 0.5rem;
+        padding: 1rem 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+      }
+      .hero-carousel-container {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
       }
       .hero-carousel-track {
         gap: 1rem;
+        padding: 1rem;
+        animation: infinite-scroll 20s linear infinite;
       }
       .hero-carousel-slide {
         height: 32px;
