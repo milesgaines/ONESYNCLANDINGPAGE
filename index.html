@@ -43,17 +43,9 @@
       position: relative !important;
       margin: 0 !important;
       left: calc(-50vw + 50%) !important;
-      /* Subtle edge fade effects */
-      -webkit-mask: linear-gradient(to right, 
-        transparent 0%, 
-        black 3%, 
-        black 97%, 
-        transparent 100%) !important;
-      mask: linear-gradient(to right, 
-        transparent 0%, 
-        black 3%, 
-        black 97%, 
-        transparent 100%) !important;
+      /* Remove mask to show all logos without cutoff */
+      -webkit-mask: none !important;
+      mask: none !important;
     }
     
     .hero-carousel-track {
