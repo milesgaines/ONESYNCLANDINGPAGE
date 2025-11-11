@@ -33,20 +33,25 @@
       overflow: hidden;
       padding: 3rem 0;
       position: relative;
+      left: 0;
+      right: 0;
     }
     
     .hero-carousel-container {
       width: 100vw;
+      margin-left: calc(-50vw + 50%);
       overflow: hidden;
       position: relative;
-      margin-left: calc(-50vw + 50%);
+      left: 0;
+      right: 0;
     }
     
     .hero-carousel-track {
       display: flex;
       animation: infinite-scroll 20s linear infinite;
       gap: 3rem;
-      padding: 1rem;
+      padding: 0;
+      margin: 0;
       align-items: center;
       will-change: transform;
       transform: translate3d(0,0,0);
@@ -111,7 +116,6 @@
       }
       .hero-carousel-track { 
         gap: 2rem;
-        padding: 1rem;
         animation: infinite-scroll 20s linear infinite;
       }
       .hero-carousel-slide { 
@@ -134,7 +138,6 @@
       }
       .hero-carousel-track { 
         gap: 1.5rem;
-        padding: 1rem;
         animation: infinite-scroll 20s linear infinite;
       }
       .hero-carousel-slide { 
@@ -158,7 +161,6 @@
       }
       .hero-carousel-track {
         gap: 1rem;
-        padding: 1rem;
         animation: infinite-scroll 20s linear infinite;
       }
       .hero-carousel-slide {
