@@ -48,7 +48,7 @@
     
     .hero-carousel-track {
       display: flex;
-      animation: infinite-scroll 20s linear infinite;
+      animation: infinite-scroll 15s linear infinite;
       gap: 3rem;
       padding: 0;
       margin: 0;
@@ -58,13 +58,13 @@
       backface-visibility: hidden;
     }
     
-    /* Scroll by one group width for seamless wrap */
+    /* Scroll by 1/3 of track for seamless infinite loop */
     @keyframes infinite-scroll {
       0% { 
         transform: translateX(0);
       }
       100% { 
-        transform: translateX(calc(-11 * 130px - 10 * 3rem));
+        transform: translateX(-33.333%);
       }
     }
     
@@ -116,7 +116,7 @@
       }
       .hero-carousel-track { 
         gap: 2rem;
-        animation: infinite-scroll 20s linear infinite;
+        animation: infinite-scroll 15s linear infinite;
       }
       .hero-carousel-slide { 
         height: 40px;
@@ -138,7 +138,7 @@
       }
       .hero-carousel-track { 
         gap: 1.5rem;
-        animation: infinite-scroll 20s linear infinite;
+        animation: infinite-scroll 15s linear infinite;
       }
       .hero-carousel-slide { 
         height: 36px;
@@ -161,7 +161,7 @@
       }
       .hero-carousel-track {
         gap: 1rem;
-        animation: infinite-scroll 20s linear infinite;
+        animation: infinite-scroll 15s linear infinite;
       }
       .hero-carousel-slide {
         height: 32px;
