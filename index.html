@@ -34,20 +34,20 @@
       padding: 4rem 0;
       position: relative;
       background: linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 5%, rgba(0,0,0,0) 95%, rgba(0,0,0,0.1) 100%);
-      /* Subtle edge fade for professional look */
-      mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+      /* Subtle edge fade starting further from edges */
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
     }
     .hero-carousel-track {
       display: flex;
       /* Calculate width for 55 slides with proper spacing */
-      width: calc(220px * 55);
+      width: calc(260px * 55);
       animation: infinite-scroll 45s linear infinite;
       will-change: transform;
       gap: 2rem;
     }
     .hero-carousel-slide {
-      width: 180px;
+      width: 240px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -61,7 +61,7 @@
     }
     .hero-platform-logo {
       max-height: 40px;
-      max-width: 120px;
+      max-width: 160px;
       width: auto;
       object-fit: contain;
       filter: brightness(1.1) contrast(1.1);
@@ -82,46 +82,46 @@
       }
       100% {
         /* Move by one group width including gaps */
-        transform: translateX(calc(-220px * 11));
+        transform: translateX(calc(-260px * 11));
       }
     }
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       .hero-carousel-section { 
         padding: 3rem 0;
-        mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
       }
       .hero-carousel-track { 
         animation-duration: 40s;
         gap: 1.5rem;
       }
       .hero-carousel-slide { 
-        width: 160px; 
+        width: 200px; 
         padding: 10px 16px;
       }
-      .hero-platform-logo { max-height: 36px; max-width: 100px; }
+      .hero-platform-logo { max-height: 36px; max-width: 140px; }
       @keyframes infinite-scroll {
-        100% { transform: translateX(calc(-180px * 11)); }
+        100% { transform: translateX(calc(-220px * 11)); }
       }
     }
     @media (max-width: 480px) {
       .hero-carousel-section { 
         padding: 2.5rem 0;
-        mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
       }
       .hero-carousel-track { 
         animation-duration: 35s;
         gap: 1rem;
       }
       .hero-carousel-slide { 
-        width: 140px; 
+        width: 180px; 
         padding: 8px 12px;
       }
-      .hero-platform-logo { max-height: 32px; max-width: 90px; }
+      .hero-platform-logo { max-height: 32px; max-width: 120px; }
       @keyframes infinite-scroll {
-        100% { transform: translateX(calc(-150px * 11)); }
+        100% { transform: translateX(calc(-190px * 11)); }
       }
     }
   </style>
