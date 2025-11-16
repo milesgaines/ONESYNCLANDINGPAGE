@@ -26,65 +26,100 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
-    /* Full-Width Carousel */
+    /* Full-Width Professional Carousel */
     .hero-carousel-section {
       width: 100vw;
       margin-left: calc(50% - 50vw);
       overflow: hidden;
-      padding: 3rem 0;
+      padding: 4rem 0;
       position: relative;
+      background: linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 5%, rgba(0,0,0,0) 95%, rgba(0,0,0,0.1) 100%);
+      /* Subtle edge fade for professional look */
+      mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
     }
     .hero-carousel-track {
       display: flex;
-      /* Calculate width based on number of slides and their desired width */
-      width: calc(250px * 55); /* 55 slides * 250px per slide */
-      animation: infinite-scroll 40s linear infinite;
+      /* Calculate width for 55 slides with proper spacing */
+      width: calc(220px * 55);
+      animation: infinite-scroll 45s linear infinite;
       will-change: transform;
+      gap: 2rem;
     }
     .hero-carousel-slide {
-      width: 250px; /* Fixed width for each logo slide */
+      width: 180px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 1.5rem;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
     }
     .hero-platform-logo {
-      max-height: 45px;
+      max-height: 40px;
+      max-width: 120px;
       width: auto;
       object-fit: contain;
-      opacity: 0.8;
-      transition: opacity 0.3s ease;
+      filter: brightness(1.1) contrast(1.1);
+      transition: all 0.3s ease;
+    }
+    .hero-carousel-slide:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.2);
     }
     .hero-carousel-slide:hover .hero-platform-logo {
-      opacity: 1;
+      filter: brightness(1.3) contrast(1.2);
+      transform: scale(1.05);
     }
     @keyframes infinite-scroll {
       0% {
         transform: translateX(0);
       }
       100% {
-        /* Move by the width of one full group of logos (11 slides) */
-        transform: translateX(calc(-250px * 11));
+        /* Move by one group width including gaps */
+        transform: translateX(calc(-220px * 11));
       }
     }
     /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .hero-carousel-section { padding: 2rem 0; }
-      .hero-carousel-track { animation-duration: 35s; }
-      .hero-carousel-slide { width: 200px; padding: 0 1rem; }
-      .hero-platform-logo { max-height: 40px; }
+      .hero-carousel-section { 
+        padding: 3rem 0;
+        mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+      }
+      .hero-carousel-track { 
+        animation-duration: 40s;
+        gap: 1.5rem;
+      }
+      .hero-carousel-slide { 
+        width: 160px; 
+        padding: 10px 16px;
+      }
+      .hero-platform-logo { max-height: 36px; max-width: 100px; }
       @keyframes infinite-scroll {
-        100% { transform: translateX(calc(-200px * 11)); }
+        100% { transform: translateX(calc(-180px * 11)); }
       }
     }
     @media (max-width: 480px) {
       .hero-carousel-section { 
-        padding: 1.5rem 0; 
+        padding: 2.5rem 0;
+        mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%);
       }
-      .hero-carousel-track { animation-duration: 30s; }
-      .hero-carousel-slide { width: 150px; padding: 0 0.75rem; }
-      .hero-platform-logo { max-height: 36px; }
+      .hero-carousel-track { 
+        animation-duration: 35s;
+        gap: 1rem;
+      }
+      .hero-carousel-slide { 
+        width: 140px; 
+        padding: 8px 12px;
+      }
+      .hero-platform-logo { max-height: 32px; max-width: 90px; }
       @keyframes infinite-scroll {
         100% { transform: translateX(calc(-150px * 11)); }
       }
