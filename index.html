@@ -40,8 +40,8 @@
     }
     .hero-carousel-track {
       display: flex;
-      /* Calculate width for 55 slides with proper spacing */
-      width: calc(260px * 55);
+      /* Calculate width: (slide width + gap) * number of slides */
+      width: calc((240px + 2rem) * 55);
       animation: infinite-scroll 45s linear infinite;
       will-change: transform;
       gap: 2rem;
@@ -84,8 +84,8 @@
         transform: translateX(0);
       }
       100% {
-        /* Move by one group width including gaps */
-        transform: translateX(calc(-260px * 11));
+        /* Move by one group: (slide width + gap) * 11 slides */
+        transform: translateX(calc(-1 * (240px + 2rem) * 11));
       }
     }
     /* Responsive Adjustments */
@@ -101,6 +101,7 @@
         /* Center the track */
         margin: 0 auto;
         justify-content: center;
+        width: calc((200px + 1.5rem) * 55);
       }
       .hero-carousel-slide { 
         width: 200px; 
@@ -108,7 +109,7 @@
       }
       .hero-platform-logo { max-height: 36px; max-width: 140px; }
       @keyframes infinite-scroll {
-        100% { transform: translateX(calc(-220px * 11)); }
+        100% { transform: translateX(calc(-1 * (200px + 1.5rem) * 11)); }
       }
     }
     @media (max-width: 480px) {
@@ -123,14 +124,15 @@
         /* Center the track */
         margin: 0 auto;
         justify-content: center;
+        width: calc((160px + 1rem) * 55);
       }
       .hero-carousel-slide { 
-        width: 180px; 
+        width: 160px; 
         padding: 8px 12px;
       }
-      .hero-platform-logo { max-height: 32px; max-width: 120px; }
+      .hero-platform-logo { max-height: 32px; max-width: 110px; }
       @keyframes infinite-scroll {
-        100% { transform: translateX(calc(-190px * 11)); }
+        100% { transform: translateX(calc(-1 * (160px + 1rem) * 11)); }
       }
     }
   </style>
