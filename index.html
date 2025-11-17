@@ -30,13 +30,12 @@
     .hero-carousel-section {
       width: 100vw;
       margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
       overflow: hidden;
       padding: 5rem 0;
       position: relative;
       background: linear-gradient(90deg, rgba(0,0,0,0.02) 0%, transparent 50%, rgba(0,0,0,0.02) 100%);
-      /* Smooth edge fade for seamless look */
-      mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 15%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0.8) 85%, rgba(0,0,0,0) 100%);
-      -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 15%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0.8) 85%, rgba(0,0,0,0) 100%);
+      /* Removed edge mask to ensure true full-bleed */
     }
     .hero-carousel-track {
       display: flex;
@@ -112,8 +111,6 @@
     @media (max-width: 768px) {
       .hero-carousel-section { 
         padding: 4rem 0;
-        mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 10%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0.8) 90%, rgba(0,0,0,0) 100%);
-        -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 10%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0.8) 90%, rgba(0,0,0,0) 100%);
       }
       .hero-carousel-track { 
         animation-duration: 50s;
@@ -132,8 +129,6 @@
     @media (max-width: 480px) {
       .hero-carousel-section { 
         padding: 3rem 0;
-        mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 8%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.7) 92%, rgba(0,0,0,0) 100%);
-        -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 8%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.7) 92%, rgba(0,0,0,0) 100%);
       }
       .hero-carousel-track { 
         animation-duration: 40s;
