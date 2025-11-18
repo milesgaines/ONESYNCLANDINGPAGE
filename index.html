@@ -47,9 +47,13 @@
       /* Ultra-wide track for seamless scrolling */
       width: calc((var(--slide) + var(--gap)) * 55);
       animation: infinite-scroll 60s linear infinite;
+      animation-delay: 3s;
       will-change: transform;
       gap: var(--gap);
       align-items: center;
+      justify-content: center;
+      /* Start centered, then animate */
+      transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 5.5));
     }
     .hero-carousel-slide {
       width: var(--slide);
@@ -105,11 +109,11 @@
     }
     @keyframes infinite-scroll {
       0% {
-        transform: translateX(var(--start-offset));
+        transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 5.5));
       }
       100% {
-        /* Smooth continuous scroll */
-        transform: translateX(calc(var(--start-offset) - (var(--slide) + var(--gap)) * var(--group)));
+        /* Move one logo group to the left for seamless loop */
+        transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 16.5));
       }
     }
     /* Responsive Modern Design */
@@ -131,8 +135,12 @@
       }
       .hero-platform-logo { max-height: 45px; max-width: 180px; }
       @keyframes infinite-scroll {
-        0% { transform: translateX(var(--start-offset)); }
-        100% { transform: translateX(calc(var(--start-offset) - (var(--slide) + var(--gap)) * var(--group))); }
+        0% { 
+          transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 5.5)); 
+        }
+        100% { 
+          transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 16.5)); 
+        }
       }
     }
     @media (max-width: 480px) {
@@ -153,8 +161,12 @@
       }
       .hero-platform-logo { max-height: 40px; max-width: 150px; }
       @keyframes infinite-scroll {
-        0% { transform: translateX(var(--start-offset)); }
-        100% { transform: translateX(calc(var(--start-offset) - (var(--slide) + var(--gap)) * var(--group))); }
+        0% { 
+          transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 5.5)); 
+        }
+        100% { 
+          transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 16.5)); 
+        }
       }
     }
   </style>
