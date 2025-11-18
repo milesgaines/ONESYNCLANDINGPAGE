@@ -27,6 +27,12 @@
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
     /* Modern Full-Width Carousel */
+    .hero-carousel-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
     .hero-carousel-section {
       width: 100vw;
       margin-left: calc(50% - 50vw);
@@ -40,7 +46,9 @@
       --slide: 280px;
       --gap: 3rem;
       --group: 11;
-      --start-offset: calc(-0.5 * (var(--slide) + var(--gap)) * var(--group));
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .hero-carousel-track {
       display: flex;
@@ -51,9 +59,6 @@
       will-change: transform;
       gap: var(--gap);
       align-items: center;
-      justify-content: center;
-      /* Start centered, then animate */
-      transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 1));
     }
     .hero-carousel-slide {
       width: var(--slide);
@@ -109,11 +114,11 @@
     }
     @keyframes infinite-scroll {
       0% {
-        transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 1));
+        transform: translateX(0);
       }
       100% {
         /* Move one logo group to the left for seamless loop */
-        transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 12));
+        transform: translateX(calc(-1 * (var(--slide) + var(--gap)) * var(--group)));
       }
     }
     /* Responsive Modern Design */
@@ -136,10 +141,10 @@
       .hero-platform-logo { max-height: 45px; max-width: 180px; }
       @keyframes infinite-scroll {
         0% { 
-          transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 1)); 
+          transform: translateX(0); 
         }
         100% { 
-          transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 12)); 
+          transform: translateX(calc(-1 * (var(--slide) + var(--gap)) * var(--group))); 
         }
       }
     }
@@ -162,10 +167,10 @@
       .hero-platform-logo { max-height: 40px; max-width: 150px; }
       @keyframes infinite-scroll {
         0% { 
-          transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 1)); 
+          transform: translateX(0); 
         }
         100% { 
-          transform: translateX(calc(50vw - 50% - (var(--slide) + var(--gap)) * 12)); 
+          transform: translateX(calc(-1 * (var(--slide) + var(--gap)) * var(--group))); 
         }
       }
     }
@@ -228,8 +233,9 @@
                   <h1 fb-text-highlight-once="false" fb-text-highlight="true" fb-text-highlight-type="4" fb-text-highlight-offset="6" fb-text-highlight-speed="3" data-w-id="10b6b5d1-ff64-ba5d-8f1c-5abdad1a521a" style="opacity:0" class="display-1">All in One Platform<br> for Musicians &amp; Creator&#x27;s Worldwide</h1>
                   
                   <!-- Platform Carousel Directly Under Heading -->
-                  <div class="hero-carousel-section">
-                    <div class="hero-carousel-track">
+                  <div class="hero-carousel-container">
+                    <div class="hero-carousel-section">
+                      <div class="hero-carousel-track">
                       <!-- First set of logos -->
                       <div class="hero-carousel-slide">
                         <img src="images/SPOTI-WHITE.png" alt="Spotify" class="hero-platform-logo">
