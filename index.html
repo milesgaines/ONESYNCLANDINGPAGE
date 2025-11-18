@@ -32,13 +32,20 @@
       max-width: none;
       display: flex;
       justify-content: center;
-      overflow: hidden;
+      overflow: visible !important;
+      position: relative;
+    }
+    /* Remove external CSS pseudo-element masks */
+    .hero-carousel-container::before,
+    .hero-carousel-container::after {
+      display: none !important;
+      content: none !important;
     }
     .hero-carousel-section {
       width: 100vw;
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
-      overflow: hidden;
+      overflow: visible !important;
       padding: 5rem 0;
       position: relative;
       /* Removed edge mask to ensure true full-bleed */
@@ -52,13 +59,13 @@
     }
     .hero-carousel-track {
       display: flex;
-      /* Ultra-wide track for seamless scrolling */
       width: calc((var(--slide) + var(--gap)) * 55);
       animation: infinite-scroll 60s linear infinite;
       animation-delay: 3s;
       will-change: transform;
       gap: var(--gap);
       align-items: center;
+      transform: translateX(calc(-50% + 50vw - (var(--slide) + var(--gap)) * 2.5));
     }
     .hero-carousel-slide {
       width: var(--slide);
