@@ -28,12 +28,11 @@
   <style>
     /* Modern Full-Width Carousel */
     .hero-carousel-container {
-      width: 120vw;
+      width: 100%;
+      max-width: none;
       display: flex;
       justify-content: center;
       overflow: hidden;
-      margin-left: calc(50% - 60vw);
-      margin-right: calc(50% - 60vw);
     }
     .hero-carousel-section {
       width: 100vw;
@@ -42,7 +41,6 @@
       overflow: hidden;
       padding: 5rem 0;
       position: relative;
-      background: linear-gradient(90deg, rgba(0,0,0,0.02) 0%, transparent 50%, rgba(0,0,0,0.02) 100%);
       /* Removed edge mask to ensure true full-bleed */
       /* Carousel sizing variables */
       --slide: 320px;
@@ -126,10 +124,10 @@
     /* Responsive Modern Design */
     @media (max-width: 768px) {
       .hero-carousel-section { 
-        padding: 4rem 0;
+        padding: 3rem 0;
         /* Adjust carousel sizing for tablet */
-        --slide: 260px;
-        --gap: 3rem;
+        --slide: 240px;
+        --gap: 2.5rem;
       }
       .hero-carousel-track { 
         animation-duration: 50s;
@@ -152,10 +150,10 @@
     }
     @media (max-width: 480px) {
       .hero-carousel-section { 
-        padding: 3rem 0;
+        padding: 2rem 0;
         /* Adjust carousel sizing for mobile */
-        --slide: 220px;
-        --gap: 2rem;
+        --slide: 180px;
+        --gap: 1.5rem;
       }
       .hero-carousel-track { 
         animation-duration: 40s;
@@ -166,7 +164,7 @@
         width: var(--slide);
         height: 60px;
       }
-      .hero-platform-logo { max-height: 40px; max-width: 150px; }
+      .hero-platform-logo { max-height: 35px; max-width: 140px; }
       @keyframes infinite-scroll {
         0% { 
           transform: translateX(0); 
