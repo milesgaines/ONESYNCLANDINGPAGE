@@ -46,7 +46,7 @@
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
       overflow: visible !important;
-      padding: 5rem 0;
+      padding: 4rem 0;
       position: relative;
       /* Removed edge mask to ensure true full-bleed */
       /* Carousel sizing variables */
@@ -131,10 +131,10 @@
     /* Responsive Modern Design */
     @media (max-width: 768px) {
       .hero-carousel-section { 
-        padding: 3rem 0;
+        padding: 2rem 0;
         /* Adjust carousel sizing for tablet */
-        --slide: 240px;
-        --gap: 2.5rem;
+        --slide: 180px;
+        --gap: 1.5rem;
       }
       .hero-carousel-track { 
         animation-duration: 50s;
@@ -143,9 +143,9 @@
       }
       .hero-carousel-slide { 
         width: var(--slide);
-        height: 70px;
+        height: 55px;
       }
-      .hero-platform-logo { max-height: 45px; max-width: 180px; }
+      .hero-platform-logo { max-height: 32px; max-width: 140px; }
       @keyframes infinite-scroll {
         0% { 
           transform: translateX(0); 
@@ -157,10 +157,10 @@
     }
     @media (max-width: 480px) {
       .hero-carousel-section { 
-        padding: 2rem 0;
+        padding: 1.5rem 0;
         /* Adjust carousel sizing for mobile */
-        --slide: 180px;
-        --gap: 1.5rem;
+        --slide: 140px;
+        --gap: 1rem;
       }
       .hero-carousel-track { 
         animation-duration: 40s;
@@ -169,9 +169,32 @@
       }
       .hero-carousel-slide { 
         width: var(--slide);
-        height: 60px;
+        height: 45px;
       }
-      .hero-platform-logo { max-height: 35px; max-width: 140px; }
+      .hero-platform-logo { max-height: 26px; max-width: 110px; }
+      @keyframes infinite-scroll {
+        0% { 
+          transform: translateX(0); 
+        }
+        100% { 
+          transform: translateX(calc(-1 * (var(--slide) + var(--gap)) * var(--group))); 
+        }
+      }
+    }
+    
+    /* Extra small mobile screens */
+    @media (max-width: 320px) {
+      .hero-carousel-section { 
+        padding: 1rem 0;
+        /* Adjust carousel sizing for very small mobile */
+        --slide: 110px;
+        --gap: 0.75rem;
+      }
+      .hero-carousel-slide { 
+        height: 38px;
+        border-radius: 12px;
+      }
+      .hero-platform-logo { max-height: 22px; max-width: 85px; }
       @keyframes infinite-scroll {
         0% { 
           transform: translateX(0); 
