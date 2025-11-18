@@ -28,10 +28,12 @@
   <style>
     /* Modern Full-Width Carousel */
     .hero-carousel-container {
-      width: 100%;
+      width: 120vw;
       display: flex;
       justify-content: center;
       overflow: hidden;
+      margin-left: calc(50% - 60vw);
+      margin-right: calc(50% - 60vw);
     }
     .hero-carousel-section {
       width: 100vw;
@@ -43,8 +45,8 @@
       background: linear-gradient(90deg, rgba(0,0,0,0.02) 0%, transparent 50%, rgba(0,0,0,0.02) 100%);
       /* Removed edge mask to ensure true full-bleed */
       /* Carousel sizing variables */
-      --slide: 280px;
-      --gap: 3rem;
+      --slide: 320px;
+      --gap: 4rem;
       --group: 11;
       display: flex;
       justify-content: center;
@@ -126,8 +128,8 @@
       .hero-carousel-section { 
         padding: 4rem 0;
         /* Adjust carousel sizing for tablet */
-        --slide: 220px;
-        --gap: 2rem;
+        --slide: 260px;
+        --gap: 3rem;
       }
       .hero-carousel-track { 
         animation-duration: 50s;
@@ -152,8 +154,8 @@
       .hero-carousel-section { 
         padding: 3rem 0;
         /* Adjust carousel sizing for mobile */
-        --slide: 180px;
-        --gap: 1.5rem;
+        --slide: 220px;
+        --gap: 2rem;
       }
       .hero-carousel-track { 
         animation-duration: 40s;
