@@ -215,6 +215,7 @@
             <a href="/" class="navbar-logo-link">
               <img src="images/S LOGO SMALL.png" alt="OneSync S" class="navbar-logo-small">
             </a>
+            <a href="comparison.html" class="nav-link">Compare</a>
             <a href="mailto:support@onesync.music" class="nav-link nav-contact">Contact</a>
           </div>
           <div class="nav-right">
@@ -989,23 +990,6 @@
             const response = await fetch('/api/partner-application', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(data)
-            });
-            
-            const result = await response.json();
-            
-            if (result.success) {
-              document.getElementById('partner-application-form').style.display = 'none';
-              document.getElementById('application-success').style.display = 'block';
-            } else {
-              alert('Error submitting application. Please try again.');
-            }
-          } catch (error) {
-            console.error('Error:', error);
-            alert('Error submitting application. Please try again.');
-          }
-        });
-      </script>
               body: JSON.stringify(data)
             });
             
