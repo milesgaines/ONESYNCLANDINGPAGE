@@ -8,8 +8,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Spotify API Configuration
-const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID || 'YOUR_SPOTIFY_CLIENT_ID';
-const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET || 'YOUR_SPOTIFY_CLIENT_SECRET';
+const SPOTIFY_CLIENT_ID = '474879af111c44ec8f835be52ac8ef01';
+const SPOTIFY_CLIENT_SECRET = '43bf4784ce07415293d751f451b5e21a';
 const SPOTIFY_REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI || 'https://onesync-landing-3c6e44e36ccc.herokuapp.com/api/spotify/callback';
 
 // Store pending applications temporarily (in production, use a database)
