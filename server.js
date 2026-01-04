@@ -15,6 +15,31 @@ const SPOTIFY_REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI || 'https://onesyn
 // Store pending applications temporarily (in production, use a database)
 const pendingApplications = new Map();
 
+// Spotify access token cache (for client credentials flow)
+let spotifyAccessToken = null;
+let spotifyTokenExpiry = 0;
+
+// Get Spotify access token using client credentials
+async function getSpotifyAccessToken() {
+  if (spotifyAccessToken && Date.now() < spotifyTokenExpiry) {
+    return spotifyAccessToken;
+  }
+  
+  const response = await fetch('https://accounts.spotify.com/api/token', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic ' + Buffer.from(SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET).toString('base64')
+    },
+    body: 'grant_type=client_credentials'
+  });
+  
+  const data = await response.json();
+  spotifyAccessToken = data.access_token;
+  spotifyTokenExpiry = Date.now() + (data.expires_in * 1000) - 60000; // Refresh 1 min early
+  return spotifyAccessToken;
+}
+
 // Serve static files from the current directory
 app.use(express.static('.'));
 
@@ -31,6 +56,46 @@ function requireOnesyncAdmin(req, res, next) {
   }
   next();
 }
+
+// Spotify Artist Search (public - uses client credentials)
+app.get('/api/spotify/search', async (req, res) => {
+  const { q } = req.query;
+  
+  if (!q || q.length < 2) {
+    return res.json({ artists: [] });
+  }
+  
+  try {
+    const token = await getSpotifyAccessToken();
+    
+    const searchResponse = await fetch(
+      `https://api.spotify.com/v1/search?q=${encodeURIComponent(q)}&type=artist&limit=10`,
+      { headers: { 'Authorization': `Bearer ${token}` } }
+    );
+    
+    const searchData = await searchResponse.json();
+    
+    if (!searchData.artists?.items) {
+      return res.json({ artists: [] });
+    }
+    
+    const artists = searchData.artists.items.map(artist => ({
+      id: artist.id,
+      name: artist.name,
+      followers: artist.followers?.total || 0,
+      popularity: artist.popularity || 0,
+      genres: artist.genres || [],
+      image: artist.images?.[0]?.url || null,
+      url: artist.external_urls?.spotify
+    }));
+    
+    res.json({ artists });
+    
+  } catch (err) {
+    console.error('Spotify search error:', err);
+    res.status(500).json({ error: 'Failed to search Spotify' });
+  }
+});
 
 // Spotify OAuth - Initiate authorization
 app.get('/api/spotify/auth', (req, res) => {
@@ -195,24 +260,38 @@ app.get('/api/application/:id', (req, res) => {
 
 // Submit application without Spotify (fallback)
 app.post('/api/partner-application', (req, res) => {
-  const { name, email, artistName, spotifyUrl, genre, monthlyStreams, achievements, message } = req.body;
+  const { 
+    name, 
+    email, 
+    genre, 
+    message,
+    spotifyArtistId,
+    spotifyArtistName,
+    spotifyFollowers,
+    spotifyPopularity,
+    spotifyUrl
+  } = req.body;
   
   const application = {
     name,
     email,
-    artistName,
-    spotifyUrl,
+    artistName: spotifyArtistName || 'Not provided',
     genre,
-    monthlyStreams,
-    achievements,
     message,
+    spotifyProfile: spotifyArtistId ? {
+      artistId: spotifyArtistId,
+      artistName: spotifyArtistName,
+      followers: parseInt(spotifyFollowers) || 0,
+      popularity: parseInt(spotifyPopularity) || 0,
+      spotifyUrl: spotifyUrl
+    } : null,
     submittedAt: new Date().toISOString(),
-    submissionType: 'manual'
+    submissionType: spotifyArtistId ? 'spotify-search' : 'manual'
   };
   
-  console.log('=== MANUAL PARTNER APPLICATION ===');
+  console.log('=== NEW PARTNER APPLICATION ===');
   console.log(JSON.stringify(application, null, 2));
-  console.log('==================================');
+  console.log('===============================');
   
   const applicationId = Date.now().toString(36) + Math.random().toString(36).substr(2);
   pendingApplications.set(applicationId, application);

@@ -806,7 +806,7 @@
             <!-- Application Form -->
             <div style="background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(30,30,30,0.9)); border-radius: 30px; padding: 40px; border: 1px solid rgba(255,255,255,0.1);">
               <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 10px; text-align: center;">Apply Now</h3>
-              <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; text-align: center; margin-bottom: 30px;">Connect your Spotify to auto-fill your stats</p>
+              <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; text-align: center; margin-bottom: 30px;">Search for your Spotify artist profile</p>
               
               <form id="partner-application-form" style="display: grid; gap: 20px;">
                 <div>
@@ -819,14 +819,40 @@
                   <input type="email" name="email" required placeholder="your@email.com" style="width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
                 </div>
                 
+                <!-- Spotify Artist Search -->
                 <div>
-                  <label style="color: rgba(255,255,255,0.8); font-size: 0.85rem; display: block; margin-bottom: 8px;">Artist/Stage Name *</label>
-                  <input type="text" name="artistName" required placeholder="Your artist name on Spotify" style="width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+                  <label style="color: rgba(255,255,255,0.8); font-size: 0.85rem; display: block; margin-bottom: 8px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#1DB954" style="vertical-align: middle; margin-right: 6px;"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                    Search Spotify Artist *
+                  </label>
+                  <div style="position: relative;">
+                    <input type="text" id="spotify-search" placeholder="Search for your artist name..." style="width: 100%; padding: 14px 18px; padding-right: 50px; background: rgba(29, 185, 84, 0.1); border: 1px solid rgba(29, 185, 84, 0.3); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#1DB954'" onblur="this.style.borderColor='rgba(29, 185, 84, 0.3)'">
+                    <button type="button" onclick="searchSpotify()" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #1DB954; border: none; border-radius: 8px; padding: 8px 12px; cursor: pointer; color: #fff; font-size: 0.85rem;">Search</button>
+                  </div>
+                  <!-- Search Results -->
+                  <div id="spotify-results" style="display: none; margin-top: 10px; max-height: 250px; overflow-y: auto; background: rgba(0,0,0,0.5); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);"></div>
+                  <!-- Selected Artist Display -->
+                  <div id="selected-artist" style="display: none; margin-top: 15px; padding: 15px; background: rgba(29, 185, 84, 0.15); border-radius: 12px; border: 1px solid rgba(29, 185, 84, 0.3);">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                      <img id="selected-artist-img" src="" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                      <div style="flex: 1;">
+                        <div id="selected-artist-name" style="color: #fff; font-weight: 600; font-size: 1.1rem;"></div>
+                        <div id="selected-artist-followers" style="color: rgba(255,255,255,0.6); font-size: 0.85rem;"></div>
+                        <div id="selected-artist-genres" style="color: #1DB954; font-size: 0.8rem; margin-top: 3px;"></div>
+                      </div>
+                      <button type="button" onclick="clearSelectedArtist()" style="background: rgba(255,255,255,0.1); border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; color: #fff; font-size: 1.2rem;">×</button>
+                    </div>
+                  </div>
+                  <input type="hidden" name="spotifyArtistId" id="spotify-artist-id">
+                  <input type="hidden" name="spotifyArtistName" id="spotify-artist-name">
+                  <input type="hidden" name="spotifyFollowers" id="spotify-followers">
+                  <input type="hidden" name="spotifyPopularity" id="spotify-popularity">
+                  <input type="hidden" name="spotifyUrl" id="spotify-url">
                 </div>
                 
                 <div>
                   <label style="color: rgba(255,255,255,0.8); font-size: 0.85rem; display: block; margin-bottom: 8px;">Genre</label>
-                  <select name="genre" style="width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 1rem; outline: none;">
+                  <select name="genre" id="genre-select" style="width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 1rem; outline: none;">
                     <option value="" style="background: #1a1a1a;">Select genre</option>
                     <option value="hip-hop" style="background: #1a1a1a;">Hip-Hop/Rap</option>
                     <option value="rnb" style="background: #1a1a1a;">R&B/Soul</option>
@@ -846,19 +872,9 @@
                   <textarea name="message" rows="3" placeholder="Notable achievements, goals, why you want to join..." style="width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; resize: vertical; font-family: inherit;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"></textarea>
                 </div>
                 
-                <!-- Spotify Connect Button -->
-                <button type="button" id="spotify-connect-btn" onclick="connectSpotify()" style="width: 100%; padding: 16px; background: #1DB954; border: none; border-radius: 50px; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: transform 0.3s, background 0.3s;" onmouseover="this.style.transform='scale(1.02)'; this.style.background='#1ed760'" onmouseout="this.style.transform='scale(1)'; this.style.background='#1DB954'">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-                  Connect with Spotify & Apply
-                </button>
-                
-                <div style="text-align: center; color: rgba(255,255,255,0.4); font-size: 0.8rem;">
-                  — or —
-                </div>
-                
-                <!-- Manual Submit Button -->
-                <button type="submit" style="width: 100%; padding: 16px; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 50px; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s, opacity 0.3s;" onmouseover="this.style.transform='scale(1.02)'; this.style.opacity='0.9'" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'">
-                  Submit Without Spotify
+                <!-- Submit Button -->
+                <button type="submit" id="submit-btn" style="width: 100%; padding: 16px; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 50px; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s, opacity 0.3s;" onmouseover="this.style.transform='scale(1.02)'; this.style.opacity='0.9'" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'">
+                  Submit Application
                 </button>
                 
                 <p style="color: rgba(255,255,255,0.4); font-size: 0.75rem; text-align: center; margin-top: 10px;">
@@ -878,38 +894,93 @@
       </section>
 
       <script>
-        // Connect with Spotify
-        function connectSpotify() {
-          const form = document.getElementById('partner-application-form');
-          const formData = new FormData(form);
-          
-          // Validate required fields
-          const name = formData.get('name');
-          const email = formData.get('email');
-          const artistName = formData.get('artistName');
-          
-          if (!name || !email || !artistName) {
-            alert('Please fill in your name, email, and artist name before connecting with Spotify.');
-            return;
+        // Spotify Search
+        let searchTimeout;
+        
+        document.getElementById('spotify-search').addEventListener('input', function() {
+          clearTimeout(searchTimeout);
+          const query = this.value.trim();
+          if (query.length >= 2) {
+            searchTimeout = setTimeout(() => searchSpotify(), 500);
+          } else {
+            document.getElementById('spotify-results').style.display = 'none';
           }
+        });
+        
+        async function searchSpotify() {
+          const query = document.getElementById('spotify-search').value.trim();
+          if (!query) return;
           
-          // Build query string with form data
-          const params = new URLSearchParams({
-            applicationType: 'partner',
-            name: name,
-            email: email,
-            artistName: artistName,
-            genre: formData.get('genre') || '',
-            message: formData.get('message') || ''
-          });
+          const resultsDiv = document.getElementById('spotify-results');
+          resultsDiv.innerHTML = '<div style="padding: 20px; text-align: center; color: rgba(255,255,255,0.5);">Searching...</div>';
+          resultsDiv.style.display = 'block';
           
-          // Redirect to Spotify auth
-          window.location.href = `/api/spotify/auth?${params.toString()}`;
+          try {
+            const response = await fetch(`/api/spotify/search?q=${encodeURIComponent(query)}`);
+            const data = await response.json();
+            
+            if (data.artists && data.artists.length > 0) {
+              resultsDiv.innerHTML = data.artists.map(artist => `
+                <div onclick="selectArtist('${artist.id}', '${artist.name.replace(/'/g, "\\'")}', ${artist.followers}, ${artist.popularity}, '${artist.image || ''}', '${artist.url}', '${(artist.genres || []).join(', ')}')" 
+                     style="display: flex; align-items: center; gap: 12px; padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.05); transition: background 0.2s;"
+                     onmouseover="this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.background='transparent'">
+                  <img src="${artist.image || 'https://via.placeholder.com/50'}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                  <div style="flex: 1;">
+                    <div style="color: #fff; font-weight: 500;">${artist.name}</div>
+                    <div style="color: rgba(255,255,255,0.5); font-size: 0.8rem;">${formatNumber(artist.followers)} followers</div>
+                  </div>
+                  <div style="color: #1DB954; font-size: 0.75rem;">${artist.popularity}% popularity</div>
+                </div>
+              `).join('');
+            } else {
+              resultsDiv.innerHTML = '<div style="padding: 20px; text-align: center; color: rgba(255,255,255,0.5);">No artists found. Try a different search.</div>';
+            }
+          } catch (error) {
+            resultsDiv.innerHTML = '<div style="padding: 20px; text-align: center; color: #f87171;">Error searching. Please try again.</div>';
+          }
         }
         
-        // Manual form submission
+        function selectArtist(id, name, followers, popularity, image, url, genres) {
+          document.getElementById('spotify-artist-id').value = id;
+          document.getElementById('spotify-artist-name').value = name;
+          document.getElementById('spotify-followers').value = followers;
+          document.getElementById('spotify-popularity').value = popularity;
+          document.getElementById('spotify-url').value = url;
+          
+          document.getElementById('selected-artist-img').src = image || 'https://via.placeholder.com/60';
+          document.getElementById('selected-artist-name').textContent = name;
+          document.getElementById('selected-artist-followers').textContent = formatNumber(followers) + ' followers • ' + popularity + '% popularity';
+          document.getElementById('selected-artist-genres').textContent = genres || 'No genres listed';
+          
+          document.getElementById('spotify-results').style.display = 'none';
+          document.getElementById('selected-artist').style.display = 'block';
+          document.getElementById('spotify-search').value = '';
+        }
+        
+        function clearSelectedArtist() {
+          document.getElementById('spotify-artist-id').value = '';
+          document.getElementById('spotify-artist-name').value = '';
+          document.getElementById('spotify-followers').value = '';
+          document.getElementById('spotify-popularity').value = '';
+          document.getElementById('spotify-url').value = '';
+          document.getElementById('selected-artist').style.display = 'none';
+        }
+        
+        function formatNumber(num) {
+          if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+          if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+          return num.toString();
+        }
+        
+        // Form submission
         document.getElementById('partner-application-form').addEventListener('submit', async function(e) {
           e.preventDefault();
+          
+          const spotifyArtistId = document.getElementById('spotify-artist-id').value;
+          if (!spotifyArtistId) {
+            alert('Please search and select your Spotify artist profile.');
+            return;
+          }
           
           const formData = new FormData(this);
           const data = Object.fromEntries(formData.entries());
@@ -918,6 +989,23 @@
             const response = await fetch('/api/partner-application', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+              document.getElementById('partner-application-form').style.display = 'none';
+              document.getElementById('application-success').style.display = 'block';
+            } else {
+              alert('Error submitting application. Please try again.');
+            }
+          } catch (error) {
+            console.error('Error:', error);
+            alert('Error submitting application. Please try again.');
+          }
+        });
+      </script>
               body: JSON.stringify(data)
             });
             
