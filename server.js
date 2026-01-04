@@ -3,6 +3,35 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Resend Email Configuration
+const RESEND_API_KEY = 're_Pmhp2Wiy_AuP56jVXtSV84NejYDqC53Kq';
+const ADMIN_EMAIL = 'info@onesync.music'; // Change this to your admin email
+
+// Send email via Resend
+async function sendEmail(to, subject, html) {
+  try {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: 'OneSync <noreply@onesync.music>',
+        to: Array.isArray(to) ? to : [to],
+        subject,
+        html
+      })
+    });
+    const data = await response.json();
+    console.log('Email sent:', data);
+    return data;
+  } catch (error) {
+    console.error('Error sending email:', error);
+    return null;
+  }
+}
+
 // Parse JSON and URL-encoded bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -259,7 +288,7 @@ app.get('/api/application/:id', (req, res) => {
 });
 
 // Submit application without Spotify (fallback)
-app.post('/api/partner-application', (req, res) => {
+app.post('/api/partner-application', async (req, res) => {
   const { 
     name, 
     email, 
@@ -295,6 +324,35 @@ app.post('/api/partner-application', (req, res) => {
   
   const applicationId = Date.now().toString(36) + Math.random().toString(36).substr(2);
   pendingApplications.set(applicationId, application);
+  
+  // Send admin notification email
+  const adminEmailHtml = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #1a1a1a; color: #fff; padding: 30px; border-radius: 10px;">
+      <h1 style="color: #667eea; margin-bottom: 20px;">🎵 New Partner Application</h1>
+      <div style="background: #2a2a2a; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h2 style="color: #fff; margin-top: 0;">Applicant Details</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #667eea;">${email}</a></p>
+        <p><strong>Genre:</strong> ${genre || 'Not specified'}</p>
+        <p><strong>Message:</strong> ${message || 'No message provided'}</p>
+      </div>
+      ${spotifyArtistId ? `
+      <div style="background: #1DB954; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h2 style="color: #fff; margin-top: 0;">🎧 Spotify Profile</h2>
+        <p><strong>Artist Name:</strong> ${spotifyArtistName}</p>
+        <p><strong>Followers:</strong> ${parseInt(spotifyFollowers).toLocaleString()}</p>
+        <p><strong>Popularity Score:</strong> ${spotifyPopularity}%</p>
+        <p><a href="${spotifyUrl}" style="color: #fff; text-decoration: underline;">View on Spotify →</a></p>
+      </div>
+      ` : '<p style="color: #f87171;">⚠️ No Spotify profile linked</p>'}
+      <div style="background: #333; padding: 15px; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; color: #888;">Application ID: ${applicationId}</p>
+        <p style="margin: 5px 0 0; color: #888;">Submitted: ${new Date().toLocaleString()}</p>
+      </div>
+    </div>
+  `;
+  
+  await sendEmail(ADMIN_EMAIL, `🎵 New Partner Application: ${spotifyArtistName || name}`, adminEmailHtml);
   
   res.json({ 
     success: true, 
