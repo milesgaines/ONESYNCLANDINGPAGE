@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Application Submitted | OneSync Partner Program</title>
+  <meta content="Your application has been submitted successfully." name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css?v=89" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css?v=89" rel="stylesheet" type="text/css">
+  <link href="css/onesyncdistribution-6f586bff4726ebd747a.webflow.css?v=89" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Montserrat:100,200,300,400,500,600,700,800,900","Inter Tight:100,200,300,regular,500,600,700,800,900"]  }});</script>
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    .success-container {
+      max-width: 600px;
+      text-align: center;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 30px;
+      padding: 60px 40px;
+      backdrop-filter: blur(10px);
+    }
+    .success-icon {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+      50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(74, 222, 128, 0); }
+    }
+    .success-icon svg {
+      width: 60px;
+      height: 60px;
+      color: #fff;
+    }
+    .success-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #4ade80 0%, #22c55e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .success-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 30px;
+    }
+    .stats-box {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 25px;
+      margin: 30px 0;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .stats-title {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 15px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #667eea;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .next-steps {
+      text-align: left;
+      margin: 30px 0;
+      padding: 25px;
+      background: rgba(102, 126, 234, 0.1);
+      border-radius: 15px;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+    }
+    .next-steps h3 {
+      font-size: 1rem;
+      color: #667eea;
+      margin-bottom: 15px;
+    }
+    .next-steps ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .next-steps li {
+      padding: 10px 0;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .next-steps li::before {
+      content: "→";
+      color: #667eea;
+      font-weight: bold;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .btn {
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s;
+      display: inline-block;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .artist-name {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="success-container">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    
+    <h1 class="success-title">Application Submitted!</h1>
+    <p class="success-subtitle">Thank you for applying to the OneSync Elite Partner Program</p>
+    
+    <div id="artist-info" class="stats-box" style="display: none;">
+      <div class="artist-name" id="display-artist-name"></div>
+      <div class="stats-title">Your Spotify Stats</div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value" id="display-followers">-</div>
+          <div class="stat-label">Followers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="display-status">Pending</div>
+          <div class="stat-label">Status</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="next-steps">
+      <h3>What happens next?</h3>
+      <ul>
+        <li>Our A&R team will review your Spotify profile and streaming data</li>
+        <li>You'll receive an email within 48 hours with next steps</li>
+        <li>If approved, we'll schedule a call to discuss your goals</li>
+        <li>Start distributing with priority support and advance opportunities</li>
+      </ul>
+    </div>
+    
+    <div class="cta-buttons">
+      <a href="/" class="btn btn-primary">Back to Home</a>
+      <a href="http://app.onesync.music/auth/login" class="btn btn-secondary">Create Account</a>
+    </div>
+  </div>
+
+  <script>
+    // Parse URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const followers = urlParams.get('followers');
+    const applicationId = urlParams.get('id');
+    
+    if (name || followers) {
+      document.getElementById('artist-info').style.display = 'block';
+      
+      if (name) {
+        document.getElementById('display-artist-name').textContent = name;
+      }
+      
+      if (followers) {
+        const followerCount = parseInt(followers);
+        if (followerCount >= 1000000) {
+          document.getElementById('display-followers').textContent = (followerCount / 1000000).toFixed(1) + 'M';
+        } else if (followerCount >= 1000) {
+          document.getElementById('display-followers').textContent = (followerCount / 1000).toFixed(1) + 'K';
+        } else {
+          document.getElementById('display-followers').textContent = followerCount.toLocaleString();
+        }
+      }
+    }
+  </script>
+</body>
+</html>

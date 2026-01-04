@@ -758,7 +758,7 @@
       <!-- Partner Application for Top-Tier Artists -->
       <section id="partner-application" class="section" style="background: #0d0d0d; padding: 100px 0;">
         <div class="container">
-          <div class="grid-2-columns" style="align-items: center; gap: 60px;">
+          <div class="grid-2-columns" style="align-items: start; gap: 60px;">
             <div>
               <div style="display: inline-block; background: rgba(102, 126, 234, 0.2); padding: 8px 16px; border-radius: 20px; margin-bottom: 20px;">
                 <span style="color: #667eea; font-size: 0.9rem; font-weight: 600;">FOR ESTABLISHED ARTISTS</span>
@@ -784,30 +784,157 @@
                   <span style="color: #667eea; margin-right: 12px;">✓</span> Revenue Advances up to $750K
                 </li>
               </ul>
-              <a href="mailto:info@onesync.music?subject=Elite%20Partner%20Program%20Application&body=Artist%20Name:%0AReal%20Name:%0AEmail:%0ACurrent%20Label%20(if%20any):%0AMonthly%20Streaming%20Numbers:%0ANotable%20Achievements:%0ARequested%20Advance%20Amount:%0AAdditional%20Information:" class="button-with-animation w-inline-block" style="display: inline-flex;">
-                <div class="text-button">Apply Now</div><img loading="lazy" src="images/icons8-arrow-3.svg" alt="" class="arrow-button">
-              </a>
+              <div style="background: linear-gradient(145deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); border-radius: 20px; padding: 25px; border: 1px solid rgba(255,255,255,0.1); margin-top: 30px;">
+                <h4 style="color: #fff; margin-bottom: 15px; font-size: 1.1rem;">Qualification Criteria</h4>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                  <div style="text-align: center;">
+                    <div style="color: #667eea; font-size: 1.5rem; font-weight: 700;">100K+</div>
+                    <div style="color: rgba(255,255,255,0.6); font-size: 0.8rem;">Monthly Streams</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="color: #667eea; font-size: 1.5rem; font-weight: 700;">10K+</div>
+                    <div style="color: rgba(255,255,255,0.6); font-size: 0.8rem;">Followers</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="color: #667eea; font-size: 1.5rem; font-weight: 700;">5+</div>
+                    <div style="color: rgba(255,255,255,0.6); font-size: 0.8rem;">Releases</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div style="background: linear-gradient(145deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); border-radius: 30px; padding: 40px; border: 1px solid rgba(255,255,255,0.1);">
-              <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 25px; text-align: center;">Qualification Criteria</h3>
-              <div style="display: grid; gap: 20px;">
-                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px;">
-                  <div style="color: #667eea; font-size: 1.8rem; font-weight: 700;">100K+</div>
-                  <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Monthly Streams</div>
+            
+            <!-- Application Form -->
+            <div style="background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(30,30,30,0.9)); border-radius: 30px; padding: 40px; border: 1px solid rgba(255,255,255,0.1);">
+              <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 10px; text-align: center;">Apply Now</h3>
+              <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; text-align: center; margin-bottom: 30px;">Connect your Spotify to auto-fill your stats</p>
+              
+              <form id="partner-application-form" style="display: grid; gap: 20px;">
+                <div>
+                  <label style="color: rgba(255,255,255,0.8); font-size: 0.85rem; display: block; margin-bottom: 8px;">Full Name *</label>
+                  <input type="text" name="name" required placeholder="Your full name" style="width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
                 </div>
-                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px;">
-                  <div style="color: #667eea; font-size: 1.8rem; font-weight: 700;">10K+</div>
-                  <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Social Followers</div>
+                
+                <div>
+                  <label style="color: rgba(255,255,255,0.8); font-size: 0.85rem; display: block; margin-bottom: 8px;">Email Address *</label>
+                  <input type="email" name="email" required placeholder="your@email.com" style="width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
                 </div>
-                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px;">
-                  <div style="color: #667eea; font-size: 1.8rem; font-weight: 700;">5+</div>
-                  <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Released Tracks</div>
+                
+                <div>
+                  <label style="color: rgba(255,255,255,0.8); font-size: 0.85rem; display: block; margin-bottom: 8px;">Artist/Stage Name *</label>
+                  <input type="text" name="artistName" required placeholder="Your artist name on Spotify" style="width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
                 </div>
+                
+                <div>
+                  <label style="color: rgba(255,255,255,0.8); font-size: 0.85rem; display: block; margin-bottom: 8px;">Genre</label>
+                  <select name="genre" style="width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 1rem; outline: none;">
+                    <option value="" style="background: #1a1a1a;">Select genre</option>
+                    <option value="hip-hop" style="background: #1a1a1a;">Hip-Hop/Rap</option>
+                    <option value="rnb" style="background: #1a1a1a;">R&B/Soul</option>
+                    <option value="pop" style="background: #1a1a1a;">Pop</option>
+                    <option value="rock" style="background: #1a1a1a;">Rock</option>
+                    <option value="electronic" style="background: #1a1a1a;">Electronic/EDM</option>
+                    <option value="country" style="background: #1a1a1a;">Country</option>
+                    <option value="latin" style="background: #1a1a1a;">Latin</option>
+                    <option value="jazz" style="background: #1a1a1a;">Jazz</option>
+                    <option value="classical" style="background: #1a1a1a;">Classical</option>
+                    <option value="other" style="background: #1a1a1a;">Other</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label style="color: rgba(255,255,255,0.8); font-size: 0.85rem; display: block; margin-bottom: 8px;">Tell us about yourself</label>
+                  <textarea name="message" rows="3" placeholder="Notable achievements, goals, why you want to join..." style="width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; resize: vertical; font-family: inherit;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"></textarea>
+                </div>
+                
+                <!-- Spotify Connect Button -->
+                <button type="button" id="spotify-connect-btn" onclick="connectSpotify()" style="width: 100%; padding: 16px; background: #1DB954; border: none; border-radius: 50px; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: transform 0.3s, background 0.3s;" onmouseover="this.style.transform='scale(1.02)'; this.style.background='#1ed760'" onmouseout="this.style.transform='scale(1)'; this.style.background='#1DB954'">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                  Connect with Spotify & Apply
+                </button>
+                
+                <div style="text-align: center; color: rgba(255,255,255,0.4); font-size: 0.8rem;">
+                  — or —
+                </div>
+                
+                <!-- Manual Submit Button -->
+                <button type="submit" style="width: 100%; padding: 16px; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 50px; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s, opacity 0.3s;" onmouseover="this.style.transform='scale(1.02)'; this.style.opacity='0.9'" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1'">
+                  Submit Without Spotify
+                </button>
+                
+                <p style="color: rgba(255,255,255,0.4); font-size: 0.75rem; text-align: center; margin-top: 10px;">
+                  By applying, you agree to our <a href="terms.html" style="color: #667eea;">Terms</a> and <a href="privacy-policy.html" style="color: #667eea;">Privacy Policy</a>
+                </p>
+              </form>
+              
+              <!-- Success Message (hidden by default) -->
+              <div id="application-success" style="display: none; text-align: center; padding: 40px 20px;">
+                <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+                <h3 style="color: #4ade80; font-size: 1.5rem; margin-bottom: 15px;">Application Submitted!</h3>
+                <p style="color: rgba(255,255,255,0.7);">Our A&R team will review your profile and reach out within 48 hours.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <script>
+        // Connect with Spotify
+        function connectSpotify() {
+          const form = document.getElementById('partner-application-form');
+          const formData = new FormData(form);
+          
+          // Validate required fields
+          const name = formData.get('name');
+          const email = formData.get('email');
+          const artistName = formData.get('artistName');
+          
+          if (!name || !email || !artistName) {
+            alert('Please fill in your name, email, and artist name before connecting with Spotify.');
+            return;
+          }
+          
+          // Build query string with form data
+          const params = new URLSearchParams({
+            applicationType: 'partner',
+            name: name,
+            email: email,
+            artistName: artistName,
+            genre: formData.get('genre') || '',
+            message: formData.get('message') || ''
+          });
+          
+          // Redirect to Spotify auth
+          window.location.href = `/api/spotify/auth?${params.toString()}`;
+        }
+        
+        // Manual form submission
+        document.getElementById('partner-application-form').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData.entries());
+          
+          try {
+            const response = await fetch('/api/partner-application', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+              document.getElementById('partner-application-form').style.display = 'none';
+              document.getElementById('application-success').style.display = 'block';
+            } else {
+              alert('Error submitting application. Please try again.');
+            }
+          } catch (error) {
+            console.error('Error:', error);
+            alert('Error submitting application. Please try again.');
+          }
+        });
+      </script>
 
       <!-- Comparison Section for SEO -->
       <section id="comparison" class="section" style="background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%); padding: 100px 0;">

@@ -7,6 +7,14 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Spotify API Configuration
+const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID || 'YOUR_SPOTIFY_CLIENT_ID';
+const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET || 'YOUR_SPOTIFY_CLIENT_SECRET';
+const SPOTIFY_REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI || 'https://onesync-landing-3c6e44e36ccc.herokuapp.com/api/spotify/callback';
+
+// Store pending applications temporarily (in production, use a database)
+const pendingApplications = new Map();
+
 // Serve static files from the current directory
 app.use(express.static('.'));
 
@@ -24,51 +32,195 @@ function requireOnesyncAdmin(req, res, next) {
   next();
 }
 
-// OneSync Recordings Partnership Application
-app.post('/api/recordings-application', (req, res) => {
-  const { name, email, artistName, genre, socialLinks, streamingNumbers, message } = req.body;
+// Spotify OAuth - Initiate authorization
+app.get('/api/spotify/auth', (req, res) => {
+  const { applicationType, name, email, artistName, genre, message } = req.query;
   
-  // In production, this would send an email to info@onesync.music
-  // For now, we'll log it and return success
-  console.log('OneSync Recordings Application:', {
+  // Store application data temporarily with a state token
+  const state = Buffer.from(JSON.stringify({
+    applicationType,
     name,
     email,
     artistName,
     genre,
-    socialLinks,
-    streamingNumbers,
     message,
-    timestamp: new Date().toISOString()
-  });
+    timestamp: Date.now()
+  })).toString('base64');
   
-  // Here you would integrate with an email service like SendGrid, Mailgun, etc.
-  // Example: sendEmail('info@onesync.music', 'New Recordings Application', applicationData);
+  const scopes = 'user-read-private user-read-email user-top-read user-follow-read';
+  const authUrl = `https://accounts.spotify.com/authorize?` +
+    `client_id=${SPOTIFY_CLIENT_ID}` +
+    `&response_type=code` +
+    `&redirect_uri=${encodeURIComponent(SPOTIFY_REDIRECT_URI)}` +
+    `&scope=${encodeURIComponent(scopes)}` +
+    `&state=${encodeURIComponent(state)}`;
   
-  res.json({ 
-    success: true, 
-    message: 'Your application has been submitted successfully! Our team will review and contact you soon.' 
-  });
+  res.redirect(authUrl);
 });
 
-// Partner Application (Top Tier Artists)
-app.post('/api/partner-application', (req, res) => {
-  const { name, email, artistName, label, monthlyStreams, achievements, requestedAdvance, message } = req.body;
+// Spotify OAuth Callback
+app.get('/api/spotify/callback', async (req, res) => {
+  const { code, state, error } = req.query;
   
-  console.log('Partner Application (Top Tier):', {
+  if (error) {
+    return res.redirect('/?error=spotify_auth_failed');
+  }
+  
+  try {
+    // Decode state to get application data
+    const applicationData = JSON.parse(Buffer.from(state, 'base64').toString());
+    
+    // Exchange code for access token
+    const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Basic ' + Buffer.from(SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET).toString('base64')
+      },
+      body: new URLSearchParams({
+        grant_type: 'authorization_code',
+        code: code,
+        redirect_uri: SPOTIFY_REDIRECT_URI
+      })
+    });
+    
+    const tokenData = await tokenResponse.json();
+    
+    if (!tokenData.access_token) {
+      return res.redirect('/?error=token_exchange_failed');
+    }
+    
+    // Get user profile
+    const profileResponse = await fetch('https://api.spotify.com/v1/me', {
+      headers: { 'Authorization': `Bearer ${tokenData.access_token}` }
+    });
+    const profile = await profileResponse.json();
+    
+    // Try to get artist data if they have an artist profile
+    let artistData = null;
+    let monthlyListeners = 'N/A';
+    let followers = profile.followers?.total || 0;
+    let topTracks = [];
+    
+    // Search for artist profile matching their name
+    if (applicationData.artistName) {
+      const searchResponse = await fetch(
+        `https://api.spotify.com/v1/search?q=${encodeURIComponent(applicationData.artistName)}&type=artist&limit=5`,
+        { headers: { 'Authorization': `Bearer ${tokenData.access_token}` } }
+      );
+      const searchData = await searchResponse.json();
+      
+      if (searchData.artists?.items?.length > 0) {
+        // Find best match
+        artistData = searchData.artists.items.find(a => 
+          a.name.toLowerCase() === applicationData.artistName.toLowerCase()
+        ) || searchData.artists.items[0];
+        
+        if (artistData) {
+          followers = artistData.followers?.total || followers;
+          
+          // Get top tracks
+          const topTracksResponse = await fetch(
+            `https://api.spotify.com/v1/artists/${artistData.id}/top-tracks?market=US`,
+            { headers: { 'Authorization': `Bearer ${tokenData.access_token}` } }
+          );
+          const topTracksData = await topTracksResponse.json();
+          topTracks = topTracksData.tracks?.slice(0, 5).map(t => ({
+            name: t.name,
+            popularity: t.popularity,
+            previewUrl: t.preview_url
+          })) || [];
+        }
+      }
+    }
+    
+    // Get user's top tracks for additional context
+    const userTopTracksResponse = await fetch(
+      'https://api.spotify.com/v1/me/top/tracks?limit=10&time_range=medium_term',
+      { headers: { 'Authorization': `Bearer ${tokenData.access_token}` } }
+    );
+    const userTopTracks = await userTopTracksResponse.json();
+    
+    // Compile full application
+    const fullApplication = {
+      ...applicationData,
+      spotifyProfile: {
+        id: profile.id,
+        displayName: profile.display_name,
+        email: profile.email,
+        country: profile.country,
+        followers: followers,
+        profileUrl: profile.external_urls?.spotify,
+        images: profile.images
+      },
+      artistProfile: artistData ? {
+        id: artistData.id,
+        name: artistData.name,
+        followers: artistData.followers?.total,
+        popularity: artistData.popularity,
+        genres: artistData.genres,
+        spotifyUrl: artistData.external_urls?.spotify,
+        images: artistData.images
+      } : null,
+      topTracks: topTracks,
+      submittedAt: new Date().toISOString()
+    };
+    
+    // Log the application (in production, save to database and send email)
+    console.log('=== NEW PARTNER APPLICATION ===');
+    console.log(JSON.stringify(fullApplication, null, 2));
+    console.log('===============================');
+    
+    // Store for retrieval
+    const applicationId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+    pendingApplications.set(applicationId, fullApplication);
+    
+    // Redirect to success page with application details
+    res.redirect(`/application-success.html?id=${applicationId}&name=${encodeURIComponent(applicationData.artistName || profile.display_name)}&followers=${followers}`);
+    
+  } catch (err) {
+    console.error('Spotify callback error:', err);
+    res.redirect('/?error=spotify_api_error');
+  }
+});
+
+// Get application details
+app.get('/api/application/:id', (req, res) => {
+  const application = pendingApplications.get(req.params.id);
+  if (!application) {
+    return res.status(404).json({ error: 'Application not found' });
+  }
+  res.json(application);
+});
+
+// Submit application without Spotify (fallback)
+app.post('/api/partner-application', (req, res) => {
+  const { name, email, artistName, spotifyUrl, genre, monthlyStreams, achievements, message } = req.body;
+  
+  const application = {
     name,
     email,
     artistName,
-    label,
+    spotifyUrl,
+    genre,
     monthlyStreams,
     achievements,
-    requestedAdvance,
     message,
-    timestamp: new Date().toISOString()
-  });
+    submittedAt: new Date().toISOString(),
+    submissionType: 'manual'
+  };
+  
+  console.log('=== MANUAL PARTNER APPLICATION ===');
+  console.log(JSON.stringify(application, null, 2));
+  console.log('==================================');
+  
+  const applicationId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+  pendingApplications.set(applicationId, application);
   
   res.json({ 
     success: true, 
-    message: 'Your partner application has been submitted! Our A&R team will review your profile and reach out within 48 hours.' 
+    applicationId,
+    message: 'Your application has been submitted! Our A&R team will review your profile and reach out within 48 hours.' 
   });
 });
 
@@ -77,14 +229,24 @@ app.post('/api/admin/verify', requireOnesyncAdmin, (req, res) => {
   res.json({ success: true, message: 'Admin access verified.' });
 });
 
-// Protected admin routes
-app.get('/api/admin/*', requireOnesyncAdmin, (req, res, next) => {
-  next();
+// Protected admin routes - get all applications
+app.get('/api/admin/applications', requireOnesyncAdmin, (req, res) => {
+  const applications = Array.from(pendingApplications.entries()).map(([id, app]) => ({
+    id,
+    ...app
+  }));
+  res.json(applications);
 });
 
 // Handle all routes by serving index.html
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    // Check if file exists, otherwise serve index.html
+    const filePath = path.join(__dirname, req.path);
+    if (req.path !== '/' && require('fs').existsSync(filePath)) {
+      res.sendFile(filePath);
+    } else {
+      res.sendFile(path.join(__dirname, 'index.html'));
+    }
 });
 
 app.listen(PORT, () => {
