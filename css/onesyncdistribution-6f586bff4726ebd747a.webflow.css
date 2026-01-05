@@ -21114,12 +21114,31 @@ html {
 }
 
 @media (max-width: 479px) {
-  .nav-link:not(.nav-cta) {
+  .navbar-minimal {
+    padding: 0.5rem 0;
+    min-height: 56px;
+  }
+  
+  .navbar-simple {
+    padding: 0 0.75rem;
+  }
+  
+  .nav-links-center {
     display: none;
   }
   
+  .nav-link {
+    padding: 0.4rem 0.6rem !important;
+    font-size: 0.75rem !important;
+  }
+  
   .nav-cta {
-    padding: 0.6rem 1.25rem !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.75rem !important;
+  }
+  
+  .navbar-logo-small {
+    height: 32px;
   }
 }
 
