@@ -22173,50 +22173,99 @@ html, body {
   }
 }
 
-/* Mobile navbar - ensure proper collapse */
+/* Mobile navbar - compact all elements to fit on screen */
 @media screen and (max-width: 991px) {
   .navbar-component {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    min-height: 4rem;
   }
   
   .new-container {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    gap: 0.5rem;
   }
   
   .logotype {
-    max-width: 130px !important;
+    max-width: 100px !important;
   }
   
-  /* Hide Join Now button on mobile to save space */
-  .button-flex-left > div:first-child {
-    display: none !important;
+  .navbar-menu {
+    margin-left: 5px !important;
   }
   
-  .button-flex-left {
-    gap: 0 !important;
+  .navbar-link {
+    padding: 0.3rem 0.4rem !important;
+    font-size: 0.75rem !important;
+  }
+  
+  .button-with-animation {
+    padding: 0.4rem 0.8rem !important;
+  }
+  
+  .text-button {
+    font-size: 0.7rem !important;
+  }
+  
+  .arrow-button {
+    width: 12px !important;
+    margin-left: 4px;
   }
   
   .menu-button-new {
-    display: flex !important;
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-component {
+    padding-left: 0.3rem !important;
+    padding-right: 0.3rem !important;
   }
   
-  .icon-component {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 44px;
-    height: 44px;
+  .logotype {
+    max-width: 80px !important;
   }
   
-  .line-1, .line-2, .line-3 {
-    background-color: #fff;
-    width: 24px;
-    height: 2px;
-    margin: 3px 0;
-    border-radius: 2px;
-    display: block;
+  .navbar-link {
+    padding: 0.25rem 0.3rem !important;
+    font-size: 0.65rem !important;
+  }
+  
+  .button-with-animation {
+    padding: 0.3rem 0.6rem !important;
+  }
+  
+  .text-button {
+    font-size: 0.6rem !important;
+  }
+  
+  .arrow-button {
+    width: 10px !important;
+    margin-left: 2px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logotype {
+    max-width: 70px !important;
+  }
+  
+  .navbar-link {
+    padding: 0.2rem 0.25rem !important;
+    font-size: 0.55rem !important;
+  }
+  
+  .button-with-animation {
+    padding: 0.25rem 0.5rem !important;
+  }
+  
+  .text-button {
+    font-size: 0.55rem !important;
+  }
+  
+  .arrow-button {
+    display: none !important;
   }
 }
