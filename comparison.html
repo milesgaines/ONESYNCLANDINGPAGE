@@ -187,6 +187,73 @@
         font-size: 0.8rem;
       }
     }
+    
+    /* Mobile navbar fix - hide menu items, show hamburger */
+    @media (max-width: 991px) {
+      .navbar-component {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .new-container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .logotype {
+        max-width: 130px;
+      }
+      .navbar-menu {
+        display: none !important;
+      }
+      .navbar-menu.w--open {
+        display: flex !important;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        background: #111;
+        flex-direction: column;
+        padding: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      .menu-right {
+        flex-direction: column;
+        width: 100%;
+      }
+      .menu-left {
+        flex-direction: column;
+        width: 100%;
+      }
+      .navbar-link {
+        padding: 0.75rem 0;
+        font-size: 1rem;
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .button-flex-left {
+        gap: 0.5rem;
+      }
+      .button-flex-left > div:first-child {
+        display: none;
+      }
+      .menu-button-new {
+        display: flex !important;
+      }
+      .icon-component {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+      }
+      .line-1, .line-2, .line-3 {
+        background-color: #fff;
+        width: 24px;
+        height: 2px;
+        margin: 3px 0;
+        border-radius: 2px;
+      }
+    }
   </style>
 </head>
 <body>
