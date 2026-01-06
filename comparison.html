@@ -138,6 +138,55 @@
       .pros-cons { grid-template-columns: 1fr; }
       .article-meta { flex-direction: column; gap: 10px; }
     }
+    
+    /* Fix navbar to fit on screen without zooming */
+    .navbar-component {
+      width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+    .new-container {
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .logotype {
+      max-width: 150px;
+      width: auto;
+      height: auto;
+    }
+    .navbar-menu {
+      flex-wrap: wrap;
+    }
+    .navbar-link {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+    .button-flex-left {
+      flex-shrink: 0;
+    }
+    .button-with-animation {
+      padding: 0.6rem 1.2rem;
+    }
+    .text-button {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 1100px) {
+      .logotype {
+        max-width: 120px;
+      }
+      .navbar-link {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.85rem;
+      }
+      .button-with-animation {
+        padding: 0.5rem 1rem;
+      }
+      .text-button {
+        font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
 <body>

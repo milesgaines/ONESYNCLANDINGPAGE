@@ -22105,3 +22105,70 @@ body {
     transform: translateY(-4px);
   }
 }
+
+/* ============================================
+   NAVBAR FIT FIX - Prevents zoom-out requirement
+   ============================================ */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.navbar-component {
+  max-width: 100vw;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.new-container {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive navbar scaling */
+@media screen and (max-width: 1200px) {
+  .logotype {
+    max-width: 150px;
+    width: auto;
+  }
+  
+  .navbar-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+  }
+  
+  .button-with-animation {
+    padding: 0.7rem 1.5rem;
+  }
+  
+  .text-button {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .logotype {
+    max-width: 130px;
+  }
+  
+  .navbar-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .navbar-menu {
+    margin-left: 10px;
+  }
+  
+  .button-with-animation {
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .text-button {
+    font-size: 0.85rem;
+  }
+  
+  .arrow-button {
+    width: 14px;
+  }
+}
