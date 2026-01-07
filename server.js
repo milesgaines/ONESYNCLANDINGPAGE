@@ -17,7 +17,7 @@ async function sendEmail(to, subject, html) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'OneSync <noreply@onesync.music>',
+        from: 'OneSync <noreply@notifications.onesync.music>',
         to: Array.isArray(to) ? to : [to],
         subject,
         html

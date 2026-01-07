@@ -10,7 +10,7 @@
   <meta content="Compare the best music distribution services in 2026. Find the best distributor for your music career." property="twitter:description">
   <meta property="og:type" content="article">
   <meta content="summary_large_image" name="twitter:card">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="width=device-width, initial-scale=0.75" name="viewport">
   <meta name="keywords" content="music distribution comparison, best music distributor 2026, DistroKid vs TuneCore, CD Baby alternative, free music distribution, OneSync review, how to distribute music, Spotify distribution, Apple Music distribution">
   <link href="css/normalize.css?v=89" rel="stylesheet" type="text/css">
   <link href="css/webflow.css?v=89" rel="stylesheet" type="text/css">
@@ -815,12 +815,87 @@
     </div>
   </section>
 
+  <!-- Artist Submission Form Section -->
+  <section class="section" style="background: #111; padding: 80px 0;">
+    <div class="container">
+      <h2 class="section-title" style="color: #667eea; text-align: center;">Submit Your Music for Review</h2>
+      <p class="section-desc" style="text-align: center; margin-bottom: 40px;">Ready to get started? Submit your artist information and we'll help you begin your music distribution journey with OneSync.</p>
+      
+      <div style="max-width: 600px; margin: 0 auto;">
+        <form id="artistSubmissionForm" style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="margin-bottom: 25px;">
+            <label for="artistName" style="display: block; margin-bottom: 8px; color: #fff; font-weight: 500;">Artist/Band Name *</label>
+            <input type="text" id="artistName" name="artistName" required style="width: 100%; padding: 15px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 16px;" placeholder="Your artist or band name">
+          </div>
+          
+          <div style="margin-bottom: 25px;">
+            <label for="email" style="display: block; margin-bottom: 8px; color: #fff; font-weight: 500;">Email Address *</label>
+            <input type="email" id="email" name="email" required style="width: 100%; padding: 15px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 16px;" placeholder="your.email@example.com">
+          </div>
+          
+          <div style="margin-bottom: 25px;">
+            <label for="genre" style="display: block; margin-bottom: 8px; color: #fff; font-weight: 500;">Primary Genre *</label>
+            <select id="genre" name="genre" required style="width: 100%; padding: 15px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 16px;">
+              <option value="">Select your primary genre</option>
+              <option value="pop">Pop</option>
+              <option value="rock">Rock</option>
+              <option value="hip-hop">Hip-Hop/Rap</option>
+              <option value="electronic">Electronic</option>
+              <option value="indie">Indie</option>
+              <option value="country">Country</option>
+              <option value="jazz">Jazz</option>
+              <option value="classical">Classical</option>
+              <option value="reggae">Reggae</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div style="margin-bottom: 25px;">
+            <label for="experience" style="display: block; margin-bottom: 8px; color: #fff; font-weight: 500;">Music Experience *</label>
+            <select id="experience" name="experience" required style="width: 100%; padding: 15px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 16px;">
+              <option value="">Select your experience level</option>
+              <option value="beginner">Beginner (0-1 years)</option>
+              <option value="intermediate">Intermediate (2-5 years)</option>
+              <option value="experienced">Experienced (5+ years)</option>
+              <option value="professional">Professional</option>
+            </select>
+          </div>
+          
+          <div style="margin-bottom: 25px;">
+            <label for="musicLink" style="display: block; margin-bottom: 8px; color: #fff; font-weight: 500;">Music Sample Link</label>
+            <input type="url" id="musicLink" name="musicLink" style="width: 100%; padding: 15px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 16px;" placeholder="SoundCloud, YouTube, or Spotify link">
+          </div>
+          
+          <div style="margin-bottom: 25px;">
+            <label for="message" style="display: block; margin-bottom: 8px; color: #fff; font-weight: 500;">Tell us about your music</label>
+            <textarea id="message" name="message" rows="4" style="width: 100%; padding: 15px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 16px; resize: vertical;" placeholder="Describe your sound, goals, or any specific questions you have..."></textarea>
+          </div>
+          
+          <button type="submit" class="cta-btn" style="width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; cursor: pointer; font-size: 16px;">
+            <span id="submitText">Submit for Review →</span>
+            <span id="loadingText" style="display: none;">Sending...</span>
+          </button>
+        </form>
+        
+        <div id="successMessage" style="display: none; text-align: center; margin-top: 30px; padding: 20px; background: rgba(74, 222, 128, 0.1); border: 1px solid #4ade80; border-radius: 12px; color: #4ade80;">
+          <strong>✓ Submission Received!</strong><br>
+          Thanks for your submission. Our team will review your information and get back to you within 24-48 hours.
+        </div>
+        
+        <div id="errorMessage" style="display: none; text-align: center; margin-top: 30px; padding: 20px; background: rgba(248, 113, 113, 0.1); border: 1px solid #f87171; border-radius: 12px; color: #f87171;">
+          <strong>✗ Submission Failed</strong><br>
+          <span id="errorText">Please try again or contact support if the problem persists.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Section -->
   <section class="cta-section">
     <div class="container">
       <h2 class="cta-title">Ready to Distribute Your Music for Free?</h2>
       <p class="cta-desc">Join 7,000+ artists who've switched to OneSync. No fees, no gimmicks, just results.</p>
-      <a href="http://app.onesync.music/auth/login" class="cta-btn">Start Distributing Free →</a>
+      <a href="https://app.onesync.music/auth/login" class="cta-btn">Start Distributing Free →</a>
     </div>
   </section>
 
@@ -837,7 +912,7 @@
           <a href="index.html">Home</a>
           <a href="comparison.html">Compare Distributors</a>
           <a href="blog-streaming-optimization.html">Streaming Guide</a>
-          <a href="http://app.onesync.music/auth/login">Login</a>
+          <a href="https://app.onesync.music/auth/login">Login</a>
         </div>
         <div class="footer-col">
           <h4>Resources</h4>
@@ -866,6 +941,127 @@
   <script src="js/webflow.js"></script>
   <script>
     // Simple FAQ toggle is handled inline with onclick
+    
+    // Artist Submission Form with Resend API Integration
+    document.getElementById('artistSubmissionForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const submitText = document.getElementById('submitText');
+      const loadingText = document.getElementById('loadingText');
+      const successMessage = document.getElementById('successMessage');
+      const errorMessage = document.getElementById('errorMessage');
+      const errorText = document.getElementById('errorText');
+      
+      // Hide previous messages
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+      
+      // Show loading state
+      submitText.style.display = 'none';
+      loadingText.style.display = 'inline';
+      submitBtn.disabled = true;
+      
+      // Collect form data
+      const formData = {
+        artistName: document.getElementById('artistName').value,
+        email: document.getElementById('email').value,
+        genre: document.getElementById('genre').value,
+        experience: document.getElementById('experience').value,
+        musicLink: document.getElementById('musicLink').value,
+        message: document.getElementById('message').value,
+        submittedAt: new Date().toISOString(),
+        source: 'Comparison Page'
+      };
+      
+      try {
+        // Send email using Resend API
+        const response = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer re_UNss1tq7_PujVM4gtTVjo4svjVjU8WQRx',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            from: 'OneSync <noreply@notifications.onesync.music>',
+            to: ['info@onesync.music'],
+            reply_to: formData.email,
+            subject: `🎵 New Partner Application: ${formData.artistName}`,
+            html: `
+              <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #1a1a1a; color: #fff; padding: 30px; border-radius: 10px;">
+                <h1 style="color: #667eea; margin-bottom: 20px;">🎵 New Partner Application</h1>
+                
+                <div style="background: #2a2a2a; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                  <h2 style="color: #fff; margin-top: 0;">Applicant Details</h2>
+                  <p><strong>Name:</strong> ${formData.artistName}</p>
+                  <p><strong>Email:</strong> <a href="mailto:${formData.email}" style="color: #667eea;">${formData.email}</a></p>
+                  <p><strong>Genre:</strong> ${formData.genre}</p>
+                  <p><strong>Experience:</strong> ${formData.experience}</p>
+                  ${formData.musicLink ? `<p><strong>Music Link:</strong> <a href="${formData.musicLink}" style="color: #667eea;">${formData.musicLink}</a></p>` : ''}
+                  <p><strong>Message:</strong> ${formData.message || 'No message provided'}</p>
+                </div>
+                
+                ${formData.musicLink ? `
+                <div style="background: #333; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                  <h2 style="color: #fff; margin-top: 0;">🎧 Music Sample</h2>
+                  <p><a href="${formData.musicLink}" style="color: #667eea; text-decoration: underline;">Listen to Sample →</a></p>
+                </div>
+                ` : ''}
+                
+                <div style="background: #333; padding: 15px; border-radius: 8px; text-align: center;">
+                  <p style="margin: 0; color: #888;">Application ID: ${crypto.randomUUID ? crypto.randomUUID() : '929c2620-0d14-4baf-80bc-bac0863d7f0d'}</p>
+                  <p style="margin: 5px 0 0; color: #888;">Submitted: ${new Date(formData.submittedAt).toLocaleString()}</p>
+                  <p style="margin: 5px 0 0; color: #888;">Source: ${formData.source}</p>
+                </div>
+              </div>
+            `
+          })
+        });
+        
+        if (response.ok) {
+          // Success - show success message
+          successMessage.style.display = 'block';
+          // Reset form
+          e.target.reset();
+          // Scroll to success message
+          successMessage.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          const errorData = await response.json();
+          throw new Error(errorData.message || 'Failed to send submission');
+        }
+        
+      } catch (error) {
+        console.error('Submission error:', error);
+        errorText.textContent = error.message || 'Please try again or contact support if the problem persists.';
+        errorMessage.style.display = 'block';
+        errorMessage.scrollIntoView({ behavior: 'smooth' });
+      } finally {
+        // Reset button state
+        submitText.style.display = 'inline';
+        loadingText.style.display = 'none';
+        submitBtn.disabled = false;
+      }
+    });
+    
+    // Form validation enhancement
+    const form = document.getElementById('artistSubmissionForm');
+    const inputs = form.querySelectorAll('input[required], select[required]');
+    
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        if (this.value.trim() === '') {
+          this.style.borderColor = '#f87171';
+        } else {
+          this.style.borderColor = 'rgba(255,255,255,0.2)';
+        }
+      });
+      
+      input.addEventListener('input', function() {
+        if (this.style.borderColor === 'rgb(248, 113, 113)') {
+          this.style.borderColor = 'rgba(255,255,255,0.2)';
+        }
+      });
+    });
   </script>
 </body>
 </html>
