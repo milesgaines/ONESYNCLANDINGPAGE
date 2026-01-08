@@ -10,7 +10,7 @@
   <meta content="Compare the best music distribution services in 2026. Find the best distributor for your music career." property="twitter:description">
   <meta property="og:type" content="article">
   <meta content="summary_large_image" name="twitter:card">
-  <meta content="width=device-width, initial-scale=0.75" name="viewport">
+  <meta content="width=device-width, initial-scale=0.8" name="viewport">
   <meta name="keywords" content="music distribution comparison, best music distributor 2026, DistroKid vs TuneCore, CD Baby alternative, free music distribution, OneSync review, how to distribute music, Spotify distribution, Apple Music distribution">
   <link href="css/normalize.css?v=89" rel="stylesheet" type="text/css">
   <link href="css/webflow.css?v=89" rel="stylesheet" type="text/css">
@@ -132,7 +132,7 @@
     
     @media (max-width: 768px) {
       .comparison-title { font-size: 2rem; }
-      .comparison-hero { padding: 120px 0 60px; }
+      .comparison-hero { padding: 120px 0 60px; padding-top: 140px; }
       .footer-grid { grid-template-columns: 1fr; }
       .distributor-grid { grid-template-columns: 1fr; }
       .pros-cons { grid-template-columns: 1fr; }
@@ -144,6 +144,10 @@
       width: 100%;
       max-width: 100vw;
       box-sizing: border-box;
+      z-index: 9999 !important;
+      position: relative;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
     }
     .new-container {
       max-width: 100%;
@@ -194,6 +198,12 @@
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         min-height: 4rem;
+        position: sticky;
+        top: 0;
+        z-index: 9999 !important;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
       }
       .new-container {
         padding-left: 0;
