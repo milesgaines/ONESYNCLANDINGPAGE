@@ -164,6 +164,12 @@
       overflow: visible;
       display: flex !important;
     }
+    .menu-right, .menu-left {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      overflow: visible !important;
+    }
     .navbar-link {
       padding: 0.5rem 0.75rem;
       font-size: 0.95rem;
@@ -171,6 +177,7 @@
       display: inline-block !important;
       opacity: 1 !important;
       visibility: visible !important;
+      flex-shrink: 0;
     }
     .button-flex-left {
       flex-shrink: 0;
@@ -217,6 +224,20 @@
         padding-left: 0;
         padding-right: 0;
         gap: 0.5rem;
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .navbar-menu {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        overflow: visible !important;
+      }
+      .menu-right, .menu-left {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
       }
       .logotype {
         max-width: 100px;
