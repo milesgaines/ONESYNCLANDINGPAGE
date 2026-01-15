@@ -2,16 +2,16 @@
 <html data-wf-page="comparison" data-wf-site="67c67755f20898494779b72e" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Music Distribution Comparison 2026 | OneSync vs DistroKid vs TuneCore vs CD Baby</title>
-  <meta content="Compare the best music distribution services in 2026. See how OneSync stacks up against DistroKid, TuneCore, CD Baby, and LANDR with detailed pricing, features, and honest reviews." name="description">
-  <meta content="Music Distribution Comparison 2026 | OneSync vs DistroKid vs TuneCore vs CD Baby" property="og:title">
-  <meta content="Compare the best music distribution services in 2026. See how OneSync stacks up against DistroKid, TuneCore, CD Baby, and LANDR." property="og:description">
-  <meta content="Music Distribution Comparison 2026 | OneSync vs DistroKid vs TuneCore vs CD Baby" property="twitter:title">
-  <meta content="Compare the best music distribution services in 2026. Find the best distributor for your music career." property="twitter:description">
-  <meta property="og:type" content="article">
+  <title>About Us | OneSync - Built by Artists, for Artists</title>
+  <meta content="Meet the team behind OneSync. Grammy-nominated producers, industry veterans, and tech innovators on a mission to democratize music distribution. 100% free, 100% artist-owned." name="description">
+  <meta content="About Us | OneSync - Built by Artists, for Artists" property="og:title">
+  <meta content="Meet the team behind OneSync. Grammy-nominated producers and industry veterans building the future of music distribution." property="og:description">
+  <meta content="About Us | OneSync - Built by Artists, for Artists" property="twitter:title">
+  <meta content="Meet the team behind OneSync. Built by artists who've been in the trenches." property="twitter:description">
+  <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=0.8" name="viewport">
-  <meta name="keywords" content="music distribution comparison, best music distributor 2026, DistroKid vs TuneCore, CD Baby alternative, free music distribution, OneSync review, how to distribute music, Spotify distribution, Apple Music distribution">
+  <meta name="keywords" content="OneSync about us, music distribution company, free music distribution, artist-owned distributor, indie music platform, music industry veterans, Grammy producers, sync licensing, publishing admin">
   <link href="css/normalize.css?v=89" rel="stylesheet" type="text/css">
   <link href="css/webflow.css?v=89" rel="stylesheet" type="text/css">
   <link href="css/onesyncdistribution-6f586bff4726ebd747a.webflow.css?v=89" rel="stylesheet" type="text/css">
@@ -137,6 +137,11 @@
       .distributor-grid { grid-template-columns: 1fr; }
       .pros-cons { grid-template-columns: 1fr; }
       .article-meta { flex-direction: column; gap: 10px; }
+    }
+    
+    /* About Us page responsive */
+    @media (max-width: 991px) {
+      .about-grid-2col { grid-template-columns: 1fr !important; gap: 40px !important; }
     }
     
     /* Fix navbar to fit on screen without zooming */
@@ -317,10 +322,484 @@
         display: none;
       }
     }
+    
+    /* ===== EPIC SITE PRELOADER ===== */
+    .site-preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #0f0f23 0%, #000000 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+      overflow: hidden;
+    }
+    
+    .site-preloader::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(102, 126, 234, 0.1) 0%, transparent 40%);
+      animation: bgFloat 8s ease-in-out infinite;
+    }
+    
+    .artist-bg-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 30px;
+      padding: 40px;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .artist-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      filter: grayscale(80%) blur(2px);
+      animation: artistFloat 6s ease-in-out infinite;
+    }
+    
+    .artist-bg-img:nth-child(odd) {
+      animation-delay: -3s;
+    }
+    
+    .artist-bg-img:nth-child(3n) {
+      animation-delay: -1.5s;
+    }
+    
+    @keyframes artistFloat {
+      0%, 100% { transform: scale(1) translateY(0); opacity: 0.8; }
+      50% { transform: scale(1.05) translateY(-10px); opacity: 1; }
+    }
+    
+    .site-preloader::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+    }
+    
+    @keyframes bgFloat {
+      0%, 100% { transform: translate(-5%, -5%) rotate(0deg); }
+      50% { transform: translate(5%, 5%) rotate(180deg); }
+    }
+    
+    .site-preloader.loaded {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    
+    .preloader-logo-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .preloader-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid transparent;
+    }
+    
+    .preloader-ring-1 {
+      width: 200px;
+      height: 200px;
+      border-top-color: #667eea;
+      border-right-color: rgba(102, 126, 234, 0.3);
+      animation: ringRotate 2s linear infinite;
+    }
+    
+    .preloader-ring-2 {
+      width: 230px;
+      height: 230px;
+      border-bottom-color: #764ba2;
+      border-left-color: rgba(118, 75, 162, 0.3);
+      animation: ringRotate 3s linear infinite reverse;
+    }
+    
+    .preloader-ring-3 {
+      width: 260px;
+      height: 260px;
+      border-top-color: rgba(102, 126, 234, 0.5);
+      animation: ringRotate 4s linear infinite;
+    }
+    
+    @keyframes ringRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .preloader-logo {
+      width: 120px;
+      height: 120px;
+      animation: logoSpin 1.5s linear infinite, logoGlow 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 30px rgba(102, 126, 234, 0.6));
+      position: relative;
+      z-index: 2;
+    }
+    
+    @keyframes logoSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes logoGlow {
+      0%, 100% { filter: drop-shadow(0 0 30px rgba(102, 126, 234, 0.6)); }
+      50% { filter: drop-shadow(0 0 50px rgba(118, 75, 162, 0.8)); }
+    }
+    
+    .preloader-text {
+      margin-top: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .preloader-text span {
+      display: inline-block;
+      animation: letterWave 0.8s ease-in-out infinite;
+    }
+    
+    .preloader-text span:nth-child(1) { animation-delay: 0s; }
+    .preloader-text span:nth-child(2) { animation-delay: 0.08s; }
+    .preloader-text span:nth-child(3) { animation-delay: 0.16s; }
+    .preloader-text span:nth-child(4) { animation-delay: 0.24s; }
+    .preloader-text span:nth-child(5) { animation-delay: 0.32s; }
+    .preloader-text span:nth-child(6) { animation-delay: 0.4s; }
+    .preloader-text span:nth-child(7) { animation-delay: 0.48s; }
+    
+    @keyframes letterWave {
+      0%, 100% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(-5px); opacity: 1; }
+    }
+    
+    .preloader-bar-container {
+      margin-top: 40px;
+      width: 280px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .preloader-bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+      background-size: 200% 100%;
+      border-radius: 10px;
+      animation: preloaderProgress 1s ease-out forwards, barShimmer 0.6s linear infinite;
+    }
+    
+    @keyframes barShimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    
+    @keyframes preloaderProgress {
+      0% { width: 0%; }
+      50% { width: 70%; }
+      100% { width: 100%; }
+    }
+    
+    .entry-choice {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .entry-choice.show {
+      display: flex;
+      opacity: 1;
+    }
+    
+    .entry-logo {
+      width: 100px;
+      height: 100px;
+      filter: drop-shadow(0 0 40px rgba(102, 126, 234, 0.5));
+      animation: floatLogo 3s ease-in-out infinite;
+    }
+    
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .entry-choice-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff 0%, #667eea 50%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+      margin-bottom: 0;
+      animation: titleGlow 3s ease-in-out infinite;
+    }
+    
+    @keyframes titleGlow {
+      0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+      50% { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.3)); }
+    }
+    
+    .entry-choice-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-align: center;
+      max-width: 400px;
+      line-height: 1.6;
+    }
+    
+    .entry-choice-buttons {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 60px;
+    }
+    
+    .entry-choice-btn {
+      position: relative;
+      padding: 45px 100px;
+      border-radius: 25px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      border: none;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      overflow: hidden;
+      min-width: 320px;
+    }
+    
+    .entry-choice-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 3px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: borderGlow 3s ease-in-out infinite;
+    }
+    
+    @keyframes borderGlow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    
+    .entry-choice-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(102, 126, 234, 0.08);
+      border-radius: 20px;
+      z-index: -1;
+      backdrop-filter: blur(10px);
+    }
+    
+    .entry-choice-btn .btn-icon {
+      display: none;
+    }
+    
+    .entry-choice-btn.primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      box-shadow: 
+        0 15px 50px rgba(102, 126, 234, 0.5),
+        0 0 80px rgba(102, 126, 234, 0.3),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    
+    .entry-choice-btn.primary::before {
+      display: none;
+    }
+    
+    .entry-choice-btn.primary::after {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .entry-choice-btn:hover {
+      transform: translateY(-10px) scale(1.08);
+      box-shadow: 
+        0 30px 80px rgba(102, 126, 234, 0.5),
+        0 0 100px rgba(118, 75, 162, 0.4);
+    }
+    
+    .entry-choice-btn.primary:hover {
+      box-shadow: 
+        0 30px 80px rgba(102, 126, 234, 0.6),
+        0 0 120px rgba(118, 75, 162, 0.5),
+        inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    
+    .entry-choice-btn:active {
+      transform: translateY(-5px) scale(1.04);
+    }
+    
+    .entry-choice-btn .btn-shine {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.8s ease;
+    }
+    
+    .entry-choice-btn:hover .btn-shine {
+      left: 100%;
+    }
+    
+    .btn-text {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    @media (max-width: 480px) {
+      .preloader-logo {
+        width: 90px;
+        height: 90px;
+      }
+      .preloader-ring-1 { width: 150px; height: 150px; }
+      .preloader-ring-2 { width: 175px; height: 175px; }
+      .preloader-ring-3 { width: 200px; height: 200px; }
+      .entry-choice-btn {
+        padding: 25px 50px;
+        min-width: 240px;
+      }
+      .entry-choice-btn .btn-icon {
+        font-size: 2.5rem;
+      }
+      .btn-text {
+        font-size: 1.1rem;
+      }
+      .preloader-text {
+        font-size: 0.75rem;
+        letter-spacing: 0.3em;
+      }
+      .entry-choice-buttons {
+        gap: 25px;
+      }
+    }
+    
+    .page-content {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    .page-content.visible {
+      opacity: 1;
+      visibility: visible;
+    }
   </style>
 </head>
 <body>
-  <div class="page-content">
+  <!-- Site Preloader & Entry Choice -->
+  <div class="site-preloader" id="sitePreloader">
+    <div class="artist-bg-grid">
+      <img src="images/BoneThugsNHarmony1.webp" alt="" class="artist-bg-img">
+      <img src="images/Cash-Cobain-Hip-Hop-50-copy.jpg" alt="" class="artist-bg-img">
+      <img src="images/THE_GAME_81582.jpg" alt="" class="artist-bg-img">
+      <img src="images/king-combs-bw.jpg" alt="" class="artist-bg-img">
+      <img src="images/Damizza.jpg" alt="" class="artist-bg-img">
+      <img src="images/dizzy-wright-teams-with-chris-webby-embed.jpg.webp" alt="" class="artist-bg-img">
+      <img src="images/Young Drummer Boy.jpg" alt="" class="artist-bg-img">
+      <img src="images/capella grey.jpeg" alt="" class="artist-bg-img">
+      <img src="images/shaqnlivin.png" alt="" class="artist-bg-img">
+      <img src="images/Lil' Bams.jpg.webp" alt="" class="artist-bg-img">
+      <img src="images/ab6761610000e5ebfb89ee67b8876ba0c4ab828e.jpeg" alt="" class="artist-bg-img">
+      <img src="images/jungle.jpg" alt="" class="artist-bg-img">
+      <img src="images/the_game_net_worth.jpg" alt="" class="artist-bg-img">
+      <img src="images/pfacebabyyy.jpg" alt="" class="artist-bg-img">
+      <img src="images/bone thugs n harmony.jpg" alt="" class="artist-bg-img">
+    </div>
+    
+    <div id="loadingState" style="display: flex; flex-direction: column; align-items: center;">
+      <div class="preloader-logo-container">
+        <div class="preloader-ring preloader-ring-1"></div>
+        <div class="preloader-ring preloader-ring-2"></div>
+        <div class="preloader-ring preloader-ring-3"></div>
+        <img src="images/S LOGO SMALL.png" alt="Loading..." class="preloader-logo">
+      </div>
+      <div class="preloader-text">
+        <span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span>
+      </div>
+      <div class="preloader-bar-container">
+        <div class="preloader-bar"></div>
+      </div>
+    </div>
+    
+    <div class="entry-choice" id="entryChoice">
+      <img src="images/ONESYNC-LOGO-WHITE.PNG" alt="OneSync" class="entry-logo" style="width: 450px; height: auto; margin-bottom: 20px;">
+      <div class="entry-choice-subtitle">Your all-in-one hub for artists, labels & fans</div>
+      <div class="entry-choice-buttons">
+        <button class="entry-choice-btn primary" id="artistLabelBtn">
+          <span class="btn-shine"></span>
+          <span class="btn-icon">🎵</span>
+          <span class="btn-text">Artists / Labels</span>
+        </button>
+        <a href="contact.html" class="entry-choice-btn">
+          <span class="btn-shine"></span>
+          <span class="btn-icon">🎧</span>
+          <span class="btn-text">Fans</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content" id="pageContent">
     <div class="page-wrapper">
       <!-- Navigation -->
       <div data-w-id="6b2f2b79-e5ac-15c5-1b19-a2bc7f1f7956" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-component w-nav">
@@ -333,6 +812,7 @@
               <div class="menu-left">
                 <a href="index.html" class="navbar-link w-nav-link">Home</a>
                 <a href="comparison.html" class="navbar-link w-nav-link">About Us</a>
+                <a href="blog-streaming-optimization.html" class="navbar-link w-nav-link">Blog</a>
                 <a href="contact.html" class="navbar-link w-nav-link">Contact</a>
                 <a href="https://app.onesync.music" class="navbar-link w-nav-link">Login</a>
               </div>
@@ -343,6 +823,34 @@
               <a href="https://app.onesync.music/auth/signup" data-ms-modal="signup" target="_blank" class="button-with-animation w-inline-block">
                 <div class="text-button">Join Now</div><img loading="lazy" src="images/icons8-arrow-3.svg" alt="" class="arrow-button">
               </a>
+            </div>
+            <div class="mobile-pages-dropdown">
+              <label class="mobile-pages-label" for="mobile-pages-select">Pages</label>
+              <select id="mobile-pages-select" class="mobile-pages-select" onchange="if (this.value) window.location.href=this.value;">
+                <option value="">All Pages</option>
+                <option value="index.html">Home</option>
+                <option value="comparison.html">About Us</option>
+                <option value="blog-streaming-optimization.html">Blog</option>
+                <option value="contact.html">Contact</option>
+                <option value="privacy-policy.html">Privacy Policy</option>
+                <option value="terms.html">Terms</option>
+                <option value="refund-policy.html">Refund Policy</option>
+                <option value="legal.html">Legal</option>
+                <option value="log-in.html">Log In</option>
+                <option value="forgot.html">Forgot Password</option>
+                <option value="user.html">User</option>
+                <option value="checkout.html">Checkout</option>
+                <option value="paypal-checkout.html">PayPal Checkout</option>
+                <option value="order-confirmation.html">Order Confirmation</option>
+                <option value="detail_product.html">Product Detail</option>
+                <option value="detail_sku.html">SKU Detail</option>
+                <option value="detail_category.html">Category Detail</option>
+                <option value="detail_post.html">Post Detail</option>
+                <option value="detail_post-categories.html">Post Categories</option>
+                <option value="application-success.html">Application Success</option>
+                <option value="401.html">401</option>
+                <option value="404.html">404</option>
+              </select>
             </div>
             <div class="menu-button-new w-nav-button">
               <div class="icon-component">
@@ -361,25 +869,196 @@
           <div class="breadcrumb">
             <a href="index.html">Home</a> / <a href="comparison.html">About Us</a>
           </div>
-          <div class="article-meta">
-            <span class="article-category">Distribution Guide</span>
-            <span class="article-date">Updated January 2026</span>
-            <span class="article-read-time">12 min read</span>
-          </div>
-          <h1 class="comparison-title">Best Music Distribution Services 2026</h1>
-          <p class="comparison-subtitle">An honest, detailed comparison of the top music distributors. Find out which platform is right for your music career.</p>
-          
-          <div class="highlight-box" style="max-width: 800px; margin: 40px auto 0;">
-            <strong>Key Takeaway:</strong> Choosing the right music distributor can make or break your career. In this comprehensive guide, we compare pricing, features, royalty rates, and hidden fees across all major platforms so you can make an informed decision.
+          <h1 class="comparison-title">About OneSync</h1>
+          <p class="comparison-subtitle">Built by artists, for artists. We're on a mission to democratize the music industry and give every creator a fair shot.</p>
+        </div>
+      </section>
+
+      <!-- Our Story Section -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Our Story</h2>
+          <div class="about-grid-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+            <div>
+              <p class="section-desc" style="max-width: none; margin-bottom: 25px;">
+                OneSync was born from frustration. Our founding team—Grammy-nominated producers, multi-platinum songwriters, and industry executives with over 50 combined years of experience—watched as countless talented artists got lost in the shuffle of an industry designed to favor the few.
+              </p>
+              <p class="section-desc" style="max-width: none; margin-bottom: 25px;">
+                We've worked with legends. We've seen the inside of major labels, publishing companies, and sync agencies. We know how the game is played—and we knew it was time to change the rules.
+              </p>
+              <p class="section-desc" style="max-width: none;">
+                In 2023, we asked ourselves a simple question: <strong style="color: #667eea;">What if every artist had access to the same tools, services, and opportunities that only major label artists get?</strong> OneSync is our answer.
+              </p>
+            </div>
+            <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15)); border-radius: 20px; padding: 40px; border: 1px solid rgba(102, 126, 234, 0.2);">
+              <div style="text-align: center; margin-bottom: 30px;">
+                <img src="images/S LOGO SMALL.png" alt="OneSync" style="width: 80px; height: 80px; margin-bottom: 20px;">
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; text-align: center;">
+                <div>
+                  <div style="font-size: 2.5rem; font-weight: 700; color: #667eea;">50+</div>
+                  <div style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">Years Combined Experience</div>
+                </div>
+                <div>
+                  <div style="font-size: 2.5rem; font-weight: 700; color: #764ba2;">150+</div>
+                  <div style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">Distribution Platforms</div>
+                </div>
+                <div>
+                  <div style="font-size: 2.5rem; font-weight: 700; color: #4ade80;">100%</div>
+                  <div style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">Royalties to Artists</div>
+                </div>
+                <div>
+                  <div style="font-size: 2.5rem; font-weight: 700; color: #fbbf24;">24/7</div>
+                  <div style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">Artist Support</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-  <!-- Quick Comparison Table -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Quick Comparison Overview</h2>
-      <p class="section-desc">See how the top music distribution platforms compare at a glance. We've analyzed pricing, features, royalty rates, and more.</p>
+      <!-- Meet The Team Section -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2 class="section-title" style="text-align: center;">The Team Behind OneSync</h2>
+          <p class="section-desc" style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+            We're not suits in a boardroom. We're producers, musicians, and industry veterans who've been in the trenches.
+          </p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <!-- Team Member 1 -->
+            <div style="background: #1a1a1a; border-radius: 20px; padding: 35px; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+              <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">🎹</div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Founder & CEO</h3>
+              <p style="color: #667eea; font-size: 0.9rem; margin-bottom: 15px;">Grammy-Nominated Producer</p>
+              <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.6;">Multi-platinum producer who's worked with some of hip-hop's biggest names. After 20+ years in the industry, he's dedicated to giving independent artists a real chance.</p>
+            </div>
+            
+            <!-- Team Member 2 -->
+            <div style="background: #1a1a1a; border-radius: 20px; padding: 35px; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+              <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #764ba2, #667eea); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">🎧</div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Co-Founder & COO</h3>
+              <p style="color: #764ba2; font-size: 0.9rem; margin-bottom: 15px;">Tech Entrepreneur & Artist</p>
+              <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.6;">A tech visionary and passionate musician who believes technology should empower artists, not exploit them. Building the future of music distribution.</p>
+            </div>
+            
+            <!-- Team Member 3 -->
+            <div style="background: #1a1a1a; border-radius: 20px; padding: 35px; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+              <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #4ade80, #22c55e); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">🎵</div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Head of A&R</h3>
+              <p style="color: #4ade80; font-size: 0.9rem; margin-bottom: 15px;">Former Major Label Executive</p>
+              <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.6;">15 years at major labels discovering and developing talent. Now using that experience to scout and support the next generation of independent stars.</p>
+            </div>
+            
+            <!-- Team Member 4 -->
+            <div style="background: #1a1a1a; border-radius: 20px; padding: 35px; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+              <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #fbbf24, #f59e0b); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">📻</div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Head of Sync & Radio</h3>
+              <p style="color: #fbbf24; font-size: 0.9rem; margin-bottom: 15px;">Music Supervisor & Promoter</p>
+              <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.6;">Placed music in major films, TV shows, and commercials. Now helping independent artists get the placements that change careers.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Mission Section -->
+      <section class="section">
+        <div class="container">
+          <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="section-desc" style="max-width: none; margin: 0 auto 30px;">
+              We believe music distribution should be <strong style="color: #fff;">free</strong>. We believe artists should keep <strong style="color: #fff;">100% of their royalties</strong>. We believe every creator deserves access to the same tools and opportunities as major label artists.
+            </p>
+            
+            <div class="highlight-box" style="text-align: left;">
+              <h3 style="color: #667eea; margin-bottom: 15px;">🎯 What We Stand For</h3>
+              <ul style="list-style: none; padding: 0; margin: 0; color: rgba(255,255,255,0.8); line-height: 2;">
+                <li>✓ <strong>Transparency</strong> — No hidden fees, no surprises. Ever.</li>
+                <li>✓ <strong>Artist Ownership</strong> — You keep 100% of your rights and royalties.</li>
+                <li>✓ <strong>Equal Opportunity</strong> — Major-label tools available to everyone.</li>
+                <li>✓ <strong>Real Support</strong> — 24/7 help from people who actually understand music.</li>
+                <li>✓ <strong>Innovation</strong> — Constantly building new ways to help you succeed.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why We're Different Section -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2 class="section-title" style="text-align: center;">Why We're Different</h2>
+          <p class="section-desc" style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+            We're not just another distributor. We're a full-service music company designed to help you build a career.
+          </p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(102, 126, 234, 0.05)); border-radius: 20px; padding: 35px; border: 1px solid rgba(102, 126, 234, 0.2);">
+              <div style="font-size: 2.5rem; margin-bottom: 15px;">💰</div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 12px;">Free Forever</h3>
+              <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7;">Other distributors charge per release or yearly fees. We believe that's backwards. Distribution should be free—we make money when you make money.</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(118, 75, 162, 0.1), rgba(118, 75, 162, 0.05)); border-radius: 20px; padding: 35px; border: 1px solid rgba(118, 75, 162, 0.2);">
+              <div style="font-size: 2.5rem; margin-bottom: 15px;">🚀</div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 12px;">Royalty Advances</h3>
+              <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7;">Qualifying artists can access advances up to $750,000. This isn't a loan—it's your future royalties, today. No interest, no debt collectors.</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(74, 222, 128, 0.05)); border-radius: 20px; padding: 35px; border: 1px solid rgba(74, 222, 128, 0.2);">
+              <div style="font-size: 2.5rem; margin-bottom: 15px;">🎬</div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 12px;">Sync Licensing</h3>
+              <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7;">Our team actively pitches your music for film, TV, commercials, and video games. These placements can change your career overnight.</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05)); border-radius: 20px; padding: 35px; border: 1px solid rgba(251, 191, 36, 0.2);">
+              <div style="font-size: 2.5rem; margin-bottom: 15px;">📻</div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 12px;">Radio Campaigns</h3>
+              <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7;">Radio still matters. We have relationships with stations worldwide and can help get your music on the air where it belongs.</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(248, 113, 113, 0.1), rgba(248, 113, 113, 0.05)); border-radius: 20px; padding: 35px; border: 1px solid rgba(248, 113, 113, 0.2);">
+              <div style="font-size: 2.5rem; margin-bottom: 15px;">📝</div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 12px;">Publishing Admin</h3>
+              <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7;">We collect your publishing royalties worldwide—money most artists don't even know they're owed. No extra fees, it's included.</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(96, 165, 250, 0.05)); border-radius: 20px; padding: 35px; border: 1px solid rgba(96, 165, 250, 0.2);">
+              <div style="font-size: 2.5rem; margin-bottom: 15px;">🎛️</div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 12px;">AI Mastering</h3>
+              <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7;">Professional-quality mastering powered by AI, included free. Your tracks will sound radio-ready before they hit the platforms.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Industry Experience Quote -->
+      <section class="section">
+        <div class="container">
+          <div style="max-width: 900px; margin: 0 auto; text-align: center; padding: 60px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 30px;">
+            <div style="font-size: 4rem; margin-bottom: 20px;">"</div>
+            <p style="font-size: 1.5rem; line-height: 1.7; margin-bottom: 30px; font-weight: 300;">
+              We've sat in the boardrooms. We've seen how the majors operate. We've watched brilliant artists get taken advantage of. OneSync exists because we know there's a better way—and we're building it.
+            </p>
+            <p style="font-size: 1rem; opacity: 0.9;">— The OneSync Founding Team</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Distribution Comparison Section -->
+      <section class="section section-alt">
+        <div class="container">
+          <div class="article-meta" style="margin-bottom: 30px;">
+            <span class="article-category">Distribution Guide</span>
+            <span class="article-date">Updated January 2026</span>
+            <span class="article-read-time">12 min read</span>
+          </div>
+          <h2 class="section-title">How We Compare to Other Distributors</h2>
+          <p class="section-desc">We believe in transparency. Here's an honest comparison of how OneSync stacks up against the competition.</p>
+          
+          <div class="highlight-box" style="max-width: 800px; margin: 20px 0 40px;">
+            <strong>Key Takeaway:</strong> Choosing the right music distributor can make or break your career. We've analyzed pricing, features, royalty rates, and hidden fees across all major platforms so you can make an informed decision.
+          </div>
       
       <div class="comparison-table-wrapper">
         <table class="comparison-table">
@@ -1115,6 +1794,51 @@
         }
       });
     });
+    
+    // ===== SITE PRELOADER & ENTRY CHOICE HANDLER =====
+    window.addEventListener('load', function() {
+      const loadingState = document.getElementById('loadingState');
+      const entryChoice = document.getElementById('entryChoice');
+      const preloader = document.getElementById('sitePreloader');
+      const pageContent = document.getElementById('pageContent');
+      const artistLabelBtn = document.getElementById('artistLabelBtn');
+      
+      setTimeout(function() {
+        if (loadingState) {
+          loadingState.style.opacity = '0';
+          loadingState.style.transition = 'opacity 0.4s ease';
+          
+          setTimeout(function() {
+            loadingState.style.display = 'none';
+            if (entryChoice) {
+              entryChoice.classList.add('show');
+            }
+          }, 400);
+        }
+      }, 1200);
+      
+      if (artistLabelBtn) {
+        artistLabelBtn.addEventListener('click', function() {
+          if (preloader) {
+            preloader.classList.add('loaded');
+          }
+          if (pageContent) {
+            pageContent.classList.add('visible');
+          }
+        });
+      }
+    });
+    
+    setTimeout(function() {
+      const loadingState = document.getElementById('loadingState');
+      const entryChoice = document.getElementById('entryChoice');
+      if (loadingState && loadingState.style.display !== 'none') {
+        loadingState.style.display = 'none';
+        if (entryChoice) {
+          entryChoice.classList.add('show');
+        }
+      }
+    }, 5000);
   </script>
 </body>
 </html>

@@ -22269,3 +22269,78 @@ html, body {
     display: none !important;
   }
 }
+
+/* Mobile pages dropdown (replaces hamburger on small screens) */
+.mobile-pages-dropdown {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-pages-label {
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.mobile-pages-select {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  outline: none;
+}
+
+.mobile-pages-select option {
+  color: #000;
+}
+
+@media screen and (max-width: 991px) {
+  .mobile-pages-dropdown {
+    display: flex;
+  }
+
+  .menu-button-new,
+  .menu-button,
+  .w-nav-button {
+    display: none !important;
+  }
+
+  .navbar-menu {
+    display: none !important;
+  }
+}
+
+/* Slightly zoom out mobile view */
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 95%;
+  }
+}
+
+/* Symmetry for card/grid layouts */
+.grid-2-columns,
+.grid-3-columns,
+.combine-gallery2_component,
+.listing-cards {
+  align-items: stretch;
+}
+
+.grid-2-columns > *,
+.grid-3-columns > *,
+.combine-gallery2_component > *,
+.listing-cards > * {
+  height: 100%;
+}
+
+.step-box-main,
+.pricing-card,
+.artist-card,
+.card,
+.card-testimonial {
+  display: flex;
+  flex-direction: column;
+}
