@@ -2228,14 +2228,24 @@
       
       // Artist/Label button reveals the landing page and sets session flag
       if (artistLabelBtn) {
-        artistLabelBtn.addEventListener('click', function() {
-          sessionStorage.setItem('onesync-visited', 'true');
-          if (preloader) {
-            preloader.classList.add('loaded');
+        artistLabelBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Hide the entry choice first with a fade
+          if (entryChoice) {
+            entryChoice.style.opacity = '0';
+            entryChoice.style.transition = 'opacity 0.4s ease';
           }
-          if (pageContent) {
-            pageContent.classList.add('visible');
-          }
+          
+          // Then reveal the main content
+          setTimeout(function() {
+            sessionStorage.setItem('onesync-visited', 'true');
+            if (preloader) {
+              preloader.classList.add('loaded');
+            }
+            if (pageContent) {
+              pageContent.classList.add('visible');
+            }
+          }, 400);
         });
       }
       
