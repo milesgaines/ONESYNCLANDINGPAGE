@@ -301,18 +301,18 @@
                     </div>
                     <div class="margin-60px">
                       <div class="w-form">
-                        <form id="email-form" name="email-form" data-name="Email Form" method="post" data-wf-page-id="67c67755f20898494779b7a7" data-wf-element-id="08004f34-689f-9a9f-ba2b-8c3f74ee3ac5">
-                          <div data-w-id="08004f34-689f-9a9f-ba2b-8c3f74ee3ac6" style="opacity:0" class="field-flex"><label for="name" class="field-label-2">Full Name*</label><input class="contact-field w-input" maxlength="256" name="name" data-name="Name" placeholder="" type="text" id="name" required=""></div>
-                          <div data-w-id="08004f34-689f-9a9f-ba2b-8c3f74ee3aca" style="opacity:0" class="field-flex"><label for="Email" class="field-label-2">Email Address*</label><input class="contact-field w-input" maxlength="256" name="Email" data-name="Email" placeholder="" type="email" id="Email" required=""></div>
-                          <div data-w-id="08004f34-689f-9a9f-ba2b-8c3f74ee3ace" style="opacity:0" class="field-flex"><label for="Company" class="field-label-2">Company</label><input class="contact-field w-input" maxlength="256" name="Company" data-name="Company" placeholder="" type="text" id="Company"></div>
-                          <div data-w-id="08004f34-689f-9a9f-ba2b-8c3f74ee3ad2" style="opacity:0" class="field-flex vertical"><label for="Text-Area" class="field-label-2">How can we help you?*<br></label><textarea name="Text-Area" maxlength="5000" id="Text-Area" data-name="Text Area" placeholder="" required="" class="contact-field area w-input"></textarea></div>
-                          <div data-w-id="08004f34-689f-9a9f-ba2b-8c3f74ee3ad7" style="opacity:0" class="button-flex-2"><input type="submit" data-wait="Please wait..." class="button w-button" value="Send Message"></div>
+                        <form id="email-form" name="email-form" data-name="Email Form" action="https://formspree.io/f/info@onesync.music" method="POST">
+                          <div data-w-id="08004f34-689f-9a9f-ba2b-8c3f74ee3ac6" style="opacity:1" class="field-flex"><label for="name" class="field-label-2">Full Name*</label><input class="contact-field w-input" maxlength="256" name="name" data-name="Name" placeholder="" type="text" id="name" required=""></div>
+                          <div data-w-id="08004f34-689f-9a9f-ba2b-8c3f74ee3aca" style="opacity:1" class="field-flex"><label for="Email" class="field-label-2">Email Address*</label><input class="contact-field w-input" maxlength="256" name="email" data-name="Email" placeholder="" type="email" id="Email" required=""></div>
+                          <div data-w-id="08004f34-689f-9a9f-ba2b-8c3f74ee3ace" style="opacity:1" class="field-flex"><label for="Company" class="field-label-2">Company</label><input class="contact-field w-input" maxlength="256" name="company" data-name="Company" placeholder="" type="text" id="Company"></div>
+                          <div data-w-id="08004f34-689f-9a9f-ba2b-8c3f74ee3ad2" style="opacity:1" class="field-flex vertical"><label for="Text-Area" class="field-label-2">How can we help you?*<br></label><textarea name="message" maxlength="5000" id="Text-Area" data-name="Text Area" placeholder="" required="" class="contact-field area w-input"></textarea></div>
+                          <div data-w-id="08004f34-689f-9a9f-ba2b-8c3f74ee3ad7" style="opacity:1" class="button-flex-2"><input type="submit" data-wait="Sending..." class="button w-button" value="Send Message"></div>
                         </form>
-                        <div class="success-message-3 w-form-done">
-                          <div>Thank you! Your submission has been received!</div>
+                        <div class="success-message-3 w-form-done" style="display:none;">
+                          <div>Thank you! Your message has been sent. We'll get back to you soon.</div>
                         </div>
-                        <div class="error-message-3 w-form-fail">
-                          <div>Oops! Something went wrong while submitting the form.</div>
+                        <div class="error-message-3 w-form-fail" style="display:none;">
+                          <div>Please fill out all required fields.</div>
                         </div>
                       </div>
                     </div>
