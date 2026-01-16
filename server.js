@@ -367,7 +367,7 @@ app.post('/api/partner-application', async (req, res) => {
   // Send admin notification email
   const adminEmailHtml = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #1a1a1a; color: #fff; padding: 30px; border-radius: 10px;">
-      <h1 style="color: #667eea; margin-bottom: 20px;">🎵 New Partner Application</h1>
+      <h1 style="color: #667eea; margin-bottom: 20px;">𝄞 New Partner Application</h1>
       <div style="background: #2a2a2a; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
         <h2 style="color: #fff; margin-top: 0;">Applicant Details</h2>
         <p><strong>Name:</strong> ${name}</p>
@@ -391,7 +391,7 @@ app.post('/api/partner-application', async (req, res) => {
     </div>
   `;
   
-  await sendEmail(ADMIN_EMAIL, `🎵 New Partner Application: ${spotifyArtistName || name}`, adminEmailHtml);
+  await sendEmail(ADMIN_EMAIL, `𝄞 New Partner Application: ${spotifyArtistName || name}`, adminEmailHtml);
   
   res.json({ 
     success: true, 
