@@ -26,6 +26,48 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
+    /* ===== MODERN FAQ TOGGLE OVERRIDES ===== */
+    .toggle-main {
+      border-radius: 0 !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .drodpwdown-toggle-main {
+      border: none !important;
+      padding: 20px 0 !important;
+    }
+    .toggle-icon {
+      background: transparent !important;
+      width: 30px !important;
+      height: 30px !important;
+    }
+    .toggle-icon .filter-image {
+      filter: invert(1) !important;
+      opacity: 0.3;
+      width: 14px !important;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .w-dropdown-toggle.w--open .toggle-icon .filter-image {
+      transform: rotate(45deg);
+      opacity: 0.6;
+    }
+    .qa-text-main {
+      font-size: 1rem !important;
+      font-weight: 500 !important;
+      color: rgba(255,255,255,0.9) !important;
+    }
+    .toggle-content {
+      padding: 0 0 20px 0 !important;
+    }
+    .toggle-content .paragraph {
+      color: rgba(255,255,255,0.5) !important;
+      font-size: 0.95rem !important;
+      line-height: 1.7 !important;
+      padding-top: 0 !important;
+    }
+    .toogle-max-w {
+      margin-top: 30px !important;
+    }
+    
     /* Modern Full-Width Carousel */
     .hero-carousel-container {
       width: 100%;
