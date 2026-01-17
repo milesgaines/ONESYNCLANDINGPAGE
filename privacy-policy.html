@@ -302,6 +302,9 @@
     .mobile-dropdown-item.active { background: linear-gradient(135deg, rgba(102, 126, 234, 0.25), rgba(118, 75, 162, 0.25)); color: #fff; }
     .mobile-dropdown-item.active::before { opacity: 1; }
     .mobile-dropdown-item .item-icon { font-size: 1.1rem; }
+    .mobile-dropdown-item { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; padding: 16px 20px; }
+    .mobile-dropdown-trigger { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; padding: 12px 22px; }
+    .mobile-dropdown-menu { min-width: 240px; padding: 16px; }
     .mobile-dropdown-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent); margin: 8px 0; }
     @media screen and (max-width: 991px) { .mobile-pages-dropdown { display: block; } .mobile-pages-select { display: none; } }
     @media screen and (max-width: 480px) { .mobile-dropdown-trigger { padding: 8px 14px; font-size: 0.75rem; } .mobile-dropdown-menu { min-width: 180px; right: -10px; } .mobile-dropdown-item { padding: 12px 14px; font-size: 0.85rem; } }
@@ -329,12 +332,12 @@
           <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="mobile-dropdown-menu" id="dropdownMenu">
-          <a href="index.html" class="mobile-dropdown-item"><span class="item-icon">🏠</span><span>Home</span></a>
-          <a href="comparison.html" class="mobile-dropdown-item"><span class="item-icon">ℹ️</span><span>About Us</span></a>
-          <a href="contact.html" class="mobile-dropdown-item"><span class="item-icon">✉️</span><span>Contact</span></a>
+          <a href="index.html" class="mobile-dropdown-item"><span>Home</span></a>
+          <a href="comparison.html" class="mobile-dropdown-item"><span>About Us</span></a>
+          <a href="contact.html" class="mobile-dropdown-item"><span>Contact</span></a>
           <div class="mobile-dropdown-divider"></div>
-          <a href="privacy-policy.html" class="mobile-dropdown-item active"><span class="item-icon">🔒</span><span>Privacy</span></a>
-          <a href="terms.html" class="mobile-dropdown-item"><span class="item-icon">📄</span><span>Terms</span></a>
+          <a href="privacy-policy.html" class="mobile-dropdown-item active"><span>Privacy</span></a>
+          <a href="terms.html" class="mobile-dropdown-item"><span>Terms</span></a>
         </div>
       </div>
       <div class="menu-button w-nav-button">

@@ -747,14 +747,14 @@
     .mobile-dropdown-trigger {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
+      gap: 10px;
+      padding: 12px 22px;
       background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 12px;
       color: #fff;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 1rem;
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
@@ -780,11 +780,11 @@
       position: absolute;
       top: calc(100% + 10px);
       right: 0;
-      min-width: 200px;
+      min-width: 240px;
       background: linear-gradient(135deg, rgba(15, 15, 35, 0.98), rgba(25, 25, 50, 0.98));
       border: 1px solid rgba(102, 126, 234, 0.3);
       border-radius: 16px;
-      padding: 12px;
+      padding: 16px;
       opacity: 0;
       visibility: hidden;
       transform: translateY(-10px) scale(0.95);
@@ -803,12 +803,12 @@
     .mobile-dropdown-item {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 14px 18px;
-      color: rgba(255, 255, 255, 0.85);
+      padding: 16px 20px;
+      color: rgba(255, 255, 255, 0.9);
       text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
       border-radius: 10px;
       transition: all 0.25s ease;
       position: relative;
@@ -846,8 +846,22 @@
       opacity: 1;
     }
     
-    .mobile-dropdown-item .item-icon {
-      font-size: 1.1rem;
+    .mobile-join-now {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: #fff !important;
+      text-align: center;
+      justify-content: center;
+      margin-top: 8px;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    .mobile-join-now:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    }
+    
+    .mobile-dropdown-trigger {
+      font-family: 'Montserrat', sans-serif;
     }
     
     .mobile-dropdown-divider {
@@ -994,28 +1008,22 @@
               </button>
               <div class="mobile-dropdown-menu" id="dropdownMenu">
                 <a href="index.html" class="mobile-dropdown-item active">
-                  <span class="item-icon">�</span>
                   <span>Home</span>
                 </a>
                 <a href="comparison.html" class="mobile-dropdown-item">
-                  <span class="item-icon">�</span>
                   <span>About Us</span>
                 </a>
                 <a href="blog-streaming-optimization.html" class="mobile-dropdown-item">
-                  <span class="item-icon">�</span>
                   <span>Blog</span>
                 </a>
                 <a href="contact.html" class="mobile-dropdown-item">
-                  <span class="item-icon">♭</span>
                   <span>Contact</span>
                 </a>
                 <div class="mobile-dropdown-divider"></div>
                 <a href="http://app.onesync.music/auth/login" class="mobile-dropdown-item">
-                  <span class="item-icon">♩</span>
                   <span>Login</span>
                 </a>
-                <a href="http://app.onesync.music/auth/signup" class="mobile-dropdown-item" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));">
-                  <span class="item-icon">𝄪</span>
+                <a href="http://app.onesync.music/auth/signup" class="mobile-dropdown-item mobile-join-now">
                   <span>Join Now</span>
                 </a>
               </div>
