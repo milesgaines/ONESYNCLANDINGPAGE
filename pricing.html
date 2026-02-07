@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html data-wf-page="pricing" data-wf-site="67c67755f20898494779b72e" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Release Campaigns | OneSync - Boost Your Music Reach</title>
+  <meta content="Professional playlist pitching and release campaigns for independent artists. From indie releases to white-glove major label treatment. Get your music heard." name="description">
+  <meta content="Release Campaigns | OneSync - Boost Your Music Reach" property="og:title">
+  <meta content="Professional playlist pitching and release campaigns. Indie to major label treatment available." property="og:description">
+  <meta content="Release Campaigns | OneSync - Boost Your Music Reach" property="twitter:title">
+  <meta content="Professional release campaigns for independent artists. Playlist pitching, radio promotion, and more." property="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta name="keywords" content="OneSync pricing, music promotion, playlist pitching, release campaign, music marketing, indie promotion, playlist placement, radio promotion, music PR">
+  <link href="css/normalize.css?v=89" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css?v=89" rel="stylesheet" type="text/css">
+  <link href="css/onesyncdistribution-6f586bff4726ebd747a.webflow.css?v=89" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Varela:400","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Inter Tight:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"]  }});</script>
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <style>
+    body { background: #0a0a0a; color: #fff; }
+    .pricing-hero { padding: 140px 0 60px; background: linear-gradient(180deg, #0a0a0a 0%, #111 100%); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .pricing-title { font-size: 3rem; font-weight: 700; text-align: center; margin-bottom: 20px; }
+    .pricing-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.7); text-align: center; max-width: 700px; margin: 0 auto 40px; }
+    .breadcrumb { text-align: center; margin-bottom: 40px; font-size: 0.9rem; color: rgba(255,255,255,0.5); }
+    .breadcrumb a { color: #667eea; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    
+    /* Section Styles */
+    .section { padding: 80px 0; }
+    .section-alt { background: #111; }
+    .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; text-align: center; }
+    .section-desc { color: rgba(255,255,255,0.7); margin-bottom: 40px; max-width: 800px; line-height: 1.8; text-align: center; margin-left: auto; margin-right: auto; }
+    
+    /* Pricing Cards */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .pricing-card {
+      background: #1a1a1a;
+      border-radius: 20px;
+      padding: 40px 30px;
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(102, 126, 234, 0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    .pricing-card.featured {
+      border-color: #667eea;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    }
+    
+    .pricing-card.gold {
+      border-color: #fbbf24;
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(217, 119, 6, 0.1) 100%);
+    }
+    
+    .pricing-card.platinum {
+      border-color: #a78bfa;
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+    }
+    
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 6px 20px;
+      border-radius: 25px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .pricing-badge.gold-badge {
+      background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+      color: #000;
+    }
+    
+    .pricing-badge.platinum-badge {
+      background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    }
+    
+    .pricing-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .pricing-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    
+    .pricing-price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #4ade80;
+      margin-bottom: 5px;
+    }
+    
+    .pricing-card.gold .pricing-price,
+    .pricing-card.platinum .pricing-price {
+      color: #fbbf24;
+    }
+    
+    .pricing-term {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+    
+    .pricing-desc {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      min-height: 50px;
+    }
+    
+    .pricing-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 25px 0;
+    }
+    
+    .pricing-includes {
+      margin-bottom: 25px;
+    }
+    
+    .pricing-includes h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+    }
+    
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .pricing-features li {
+      padding: 10px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    .pricing-features li::before {
+      content: '✓';
+      color: #4ade80;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    
+    .pricing-results {
+      background: rgba(0,0,0,0.3);
+      padding: 15px;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+    
+    .pricing-results h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    
+    .pricing-results p {
+      color: #667eea;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .pricing-product-type {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .product-type-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      margin-bottom: 5px;
+    }
+    
+    .product-type-item span.check-icon {
+      color: #4ade80;
+    }
+    
+    .pricing-cta {
+      display: inline-block;
+      width: 100%;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      margin-top: 25px;
+    }
+    
+    .pricing-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+    
+    .pricing-card.gold .pricing-cta {
+      background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+      color: #000;
+    }
+    
+    .pricing-card.platinum .pricing-cta {
+      background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    }
+    
+    /* White Glove Section Header */
+    .white-glove-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .white-glove-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+      color: #000;
+      padding: 8px 25px;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    
+    /* Info Box */
+    .info-box {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      border-left: 4px solid #667eea;
+      padding: 25px 30px;
+      margin: 40px 0;
+      border-radius: 8px;
+    }
+    
+    .info-box h4 {
+      color: #667eea;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    
+    .info-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .info-box li {
+      padding: 8px 0;
+      color: rgba(255,255,255,0.8);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .info-box li::before {
+      content: '→';
+      color: #667eea;
+    }
+    
+    /* Pro Tip Box */
+    .pro-tip-box {
+      background: linear-gradient(135deg, rgba(248, 113, 113, 0.1), rgba(239, 68, 68, 0.1));
+      border-left: 4px solid #f87171;
+      padding: 25px 30px;
+      margin: 40px auto;
+      border-radius: 8px;
+      max-width: 800px;
+    }
+    
+    .pro-tip-box h4 {
+      color: #f87171;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .pro-tip-box p {
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin: 0;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      text-align: center;
+    }
+    
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    
+    .cta-desc {
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      padding: 18px 50px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+    }
+    
+    /* Footer */
+    .footer { background: #0a0a0a; padding: 60px 0 30px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand img { height: 50px; margin-bottom: 15px; }
+    .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+    .footer-col h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 15px; color: #fff; }
+    .footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; padding: 5px 0; }
+    .footer-col a:hover { color: #667eea; }
+    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    
+    @media (max-width: 768px) {
+      .pricing-title { font-size: 2rem; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .section { padding: 60px 0; }
+      .cta-title { font-size: 1.8rem; }
+    }
+    
+    /* Navbar Styles */
+    .navbar-minimal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      padding: 15px 0;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .navbar-simple {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .navbar-logo-small {
+      height: 35px;
+      width: auto;
+    }
+    
+    .nav-links-center {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .nav-link {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color: #fff;
+    }
+    
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .nav-cta {
+      display: inline-block;
+      padding: 10px 25px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+    
+    /* Mobile Dropdown */
+    .mobile-pages-dropdown {
+      display: none;
+      position: relative;
+    }
+    
+    .mobile-dropdown-trigger {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    .mobile-dropdown-trigger:hover {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.35), rgba(118, 75, 162, 0.35));
+    }
+    
+    .mobile-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      min-width: 200px;
+      background: linear-gradient(135deg, rgba(15, 15, 35, 0.98), rgba(25, 25, 50, 0.98));
+      border: 1px solid rgba(102, 126, 234, 0.3);
+      border-radius: 16px;
+      padding: 12px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px) scale(0.95);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 9999;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    
+    .mobile-dropdown-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    
+    .mobile-dropdown-item {
+      display: flex;
+      align-items: center;
+      padding: 14px 18px;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 10px;
+      transition: all 0.25s ease;
+    }
+    
+    .mobile-dropdown-item:hover {
+      background: rgba(102, 126, 234, 0.15);
+      color: #fff;
+    }
+    
+    .mobile-dropdown-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 8px 0;
+    }
+    
+    @media (max-width: 991px) {
+      .nav-links-center, .nav-link:not(.mobile-dropdown-item) {
+        display: none;
+      }
+      .mobile-pages-dropdown {
+        display: block;
+      }
+      .nav-cta {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .navbar-logo-small {
+        height: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Navbar -->
+    <div class="navbar-minimal">
+      <div class="navbar-simple">
+        <div class="nav-left">
+          <a href="/" class="navbar-logo-link">
+            <img src="images/S LOGO SMALL.png" alt="OneSync S" class="navbar-logo-small">
+          </a>
+          <nav class="nav-links-center">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="comparison.html" class="nav-link">About Us</a>
+            <a href="pricing.html" class="nav-link active">Pricing</a>
+            <a href="blog-streaming-optimization.html" class="nav-link">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </nav>
+        </div>
+        <div class="nav-right">
+          <div class="mobile-pages-dropdown" id="mobileDropdown">
+            <button class="mobile-dropdown-trigger" id="dropdownTrigger" aria-expanded="false" aria-haspopup="true">
+              <span>☰ Menu</span>
+              <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="mobile-dropdown-menu" id="dropdownMenu">
+              <a href="index.html" class="mobile-dropdown-item">Home</a>
+              <a href="comparison.html" class="mobile-dropdown-item">About Us</a>
+              <a href="pricing.html" class="mobile-dropdown-item active">Pricing</a>
+              <a href="blog-streaming-optimization.html" class="mobile-dropdown-item">Blog</a>
+              <a href="contact.html" class="mobile-dropdown-item">Contact</a>
+              <div class="mobile-dropdown-divider"></div>
+              <a href="http://app.onesync.music/auth/login" class="mobile-dropdown-item">Login</a>
+              <a href="http://app.onesync.music/auth/signup" class="mobile-dropdown-item">Join Now</a>
+            </div>
+          </div>
+          <a href="http://app.onesync.music/auth/login" class="nav-link">Login</a>
+          <a href="http://app.onesync.music/auth/signup" target="_blank" class="nav-cta">Join Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pricing-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a> / Release Campaigns
+        </div>
+        <h1 class="pricing-title">OneSync Release Campaigns</h1>
+        <p class="pricing-subtitle">Professional playlist pitching and release campaigns powered by Paddle. Clean checkout, instant processing, campaigns begin post-intake.</p>
+      </div>
+    </section>
+
+    <!-- Standard Release Campaigns -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Release Campaigns</h2>
+        <p class="section-desc">Choose the campaign that matches your goals. All campaigns include curator submissions, targeted playlist pitching, and performance tracking.</p>
+        
+        <div class="pricing-grid">
+          <!-- Indie Release -->
+          <div class="pricing-card">
+            <div class="pricing-icon">🚀</div>
+            <h3 class="pricing-name">Indie Release</h3>
+            <div class="pricing-price">$79.99</div>
+            <div class="pricing-term">One-time purchase</div>
+            <p class="pricing-desc">Perfect for emerging artists testing traction.</p>
+            
+            <div class="pricing-divider"></div>
+            
+            <div class="pricing-includes">
+              <h4>Includes</h4>
+              <ul class="pricing-features">
+                <li>50+ curator submissions</li>
+                <li>7-day campaign</li>
+                <li>Genre-targeted playlists</li>
+                <li>Performance summary report</li>
+              </ul>
+            </div>
+            
+            <div class="pricing-results">
+              <h4>Typical Results</h4>
+              <p>Avg. 5K–15K new streams</p>
+            </div>
+            
+            <div class="pricing-product-type">
+              <div class="product-type-item">
+                <span class="check-icon">✔</span> One-time digital service
+              </div>
+              <div class="product-type-item">
+                <span class="check-icon">✔</span> Instant checkout, campaign begins post-intake
+              </div>
+            </div>
+            
+            <a href="http://app.onesync.music/auth/signup" class="pricing-cta">Get Started →</a>
+          </div>
+          
+          <!-- Pro Release -->
+          <div class="pricing-card featured">
+            <div class="pricing-badge">⭐ Most Popular</div>
+            <div class="pricing-icon">⭐</div>
+            <h3 class="pricing-name">Pro Release</h3>
+            <div class="pricing-price">$249.99</div>
+            <div class="pricing-term">One-time purchase</div>
+            <p class="pricing-desc">Built for serious independent artists.</p>
+            
+            <div class="pricing-divider"></div>
+            
+            <div class="pricing-includes">
+              <h4>Includes</h4>
+              <ul class="pricing-features">
+                <li>150+ curator submissions</li>
+                <li>14-day campaign</li>
+                <li>Multi-genre targeting</li>
+                <li>Advanced analytics dashboard</li>
+              </ul>
+            </div>
+            
+            <div class="pricing-results">
+              <h4>Typical Results</h4>
+              <p>Avg. 20K–50K new streams</p>
+            </div>
+            
+            <div class="pricing-product-type">
+              <div class="product-type-item">
+                <span class="check-icon">✔</span> One-time digital service
+              </div>
+              <div class="product-type-item">
+                <span class="check-icon">✔</span> Upsell anchor product
+              </div>
+            </div>
+            
+            <a href="http://app.onesync.music/auth/signup" class="pricing-cta">Get Started →</a>
+          </div>
+          
+          <!-- Superstar Release -->
+          <div class="pricing-card">
+            <div class="pricing-badge">👑 Premium</div>
+            <div class="pricing-icon">👑</div>
+            <h3 class="pricing-name">Superstar Release</h3>
+            <div class="pricing-price">$449.99</div>
+            <div class="pricing-term">One-time purchase</div>
+            <p class="pricing-desc">For artists ready to scale fast.</p>
+            
+            <div class="pricing-divider"></div>
+            
+            <div class="pricing-includes">
+              <h4>Includes</h4>
+              <ul class="pricing-features">
+                <li>300+ curator submissions</li>
+                <li>21-day campaign</li>
+                <li>Dedicated campaign representative</li>
+                <li>Priority playlist placement</li>
+                <li>Social media promotion</li>
+                <li>Radio promo included</li>
+              </ul>
+            </div>
+            
+            <div class="pricing-results">
+              <h4>Typical Results</h4>
+              <p>Avg. 50K–150K new streams</p>
+            </div>
+            
+            <div class="pricing-product-type">
+              <div class="product-type-item">
+                <span class="check-icon">✔</span> One-time premium service
+              </div>
+              <div class="product-type-item">
+                <span class="check-icon">✔</span> High-intent conversion tier
+              </div>
+            </div>
+            
+            <a href="http://app.onesync.music/auth/signup" class="pricing-cta">Get Started →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- White Glove Releases -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="white-glove-header">
+          <div class="white-glove-badge">🏷️ White Glove Releases</div>
+          <h2 class="section-title">Major Label Treatment</h2>
+          <p class="section-desc">Premium campaigns for artists who want the full experience. Press, radio, influencers, and dedicated marketing specialists.</p>
+        </div>
+        
+        <div class="pricing-grid" style="max-width: 900px; margin: 0 auto;">
+          <!-- Gold Package -->
+          <div class="pricing-card gold">
+            <div class="pricing-badge gold-badge">🥇 Gold Package</div>
+            <div class="pricing-icon">🥇</div>
+            <h3 class="pricing-name">Gold Package</h3>
+            <div class="pricing-price">$1,500</div>
+            <div class="pricing-term">One-time purchase</div>
+            <p class="pricing-desc">Professional rollout for serious releases.</p>
+            
+            <div class="pricing-divider"></div>
+            
+            <div class="pricing-includes">
+              <h4>Includes</h4>
+              <ul class="pricing-features">
+                <li>Press release distribution to 500+ journalists</li>
+                <li>Pitching to The FADER, HipHopDX, Complex</li>
+                <li>3 coordinated influencer posts</li>
+                <li>Physical publication outreach</li>
+                <li>Professional EPK creation</li>
+                <li>Dedicated marketing specialist</li>
+                <li>30-day campaign</li>
+                <li>Full performance report</li>
+              </ul>
+            </div>
+            
+            <div class="pricing-product-type">
+              <div class="product-type-item">
+                <span class="check-icon">✔</span> High-ticket one-time service
+              </div>
+              <div class="product-type-item">
+                <span class="check-icon">✔</span> Manual fulfillment workflow
+              </div>
+            </div>
+            
+            <a href="http://app.onesync.music/auth/signup" class="pricing-cta">Get Started →</a>
+          </div>
+          
+          <!-- Platinum Package -->
+          <div class="pricing-card platinum">
+            <div class="pricing-badge platinum-badge">💎 Best Value</div>
+            <div class="pricing-icon">💎</div>
+            <h3 class="pricing-name">Platinum Package</h3>
+            <div class="pricing-price">$2,500</div>
+            <div class="pricing-term">One-time purchase</div>
+            <p class="pricing-desc">Full-scale campaign execution.</p>
+            
+            <div class="pricing-divider"></div>
+            
+            <div class="pricing-includes">
+              <h4>Everything in Gold, plus:</h4>
+              <ul class="pricing-features">
+                <li>Pitching to Pitchfork, Rolling Stone, Billboard</li>
+                <li>8 coordinated influencer posts</li>
+                <li>College + digital radio promotion</li>
+                <li>Physical CD / vinyl press & distribution</li>
+                <li>Music video consultation</li>
+                <li>Spotify editorial playlist pitching</li>
+                <li>Dedicated senior marketing specialist</li>
+                <li>60-day campaign</li>
+                <li>Weekly strategy calls</li>
+              </ul>
+            </div>
+            
+            <div class="pricing-product-type">
+              <div class="product-type-item">
+                <span class="check-icon">✔</span> White-glove, concierge-level service
+              </div>
+              <div class="product-type-item">
+                <span class="check-icon">✔</span> Highest LTV product
+              </div>
+            </div>
+            
+            <a href="http://app.onesync.music/auth/signup" class="pricing-cta">Get Started →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Important Note Section -->
+    <section class="section">
+      <div class="container">
+        <div class="pro-tip-box">
+          <h4>🔥 Important Note</h4>
+          <p>Results shown are <strong>typical outcomes</strong> and <strong>historical averages</strong> from previous campaigns. Individual results may vary based on factors including music quality, genre, existing audience, and market conditions. We do not guarantee specific stream counts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-title">Ready to Launch Your Campaign?</h2>
+        <p class="cta-desc">Join thousands of independent artists getting real results with OneSync campaigns.</p>
+        <a href="http://app.onesync.music/auth/signup" class="cta-btn">Get Started Now →</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="images/ONESYNC-LOGO-WHITE.PNG" alt="OneSync">
+            <p>The all-in-one music distribution platform. Free distribution, 100% royalties, unlimited potential.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <a href="index.html">Home</a>
+            <a href="comparison.html">About Us</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="https://app.onesync.music/auth/login">Login</a>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <a href="comparison.html">Distribution Comparison</a>
+            <a href="blog-streaming-optimization.html">Streaming Tips</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="mailto:info@onesync.music">info@onesync.music</a>
+            <a href="terms.html">Terms & Conditions</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 OneSync Media LLC. All rights reserved. | 2801 Ocean Park Blvd, Santa Monica, CA 90405</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile dropdown functionality
+    const dropdownTrigger = document.getElementById('dropdownTrigger');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    
+    if (dropdownTrigger && dropdownMenu) {
+      dropdownTrigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = dropdownMenu.classList.contains('open');
+        
+        if (isOpen) {
+          dropdownMenu.classList.remove('open');
+          dropdownTrigger.setAttribute('aria-expanded', 'false');
+        } else {
+          dropdownMenu.classList.add('open');
+          dropdownTrigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!dropdownTrigger.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.classList.remove('open');
+          dropdownTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+      
+      // Close dropdown on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          dropdownMenu.classList.remove('open');
+          dropdownTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
