@@ -10,7 +10,7 @@
   <meta content="Meet the team behind OneSync. Built by artists who've been in the trenches." property="twitter:description">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
-  <meta content="width=device-width, initial-scale=0.8" name="viewport">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta name="keywords" content="OneSync about us, music distribution company, free music distribution, artist-owned distributor, indie music platform, music industry veterans, Grammy producers, sync licensing, publishing admin">
   <link href="css/normalize.css?v=89" rel="stylesheet" type="text/css">
   <link href="css/webflow.css?v=89" rel="stylesheet" type="text/css">
@@ -238,6 +238,14 @@
         opacity: 1 !important;
         visibility: visible !important;
         overflow: visible !important;
+        position: static !important;
+        height: auto !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+        border-top: none !important;
+      }
+      .w-nav-overlay {
+        display: none !important;
       }
       .menu-right, .menu-left {
         display: flex !important;
@@ -1989,11 +1997,10 @@
     });
     
     // ===== AUTO HIDE PRELOADER FOR ABOUT PAGE =====
-    window.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
       const preloader = document.getElementById('sitePreloader');
       const pageContent = document.getElementById('pageContent');
       
-      // Auto-hide preloader and show content immediately for About page
       if (preloader) {
         preloader.style.display = 'none';
       }
@@ -2001,36 +2008,6 @@
         pageContent.classList.add('visible');
         pageContent.style.opacity = '1';
         pageContent.style.visibility = 'visible';
-      }
-    });
-        }, 1200);
-      } else {
-        // First visit - show entry choice buttons
-        setTimeout(function() {
-          if (loadingState) {
-            loadingState.style.opacity = '0';
-            loadingState.style.transition = 'opacity 0.4s ease';
-            
-            setTimeout(function() {
-              loadingState.style.display = 'none';
-              if (entryChoice) {
-                entryChoice.classList.add('show');
-              }
-            }, 400);
-          }
-        }, 1200);
-      }
-      
-      if (artistLabelBtn) {
-        artistLabelBtn.addEventListener('click', function() {
-          sessionStorage.setItem('onesync-visited', 'true');
-          if (preloader) {
-            preloader.classList.add('loaded');
-          }
-          if (pageContent) {
-            pageContent.classList.add('visible');
-          }
-        });
       }
       
       // ===== MOBILE DROPDOWN MENU =====
@@ -2053,7 +2030,6 @@
           }
         });
         
-        // Close dropdown when clicking outside
         document.addEventListener('click', function(e) {
           if (!dropdownTrigger.contains(e.target) && !dropdownMenu.contains(e.target)) {
             dropdownMenu.classList.remove('open');
@@ -2062,7 +2038,6 @@
           }
         });
         
-        // Close dropdown on escape key
         document.addEventListener('keydown', function(e) {
           if (e.key === 'Escape') {
             dropdownMenu.classList.remove('open');
@@ -2071,7 +2046,6 @@
           }
         });
         
-        // Set visited flag when navigating from dropdown
         dropdownMenu.querySelectorAll('.mobile-dropdown-item').forEach(item => {
           item.addEventListener('click', function() {
             sessionStorage.setItem('onesync-visited', 'true');
@@ -2079,18 +2053,6 @@
         });
       }
     });
-    
-    setTimeout(function() {
-      const loadingState = document.getElementById('loadingState');
-      const entryChoice = document.getElementById('entryChoice');
-      const hasVisited = sessionStorage.getItem('onesync-visited');
-      if (!hasVisited && loadingState && loadingState.style.display !== 'none') {
-        loadingState.style.display = 'none';
-        if (entryChoice) {
-          entryChoice.classList.add('show');
-        }
-      }
-    }, 5000);
   </script>
 </body>
 </html>
