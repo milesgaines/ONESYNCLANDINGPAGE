@@ -1010,7 +1010,8 @@
       </div>
     </div>
     
-    <!-- Entry choice (shown after loading) -->
+    <!-- Entry choice removed - users go straight to main site -->
+    <!--
     <div class="entry-choice" id="entryChoice">
       <img src="images/ONESYNC-LOGO-WHITE.PNG" alt="OneSync" class="entry-logo" style="width: 600px; height: auto; margin-bottom: 30px;">
       <div class="entry-choice-subtitle">Your all-in-one hub for artists, labels & fans</div>
@@ -1027,6 +1028,7 @@
         </a>
       </div>
     </div>
+    -->
   </div>
 
   <div class="page-content" id="pageContent">
@@ -2246,84 +2248,30 @@
       });
     });
 
-    // ===== SITE PRELOADER & ENTRY CHOICE HANDLER =====
+    // ===== SITE PRELOADER - SKIP ENTRY CHOICE, GO STRAIGHT TO CONTENT =====
     window.addEventListener('load', function() {
-      const loadingState = document.getElementById('loadingState');
-      const entryChoice = document.getElementById('entryChoice');
       const preloader = document.getElementById('sitePreloader');
       const pageContent = document.getElementById('pageContent');
-      const artistLabelBtn = document.getElementById('artistLabelBtn');
       
-      // Check if user has already made their initial choice
-      const hasVisited = sessionStorage.getItem('onesync-visited');
-      
-      if (hasVisited) {
-        // User already chose - just show loader briefly then show content
-        setTimeout(function() {
-          if (preloader) {
-            preloader.classList.add('loaded');
-          }
-          if (pageContent) {
-            pageContent.classList.add('visible');
-          }
-        }, 1200); // Just show loader for 1.2s then reveal content
-      } else {
-        // First visit - show entry choice buttons
-        setTimeout(function() {
-          if (loadingState) {
-            loadingState.style.opacity = '0';
-            loadingState.style.transition = 'opacity 0.4s ease';
-            
-            setTimeout(function() {
-              loadingState.style.display = 'none';
-              if (entryChoice) {
-                entryChoice.classList.add('show');
-              }
-            }, 400);
-          }
-        }, 2200); // Wait for progress bar to complete
-      }
-      
-      // Artist/Label button reveals the landing page and sets session flag
-      if (artistLabelBtn) {
-        artistLabelBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          // Hide the entry choice first with a fade
-          if (entryChoice) {
-            entryChoice.style.opacity = '0';
-            entryChoice.style.transition = 'opacity 0.4s ease';
-          }
-          
-          // Then reveal the main content
-          setTimeout(function() {
-            sessionStorage.setItem('onesync-visited', 'true');
-            if (preloader) {
-              preloader.classList.add('loaded');
-            }
-            if (pageContent) {
-              pageContent.classList.add('visible');
-            }
-          }, 400);
-        });
-      }
-      
-      // Fans button - also set session flag before navigating
-      const fansBtn = document.getElementById('fansBtn');
-      if (fansBtn) {
-        fansBtn.addEventListener('click', function() {
-          sessionStorage.setItem('onesync-visited', 'true');
-        });
-      }
+      // Show loader briefly then reveal content directly (no entry choice step)
+      setTimeout(function() {
+        if (preloader) {
+          preloader.classList.add('loaded');
+        }
+        if (pageContent) {
+          pageContent.classList.add('visible');
+        }
+      }, 1200);
     });
 
-    // Fallback: show entry choice after 5 seconds max if loading fails
+    // Fallback: show content after 5 seconds max if loading fails
     setTimeout(function() {
-      const loadingState = document.getElementById('loadingState');
-      const entryChoice = document.getElementById('entryChoice');
-      if (loadingState && loadingState.style.display !== 'none') {
-        loadingState.style.display = 'none';
-        if (entryChoice) {
-          entryChoice.classList.add('show');
+      const preloader = document.getElementById('sitePreloader');
+      const pageContent = document.getElementById('pageContent');
+      if (preloader && !preloader.classList.contains('loaded')) {
+        preloader.classList.add('loaded');
+        if (pageContent) {
+          pageContent.classList.add('visible');
         }
       }
     }, 5000);
