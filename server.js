@@ -3,39 +3,8 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Resend Email Configuration
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
+// Admin email for partner applications
 const ADMIN_EMAIL = 'info@onesync.music';
-const RESEND_FROM = process.env.RESEND_FROM || 'OneSync <noreply@notifications.onesync.music>';
-
-// Send email via Resend
-async function sendEmail(to, subject, html, replyTo) {
-  try {
-    if (!RESEND_API_KEY) {
-      throw new Error('Missing RESEND_API_KEY environment variable');
-    }
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        from: RESEND_FROM,
-        to: Array.isArray(to) ? to : [to],
-        subject,
-        html,
-        reply_to: replyTo
-      })
-    });
-    const data = await response.json();
-    console.log('Email sent:', data);
-    return data;
-  } catch (error) {
-    console.error('Error sending email:', error);
-    return null;
-  }
-}
 
 // Parse JSON and URL-encoded bodies
 app.use(express.json());
@@ -52,25 +21,10 @@ app.post('/api/contact', async (req, res) => {
     });
   }
 
-  const contactHtml = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #111; color: #fff; padding: 30px; border-radius: 10px;">
-      <h1 style="color: #667eea; margin-bottom: 20px;">📩 New Contact Form Submission</h1>
-      <div style="background: #1f1f1f; padding: 20px; border-radius: 8px;">
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #667eea;">${email}</a></p>
-        <p><strong>Company:</strong> ${company || 'Not provided'}</p>
-        <p><strong>Message:</strong></p>
-        <p style="white-space: pre-wrap;">${message}</p>
-      </div>
-      <div style="margin-top: 20px; font-size: 12px; color: #888;">Submitted: ${new Date().toLocaleString()}</div>
-    </div>
-  `;
-
-  const result = await sendEmail(ADMIN_EMAIL, `New Contact Message from ${name}`, contactHtml, email);
-
-  if (!result || result.error) {
-    return res.status(500).json({ success: false, error: 'Failed to send message.' });
-  }
+  // Log contact form submission
+  console.log('=== NEW CONTACT FORM ===');
+  console.log({ name, email, company, message, submittedAt: new Date().toISOString() });
+  console.log('========================');
 
   return res.json({ success: true, message: 'Thanks! Your message has been sent.' });
 });
@@ -391,7 +345,7 @@ app.post('/api/partner-application', async (req, res) => {
     </div>
   `;
   
-  await sendEmail(ADMIN_EMAIL, `𝄞 New Partner Application: ${spotifyArtistName || name}`, adminEmailHtml);
+  // Email is sent client-side via mailto: link
   
   res.json({ 
     success: true, 

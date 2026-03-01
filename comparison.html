@@ -1740,64 +1740,31 @@
       };
       
       try {
-        // Send email using Resend API
-        const response = await fetch('https://api.resend.com/emails', {
-          method: 'POST',
-          headers: {
-            'Authorization': 'Bearer re_UNss1tq7_PujVM4gtTVjo4svjVjU8WQRx',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            from: 'OneSync <noreply@notifications.onesync.music>',
-            to: ['info@onesync.music'],
-            reply_to: formData.email,
-            subject: `🎵 New Partner Application: ${formData.artistName}`,
-            html: `
-              <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #1a1a1a; color: #fff; padding: 30px; border-radius: 10px;">
-                <h1 style="color: #667eea; margin-bottom: 20px;">🎵 New Partner Application</h1>
-                
-                <div style="background: #2a2a2a; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                  <h2 style="color: #fff; margin-top: 0;">Applicant Details</h2>
-                  <p><strong>Name:</strong> ${formData.artistName}</p>
-                  <p><strong>Email:</strong> <a href="mailto:${formData.email}" style="color: #667eea;">${formData.email}</a></p>
-                  <p><strong>Genre:</strong> ${formData.genre}</p>
-                  <p><strong>Experience:</strong> ${formData.experience}</p>
-                  ${formData.musicLink ? `<p><strong>Music Link:</strong> <a href="${formData.musicLink}" style="color: #667eea;">${formData.musicLink}</a></p>` : ''}
-                  <p><strong>Message:</strong> ${formData.message || 'No message provided'}</p>
-                </div>
-                
-                ${formData.musicLink ? `
-                <div style="background: #333; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                  <h2 style="color: #fff; margin-top: 0;">🎧 Music Sample</h2>
-                  <p><a href="${formData.musicLink}" style="color: #667eea; text-decoration: underline;">Listen to Sample →</a></p>
-                </div>
-                ` : ''}
-                
-                <div style="background: #333; padding: 15px; border-radius: 8px; text-align: center;">
-                  <p style="margin: 0; color: #888;">Application ID: ${crypto.randomUUID ? crypto.randomUUID() : '929c2620-0d14-4baf-80bc-bac0863d7f0d'}</p>
-                  <p style="margin: 5px 0 0; color: #888;">Submitted: ${new Date(formData.submittedAt).toLocaleString()}</p>
-                  <p style="margin: 5px 0 0; color: #888;">Source: ${formData.source}</p>
-                </div>
-              </div>
-            `
-          })
-        });
+        // Build mailto link with form data
+        const subject = encodeURIComponent('New Partner Application: ' + formData.artistName);
+        const body = encodeURIComponent(
+          'Partner Application\n\n' +
+          'Artist/Label Name: ' + formData.artistName + '\n' +
+          'Email: ' + formData.email + '\n' +
+          'Genre: ' + formData.genre + '\n' +
+          'Experience: ' + formData.experience + '\n' +
+          'Music Link: ' + (formData.musicLink || 'Not provided') + '\n' +
+          'Message: ' + (formData.message || 'No message') + '\n' +
+          'Submitted: ' + new Date(formData.submittedAt).toLocaleString() + '\n'
+        );
         
-        if (response.ok) {
-          // Success - show success message
-          successMessage.style.display = 'block';
-          // Reset form
-          e.target.reset();
-          // Scroll to success message
-          successMessage.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Failed to send submission');
-        }
+        window.open('mailto:info@onesync.music?subject=' + subject + '&body=' + body, '_blank');
+        
+        // Success - show success message
+        successMessage.style.display = 'block';
+        // Reset form
+        e.target.reset();
+        // Scroll to success message
+        successMessage.scrollIntoView({ behavior: 'smooth' });
         
       } catch (error) {
         console.error('Submission error:', error);
-        errorText.textContent = error.message || 'Please try again or contact support if the problem persists.';
+        errorText.textContent = 'Please try again or contact support if the problem persists.';
         errorMessage.style.display = 'block';
         errorMessage.scrollIntoView({ behavior: 'smooth' });
       } finally {

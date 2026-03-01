@@ -1831,8 +1831,8 @@
           return num.toString();
         }
         
-        // Form submission
-        document.getElementById('partner-application-form').addEventListener('submit', async function(e) {
+        // Form submission via mailto
+        document.getElementById('partner-application-form').addEventListener('submit', function(e) {
           e.preventDefault();
           
           const spotifyArtistId = document.getElementById('spotify-artist-id').value;
@@ -1844,25 +1844,23 @@
           const formData = new FormData(this);
           const data = Object.fromEntries(formData.entries());
           
-          try {
-            const response = await fetch('/api/partner-application', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(data)
-            });
-            
-            const result = await response.json();
-            
-            if (result.success) {
-              document.getElementById('partner-application-form').style.display = 'none';
-              document.getElementById('application-success').style.display = 'block';
-            } else {
-              alert('Error submitting application. Please try again.');
-            }
-          } catch (error) {
-            console.error('Error:', error);
-            alert('Error submitting application. Please try again.');
-          }
+          const subject = encodeURIComponent('New Partner Application: ' + (data.spotifyArtistName || data.name));
+          const body = encodeURIComponent(
+            'Partner Application\n\n' +
+            'Name: ' + data.name + '\n' +
+            'Email: ' + data.email + '\n' +
+            'Genre: ' + (data.genre || 'Not specified') + '\n' +
+            'Spotify Artist: ' + (data.spotifyArtistName || 'Not provided') + '\n' +
+            'Spotify URL: ' + (data.spotifyUrl || 'Not provided') + '\n' +
+            'Followers: ' + (data.spotifyFollowers || 'N/A') + '\n' +
+            'Popularity: ' + (data.spotifyPopularity || 'N/A') + '%\n' +
+            'Message: ' + (data.message || 'No message') + '\n'
+          );
+          
+          window.open('mailto:info@onesync.music?subject=' + subject + '&body=' + body, '_blank');
+          
+          document.getElementById('partner-application-form').style.display = 'none';
+          document.getElementById('application-success').style.display = 'block';
         });
       </script>
 
