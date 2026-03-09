@@ -970,6 +970,221 @@
         height: 48px !important;
       }
     }
+    
+    /* ===== PROMINENT SERVICES BAR ===== */
+    .services-highlight-bar {
+      background: linear-gradient(90deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 50%, rgba(102, 126, 234, 0.15) 100%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 0;
+      position: relative;
+      z-index: 999;
+    }
+    
+    .services-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .services-bar-label {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-right: 10px;
+      white-space: nowrap;
+    }
+    
+    /* ===== FLOATING SERVICES DOCK ===== */
+    .floating-dock {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 99999;
+      display: flex;
+      gap: 12px;
+      padding: 12px 20px;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 60px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), 0 0 80px rgba(102, 126, 234, 0.15);
+      animation: dockSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 1.5s;
+      opacity: 0;
+    }
+    
+    @keyframes dockSlideUp {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+    
+    .dock-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+    }
+    
+    .dock-btn-distribute {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .dock-btn-distribute:hover {
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+    }
+    
+    .dock-btn-beats {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .dock-btn-beats:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.05) translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .dock-icon {
+      font-size: 1.1rem;
+    }
+    
+    .dock-divider {
+      width: 1px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.15);
+      margin: 0 8px;
+    }
+    
+    /* Hide dock on very small screens or show vertically */
+    @media (max-width: 600px) {
+      .floating-dock {
+        bottom: 20px;
+        padding: 10px 16px;
+        gap: 8px;
+      }
+      .dock-btn {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+      }
+      .dock-divider {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 420px) {
+      .floating-dock {
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 14px;
+        bottom: 15px;
+      }
+      .dock-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    
+    .services-bar-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .service-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .service-btn-distribution {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .service-btn-distribution:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(102, 126, 234, 0.6);
+    }
+    
+    .service-btn-beats {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(245, 87, 108, 0.4);
+    }
+    
+    .service-btn-beats:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(245, 87, 108, 0.6);
+    }
+    
+    .service-btn-icon {
+      font-size: 1.1rem;
+    }
+    
+    .service-btn-new {
+      background: #4ade80;
+      color: #000;
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 800;
+      margin-left: 4px;
+    }
+    
+    @media (max-width: 600px) {
+      .services-bar-label {
+        display: none;
+      }
+      .service-btn {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+      }
+    }
+    
+    /* Nav Beats link highlight */
+    .nav-link-beats {
+      background: linear-gradient(135deg, rgba(245, 87, 108, 0.2), rgba(240, 147, 251, 0.2)) !important;
+      border: 1px solid rgba(245, 87, 108, 0.4) !important;
+    }
+    
+    .nav-link-beats:hover {
+      background: linear-gradient(135deg, rgba(245, 87, 108, 0.4), rgba(240, 147, 251, 0.4)) !important;
+    }
   </style>
   </head>
 <body class="body-2">
@@ -1041,9 +1256,9 @@
             </a>
             <nav class="nav-links-center">
               <a href="index.html" class="nav-link">Home</a>
+              <a href="https://app.onesync.music/beats" class="nav-link nav-link-beats">🎵 Beats</a>
               <a href="comparison.html" class="nav-link">About Us</a>
               <a href="pricing.html" class="nav-link">Pricing</a>
-              <a href="blog-streaming-optimization.html" class="nav-link">Blog</a>
               <a href="contact.html" class="nav-link">Contact</a>
             </nav>
           </div>
@@ -1059,17 +1274,20 @@
                 <a href="index.html" class="mobile-dropdown-item active">
                   <span>Home</span>
                 </a>
+                <a href="https://app.onesync.music/beats" class="mobile-dropdown-item" style="background: linear-gradient(135deg, rgba(245, 87, 108, 0.2), rgba(240, 147, 251, 0.2));">
+                  <span>🎵 Beats</span><span class="service-btn-new">NEW</span>
+                </a>
                 <a href="comparison.html" class="mobile-dropdown-item">
                   <span>About Us</span>
                 </a>
                 <a href="pricing.html" class="mobile-dropdown-item">
                   <span>Pricing</span>
                 </a>
-                <a href="blog-streaming-optimization.html" class="mobile-dropdown-item">
-                  <span>Blog</span>
-                </a>
                 <a href="contact.html" class="mobile-dropdown-item">
                   <span>Contact</span>
+                </a>
+                <a href="https://app.onesync.music/beats" class="mobile-dropdown-item">
+                  <span>🎵 Beats</span>
                 </a>
                 <div class="mobile-dropdown-divider"></div>
                 <a href="http://app.onesync.music/auth/login" class="mobile-dropdown-item">
@@ -1085,6 +1303,25 @@
           </div>
         </div>
       </div>
+      
+      <!-- Prominent Services Bar -->
+      <div class="services-highlight-bar">
+        <div class="services-bar-inner">
+          <span class="services-bar-label">Quick Access:</span>
+          <div class="services-bar-buttons">
+            <a href="https://app.onesync.music" class="service-btn service-btn-distribution">
+              <span class="service-btn-icon">🚀</span>
+              <span>Distribute Music</span>
+            </a>
+            <a href="https://app.onesync.music/beats" class="service-btn service-btn-beats">
+              <span class="service-btn-icon">🎵</span>
+              <span>Browse Beats</span>
+              <span class="service-btn-new">NEW</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
       <div data-w-id="ed14d1cd-f262-5c26-daf8-8e6804729107" class="hero hero-with-video">
         <!-- Multi-Video Background System -->
         <div class="hero-video-wrapper">
@@ -2358,5 +2595,18 @@
     });
   </script>
   <script src="js/professional-enhancements.js"></script>
+  
+  <!-- Floating Services Dock -->
+  <div class="floating-dock" id="floatingDock">
+    <a href="https://app.onesync.music/auth/signup" class="dock-btn dock-btn-distribute">
+      <span class="dock-icon">🚀</span>
+      <span>Distribute Music</span>
+    </a>
+    <div class="dock-divider"></div>
+    <a href="https://app.onesync.music/beats" class="dock-btn dock-btn-beats">
+      <span class="dock-icon">🎹</span>
+      <span>Browse Beats</span>
+    </a>
+  </div>
 </body>
 </html>
