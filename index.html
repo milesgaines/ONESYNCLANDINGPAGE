@@ -971,34 +971,6 @@
       }
     }
     
-    /* ===== PROMINENT SERVICES BAR ===== */
-    .services-highlight-bar {
-      background: linear-gradient(90deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 50%, rgba(102, 126, 234, 0.15) 100%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 12px 0;
-      position: relative;
-      z-index: 999;
-    }
-    
-    .services-bar-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    
-    .services-bar-label {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-right: 10px;
-      white-space: nowrap;
-    }
-    
     /* ===== FLOATING SERVICES DOCK - RUGGED EDITION ===== */
     .floating-dock {
       position: fixed;
@@ -1069,23 +1041,24 @@
     }
     
     .dock-btn-beats {
-      background: rgba(255, 255, 255, 0.06);
-      color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.85);
     }
     
     .dock-btn-beats:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.15);
       color: #fff;
       transform: translateY(-2px);
     }
     
     .dock-btn-fans {
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.85);
     }
     
     .dock-btn-fans:hover {
-      filter: brightness(1.2);
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
       transform: translateY(-2px);
     }
     
@@ -1093,15 +1066,15 @@
       display: none;
     }
     
-    /* Hide dock on very small screens or show vertically */
+    /* Mobile-friendly horizontal dock */
     @media (max-width: 700px) {
       .floating-dock {
-        bottom: 20px;
-        padding: 5px;
+        bottom: 16px;
+        padding: 4px;
         gap: 3px;
       }
       .dock-btn {
-        padding: 10px 14px;
+        padding: 10px 16px;
         font-size: 0.7rem;
         letter-spacing: 0.3px;
       }
@@ -1109,83 +1082,28 @@
     
     @media (max-width: 480px) {
       .floating-dock {
-        flex-direction: column;
-        clip-path: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
-        padding: 8px;
-        bottom: 15px;
+        bottom: 12px;
+        padding: 4px;
+        gap: 2px;
+        clip-path: polygon(0 6px, 6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px));
       }
       .dock-btn {
-        width: 100%;
-        padding: 12px 20px;
-        font-size: 0.75rem;
+        padding: 10px 12px;
+        font-size: 0.65rem;
+        letter-spacing: 0.2px;
+        clip-path: polygon(0 3px, 3px 0, calc(100% - 3px) 0, 100% 3px, 100% calc(100% - 3px), calc(100% - 3px) 100%, 3px 100%, 0 calc(100% - 3px));
       }
     }
     
-    .services-bar-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    .service-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 24px;
-      border-radius: 50px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .service-btn-distribution {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
-    }
-    
-    .service-btn-distribution:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(102, 126, 234, 0.6);
-    }
-    
-    .service-btn-beats {
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(245, 87, 108, 0.4);
-    }
-    
-    .service-btn-beats:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(245, 87, 108, 0.6);
-    }
-    
-    .service-btn-icon {
-      font-size: 1.1rem;
-    }
-    
-    .service-btn-new {
-      background: #4ade80;
-      color: #000;
-      font-size: 0.65rem;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 800;
-      margin-left: 4px;
-    }
-    
-    @media (max-width: 600px) {
-      .services-bar-label {
-        display: none;
+    @media (max-width: 360px) {
+      .floating-dock {
+        bottom: 10px;
+        padding: 3px;
+        gap: 2px;
       }
-      .service-btn {
-        padding: 8px 18px;
-        font-size: 0.8rem;
+      .dock-btn {
+        padding: 8px 10px;
+        font-size: 0.6rem;
       }
     }
     
@@ -1305,24 +1223,6 @@
             </div>
             <a href="http://app.onesync.music/auth/login" class="nav-link">Login</a>
             <a href="http://app.onesync.music/auth/signup" target="_blank" class="nav-cta">Join Now</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Prominent Services Bar -->
-      <div class="services-highlight-bar">
-        <div class="services-bar-inner">
-          <span class="services-bar-label">Quick Access:</span>
-          <div class="services-bar-buttons">
-            <a href="https://app.onesync.music" class="service-btn service-btn-distribution">
-              <span class="service-btn-icon">🚀</span>
-              <span>Distribute Music</span>
-            </a>
-            <a href="https://app.onesync.music/beats" class="service-btn service-btn-beats">
-              <span class="service-btn-icon">🎵</span>
-              <span>Browse Beats</span>
-              <span class="service-btn-new">NEW</span>
-            </a>
           </div>
         </div>
       </div>
@@ -2603,11 +2503,11 @@
   
   <!-- Floating Services Dock -->
   <div class="floating-dock" id="floatingDock">
-    <a href="https://app.onesync.music/auth/signup" class="dock-btn dock-btn-distribute">
-      <span>Distribute</span>
-    </a>
     <a href="https://app.onesync.music/beats" class="dock-btn dock-btn-beats">
       <span>Beats</span>
+    </a>
+    <a href="https://app.onesync.music/auth/signup" class="dock-btn dock-btn-distribute">
+      <span>Distribute</span>
     </a>
     <a href="/fans-coming-soon.html" class="dock-btn dock-btn-fans">
       <span>Fans</span>
