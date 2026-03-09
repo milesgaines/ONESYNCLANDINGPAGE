@@ -457,6 +457,31 @@
       }
     }
     
+    /* Steps grid responsive */
+    .steps-grid {
+      overflow: visible !important;
+    }
+    
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    
+    @media (max-width: 550px) {
+      .steps-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    
+    .step-card {
+      overflow: visible !important;
+    }
+    
+    .step-number {
+      flex-shrink: 0;
+    }
+    
     /* Navbar base styles */
     .navbar-component {
       width: 100%;
@@ -1484,29 +1509,29 @@
             Getting your music on Spotify, Apple Music, and 150+ other platforms is easier than you think. Here's how to <strong style="color: #fff;">distribute music for free</strong> with OneSync:
           </p>
           
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto;">
-            <div style="background: #111; border-radius: 16px; padding: 30px; border: 1px solid rgba(255,255,255,0.06); text-align: center;">
-              <div style="font-size: 2.5rem; margin-bottom: 15px; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">1</div>
-              <h3 style="font-size: 1.05rem; margin-bottom: 10px; font-weight: 600;">Sign Up Free</h3>
+          <div class="steps-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; max-width: 1000px; margin: 0 auto;">
+            <div class="step-card" style="background: #111; border-radius: 16px; padding: 30px 25px; border: 1px solid rgba(255,255,255,0.06); text-align: center; overflow: visible;">
+              <div class="step-number" style="width: 60px; height: 60px; margin: 0 auto 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: #fff;">1</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 10px; font-weight: 600; color: #fff;">Sign Up Free</h3>
               <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7;">Create your free OneSync account. No credit card required, no trial period. Free means free.</p>
             </div>
             
-            <div style="background: #111; border-radius: 16px; padding: 30px; border: 1px solid rgba(255,255,255,0.06); text-align: center;">
-              <div style="font-size: 2.5rem; margin-bottom: 15px; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">2</div>
-              <h3 style="font-size: 1.05rem; margin-bottom: 10px; font-weight: 600;">Upload Your Music</h3>
+            <div class="step-card" style="background: #111; border-radius: 16px; padding: 30px 25px; border: 1px solid rgba(255,255,255,0.06); text-align: center; overflow: visible;">
+              <div class="step-number" style="width: 60px; height: 60px; margin: 0 auto 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: #fff;">2</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 10px; font-weight: 600; color: #fff;">Upload Your Music</h3>
               <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7;">Upload your tracks, add album artwork, fill in metadata. Our AI mastering polishes your sound automatically.</p>
             </div>
             
-            <div style="background: #111; border-radius: 16px; padding: 30px; border: 1px solid rgba(255,255,255,0.06); text-align: center;">
-              <div style="font-size: 2.5rem; margin-bottom: 15px; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">3</div>
-              <h3 style="font-size: 1.05rem; margin-bottom: 10px; font-weight: 600;">Choose Your Platforms</h3>
+            <div class="step-card" style="background: #111; border-radius: 16px; padding: 30px 25px; border: 1px solid rgba(255,255,255,0.06); text-align: center; overflow: visible;">
+              <div class="step-number" style="width: 60px; height: 60px; margin: 0 auto 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: #fff;">3</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 10px; font-weight: 600; color: #fff;">Choose Your Platforms</h3>
               <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7;">Select from 150+ platforms — Spotify, Apple Music, Amazon, Tidal, Deezer, YouTube Music, TikTok, and more.</p>
             </div>
             
-            <div style="background: #111; border-radius: 16px; padding: 30px; border: 1px solid rgba(255,255,255,0.06); text-align: center;">
-              <div style="font-size: 2.5rem; margin-bottom: 15px; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">4</div>
-              <h3 style="font-size: 1.05rem; margin-bottom: 10px; font-weight: 600;">Go Live & Get Paid</h3>
-              <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7;">Your music goes live in 24-48 hours. track your streams, collect 100% of your royalties, and grow your career.</p>
+            <div class="step-card" style="background: #111; border-radius: 16px; padding: 30px 25px; border: 1px solid rgba(255,255,255,0.06); text-align: center; overflow: visible;">
+              <div class="step-number" style="width: 60px; height: 60px; margin: 0 auto 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: #fff;">4</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 10px; font-weight: 600; color: #fff;">Go Live & Get Paid</h3>
+              <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7;">Your music goes live in 24-48 hours. Track your streams, collect 100% of your royalties, and grow your career.</p>
             </div>
           </div>
           
