@@ -459,23 +459,31 @@
     
     /* Steps grid responsive */
     .steps-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 25px !important;
+      max-width: 1000px;
+      margin: 0 auto;
       overflow: visible !important;
     }
     
     @media (max-width: 900px) {
       .steps-grid {
         grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
       }
     }
     
     @media (max-width: 550px) {
       .steps-grid {
         grid-template-columns: 1fr !important;
+        max-width: 400px;
       }
     }
     
     .step-card {
       overflow: visible !important;
+      min-width: 0;
     }
     
     .step-number {
@@ -1509,7 +1517,7 @@
             Getting your music on Spotify, Apple Music, and 150+ other platforms is easier than you think. Here's how to <strong style="color: #fff;">distribute music for free</strong> with OneSync:
           </p>
           
-          <div class="steps-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; max-width: 1000px; margin: 0 auto;">
+          <div class="steps-grid">
             <div class="step-card" style="background: #111; border-radius: 16px; padding: 30px 25px; border: 1px solid rgba(255,255,255,0.06); text-align: center; overflow: visible;">
               <div class="step-number" style="width: 60px; height: 60px; margin: 0 auto 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: #fff;">1</div>
               <h3 style="font-size: 1.05rem; margin-bottom: 10px; font-weight: 600; color: #fff;">Sign Up Free</h3>
