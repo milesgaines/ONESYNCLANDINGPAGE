@@ -309,6 +309,154 @@
       .about-grid-2col { grid-template-columns: 1fr !important; gap: 40px !important; }
     }
     
+    /* ===== ABOUT PAGE CUTOFF & ORGANIZATION FIXES ===== */
+    
+    /* Team section - prevent horizontal overflow */
+    #our-team .container > div:last-of-type {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+      max-width: 100%;
+      overflow: visible;
+    }
+    
+    @media (max-width: 1100px) {
+      #our-team .container > div:last-of-type {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+    }
+    
+    @media (max-width: 650px) {
+      #our-team .container > div:last-of-type {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    
+    /* Stats boxes in Our Story - prevent cutoff */
+    #our-story .about-grid-2col > div:last-child > div {
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 25px 40px !important;
+    }
+    
+    #our-story .about-grid-2col > div:last-child > div > div[style*="width: 1px"] {
+      display: none;
+    }
+    
+    @media (max-width: 600px) {
+      #our-story .about-grid-2col > div:last-child > div {
+        flex-direction: column !important;
+        text-align: center;
+      }
+      #our-story .about-grid-2col > div:last-child > div > div[style*="width: 1px"] {
+        display: none !important;
+      }
+    }
+    
+    /* Section organization - consistent spacing */
+    .section {
+      padding: 80px 0 !important;
+    }
+    
+    @media (max-width: 768px) {
+      .section {
+        padding: 50px 0 !important;
+      }
+      .section-title {
+        font-size: 1.6rem !important;
+        line-height: 1.3 !important;
+      }
+    }
+    
+    /* Comparison table horizontal scroll indicator */
+    .comparison-table-wrapper {
+      position: relative;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .comparison-table-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 100%;
+      background: linear-gradient(to left, rgba(17,17,17,0.9), transparent);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    @media (max-width: 991px) {
+      .comparison-table-wrapper::after {
+        opacity: 1;
+      }
+    }
+    
+    /* Feature grid - prevent cutoffs */
+    #why-onesync > .container > div[style*="display: grid"] {
+      overflow: visible !important;
+    }
+    
+    @media (max-width: 768px) {
+      #why-onesync > .container > div[style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    
+    /* Distributor cards - fix cutoffs on tablet */
+    @media (max-width: 800px) {
+      .distributor-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    
+    /* Quote section responsive */
+    @media (max-width: 768px) {
+      .section .container > div[style*="border-radius: 30px"] {
+        padding: 40px 25px !important;
+        border-radius: 20px !important;
+      }
+      .section .container > div[style*="border-radius: 30px"] p[style*="font-size: 1.5rem"] {
+        font-size: 1.15rem !important;
+      }
+    }
+    
+    /* How to distribute steps - prevent cutoffs */
+    @media (max-width: 600px) {
+      #how-to-distribute > .container > div[style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    
+    /* Footer grid responsive improvement */
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 30px !important;
+      }
+    }
+    
+    @media (max-width: 550px) {
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    
+    /* Stats grid responsive */
+    @media (max-width: 700px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .stats-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    
     /* Navbar base styles */
     .navbar-component {
       width: 100%;
@@ -1179,23 +1327,20 @@
               </p>
             </div>
             <div style="background: #0d0d0d; border-radius: 16px; padding: 35px; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-                <div style="text-align: center; flex: 1; min-width: 120px;">
+              <div class="stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center;">
+                <div>
                   <div style="font-size: 1.8rem; font-weight: 600; color: #fff;">50+</div>
                   <div style="font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px;">Years Experience</div>
                 </div>
-                <div style="width: 1px; height: 40px; background: rgba(255,255,255,0.1);"></div>
-                <div style="text-align: center; flex: 1; min-width: 120px;">
+                <div>
                   <div style="font-size: 1.8rem; font-weight: 600; color: #fff;">150+</div>
                   <div style="font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px;">Platforms</div>
                 </div>
-                <div style="width: 1px; height: 40px; background: rgba(255,255,255,0.1);"></div>
-                <div style="text-align: center; flex: 1; min-width: 120px;">
+                <div>
                   <div style="font-size: 1.8rem; font-weight: 600; color: #fff;">100%</div>
                   <div style="font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px;">To Artists</div>
                 </div>
-                <div style="width: 1px; height: 40px; background: rgba(255,255,255,0.1);"></div>
-                <div style="text-align: center; flex: 1; min-width: 120px;">
+                <div>
                   <div style="font-size: 1.8rem; font-weight: 600; color: #fff;">24/7</div>
                   <div style="font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px;">Support</div>
                 </div>
