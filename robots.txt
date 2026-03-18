@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+Disallow: /401.html
+Disallow: /404.html
+Disallow: /forgot.html
+Disallow: /log-in.html
+Disallow: /user.html
+Disallow: /checkout.html
+Disallow: /order-confirmation.html
+Disallow: /paypal-checkout.html
+Disallow: /application-success.html
+Disallow: /fans-coming-soon.html
+
+Sitemap: https://onesync.music/sitemap.xml

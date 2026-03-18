@@ -62,8 +62,34 @@ async function getSpotifyAccessToken() {
   return spotifyAccessToken;
 }
 
+// SEO: Serve robots.txt and sitemap.xml with correct content types
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain');
+  res.sendFile(path.join(__dirname, 'robots.txt'));
+});
+
+app.get('/sitemap.xml', (req, res) => {
+  res.type('application/xml');
+  res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
+
+// SEO: Add security and cache headers that improve Google ranking signals
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  next();
+});
+
 // Serve static files from the current directory
-app.use(express.static('.'));
+app.use(express.static('.', {
+  maxAge: '1d',
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.html')) {
+      res.setHeader('Cache-Control', 'no-cache');
+    }
+  }
+}));
 
 // Admin email gate - only allow @onesync.music emails
 const ALLOWED_ADMIN_DOMAIN = '@onesync.music';
