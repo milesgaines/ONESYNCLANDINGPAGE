@@ -2571,7 +2571,7 @@
   <script src="js/professional-enhancements.js"></script>
   
   <!-- Floating Services Dock -->
-  <div class="floating-dock" id="floatingDock">
+  <div class="floating-dock" id="floatingDock" style="display: none;">
     <a href="https://app.onesync.music/beats" class="dock-btn dock-btn-beats">
       <span>Beats</span>
     </a>
@@ -2582,5 +2582,23 @@
       <span>Fans</span>
     </a>
   </div>
+  <script>
+    // Keep floating dock hidden until the user accepts or declines cookies
+    (function() {
+      var dock = document.getElementById('floatingDock');
+      if (!dock) return;
+      function showDock() {
+        dock.style.display = '';
+      }
+      if (localStorage.getItem('cookies-accepted') !== null) {
+        showDock();
+        return;
+      }
+      var accept = document.getElementById('accept-cookies');
+      var decline = document.getElementById('decline-cookies');
+      if (accept) accept.addEventListener('click', showDock);
+      if (decline) decline.addEventListener('click', showDock);
+    })();
+  </script>
 </body>
 </html>
