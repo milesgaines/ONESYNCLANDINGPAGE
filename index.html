@@ -24,6 +24,13 @@
   <meta name="keywords" content="music distribution, free music distribution, distribute music online, music distribution service, independent music distribution, OneSync, sync licensing, publishing administration, royalty advances, Spotify distribution, Apple Music distribution">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://onesync.music/">
+  <link rel="alternate" hreflang="en" href="https://onesync.music/">
+  <link rel="alternate" hreflang="x-default" href="https://onesync.music/">
+
+  <!-- LCP / performance preloads -->
+  <link rel="preload" as="image" href="images/ONESYNC-LOGO-WHITE.PNG" fetchpriority="high">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
   <meta name="google-site-verification" content="VU2ItjQyRcF8gR2xo4u5ReJQv-eoAOC5A_F7QFaj-rg" />
 
@@ -51,17 +58,138 @@
       "contactType": "customer service",
       "availableLanguage": "English"
     },
-    "sameAs": []
+    "sameAs": [
+      "https://twitter.com/onesyncmusic",
+      "https://x.com/onesyncmusic",
+      "https://www.instagram.com/onesyncmusic",
+      "https://www.tiktok.com/@onesyncmusic",
+      "https://www.youtube.com/@onesyncmusic"
+    ]
   }
   </script>
 
-  <!-- Schema.org WebSite with SearchAction -->
+  <!-- Schema.org WebSite with SearchAction (sitelinks search box) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "OneSync",
-    "url": "https://onesync.music"
+    "alternateName": "OneSync Music",
+    "url": "https://onesync.music",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://onesync.music/?s={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Schema.org Service (free music distribution offering) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Music Distribution",
+    "name": "OneSync Free Music Distribution",
+    "provider": {
+      "@type": "Organization",
+      "name": "OneSync",
+      "url": "https://onesync.music"
+    },
+    "areaServed": "Worldwide",
+    "description": "Free music distribution to Spotify, Apple Music, Amazon Music, TikTok, and 400+ platforms worldwide. Keep 100% of your royalties with no annual fees.",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Independent musicians, record labels, and content creators"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://onesync.music/",
+      "description": "Free unlimited music distribution to 400+ platforms with 100% royalty retention."
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "OneSync Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Music Distribution to 400+ Stores" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sync Licensing" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Publishing Administration" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Royalty Advances up to $750K" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Mastering" } }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Schema.org FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is OneSync really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. OneSync distributes your music to 400+ platforms for free with no annual fees, no per-release charges, and no hidden costs. You keep 100% of your royalties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many platforms does OneSync distribute to?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OneSync distributes your music to 400+ platforms worldwide, including Spotify, Apple Music, Amazon Music, YouTube Music, TikTok, Instagram, Tidal, Deezer, Pandora, SoundCloud, Beatport, and many more."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take for my music to go live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most platforms list your music within 24–72 hours after upload. Spotify and Apple Music typically take 1–7 business days. We recommend uploading at least 4 weeks before your release date to qualify for editorial playlist consideration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I keep 100% of my royalties with OneSync?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. OneSync takes 0% commission. Every dollar your music earns from streams, downloads, and sync placements is yours to keep."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is sync licensing and does OneSync help with it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sync licensing is when your music is placed in TV shows, films, ads, and video games. OneSync actively pitches your music to music supervisors and handles the licensing process — fees range from $1,000 to $500,000+ per placement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does OneSync offer royalty advances?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Qualifying artists can receive royalty advances up to $750,000. The advance is recouped from your future streaming royalties — there's no interest, and OneSync never owns your masters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I switch from DistroKid, TuneCore, or CD Baby to OneSync?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can re-upload your catalog using your existing ISRC codes to preserve streaming history and playlist placements. We recommend keeping your current distributor active for 30 days during the transition."
+        }
+      }
+    ]
   }
   </script>
   
@@ -2228,9 +2356,9 @@
           </div>
           <div class="w-layout-grid footer-main-grid">
             <div class="footer-left-wrapper">
-              <a href="#" class="footer-logo-link w-nav-brand"><img width="193" sizes="(max-width: 479px) 95vw, 192.99630737304688px" alt="" src="images/ONESYNC-LOGO-WHITE.PNG" loading="lazy" srcset="images/ONESYNC-LOGO-WHITE-p-500.png 500w, images/onesync-og-preview.jpg 800w, images/ONESYNC-LOGO-WHITE.PNG 1000w"></a>
+              <a href="#" class="footer-logo-link w-nav-brand"><img width="193" sizes="(max-width: 479px) 95vw, 192.99630737304688px" alt="OneSync — Free Music Distribution" src="images/ONESYNC-LOGO-WHITE.PNG" loading="lazy" srcset="images/ONESYNC-LOGO-WHITE-p-500.png 500w, images/ONESYNC-LOGO-WHITE.PNG 1000w"></a>
               <div class="margin-50px-2 make-15px">
-                <p class="copyright-2">© 2025 OneSync Media LLC</p>
+                <p class="copyright-2">© 2026 OneSync Media LLC</p>
                 <p class="copyright-2" style="font-size: 0.85rem; opacity: 0.8; margin-top: 10px;">2801 Ocean Park Blvd, Santa Monica, CA 90405</p>
               </div>
             </div>
@@ -2278,8 +2406,8 @@
                 <div class="footer-title">Find us</div>
                 <div>
                   <div class="social-grid">
-                    <a href="https://twitter.com/" target="_blank" class="social-link-main w-inline-block"><img loading="lazy" src="images/x-logo_1x-logo.webp" alt="" class="social-icon-main no-invert"></a>
-                    <a href="https://www.instagram.com/" target="_blank" class="social-link-main w-inline-block"><img loading="lazy" src="https://uploads-ssl.webflow.com/64dde8491796b73c619e78bf/64dde8491796b73c619e794d_social-4.png" alt="" class="social-icon-main"></a>
+                    <a href="https://twitter.com/onesyncmusic" target="_blank" rel="noopener" class="social-link-main w-inline-block" aria-label="OneSync on X (Twitter)"><img loading="lazy" src="images/x-logo_1x-logo.webp" alt="OneSync on X" class="social-icon-main no-invert"></a>
+                    <a href="https://www.instagram.com/onesyncmusic" target="_blank" rel="noopener" class="social-link-main w-inline-block" aria-label="OneSync on Instagram"><img loading="lazy" src="https://uploads-ssl.webflow.com/64dde8491796b73c619e78bf/64dde8491796b73c619e794d_social-4.png" alt="OneSync on Instagram" class="social-icon-main"></a>
                   </div>
                 </div>
               </div>
