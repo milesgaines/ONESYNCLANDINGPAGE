@@ -8,8 +8,9 @@
     { "src": "/api/(.*)", "dest": "/server.js" },
     { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
     { "src": "/robots.txt", "dest": "/robots.txt" },
+    { "src": "/index.html", "status": 301, "headers": { "Location": "/" } },
     { "src": "/(.+\\.[a-zA-Z0-9]+)$", "dest": "/$1" },
     { "src": "/", "dest": "/index.html" },
-    { "src": "/(.*)", "dest": "/$1.html" }
+    { "src": "/(.*)", "status": 301, "headers": { "Location": "/$1.html" } }
   ]
 }
