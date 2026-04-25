@@ -35,13 +35,24 @@
     "provider": { "@type": "Organization", "name": "OneSync", "url": "https://onesync.music" },
     "areaServed": "Worldwide",
     "url": "https://onesync.music/pricing.html",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "79.99",
+      "highPrice": "2500.00",
+      "offerCount": "5",
+      "availability": "https://schema.org/InStock",
+      "url": "https://onesync.music/pricing.html"
+    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Release Campaign Tiers",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Indie Release Campaign" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pro Release Campaign" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "White-Glove Major Label Campaign" } }
+        { "@type": "Offer", "name": "Indie Release Campaign", "price": "79.99", "priceCurrency": "USD", "url": "https://onesync.music/pricing.html", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Service", "name": "Indie Release Campaign" } },
+        { "@type": "Offer", "name": "Pro Release Campaign", "price": "249.99", "priceCurrency": "USD", "url": "https://onesync.music/pricing.html", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Service", "name": "Pro Release Campaign" } },
+        { "@type": "Offer", "name": "Elite Release Campaign", "price": "449.99", "priceCurrency": "USD", "url": "https://onesync.music/pricing.html", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Service", "name": "Elite Release Campaign" } },
+        { "@type": "Offer", "name": "White-Glove Release", "price": "1500.00", "priceCurrency": "USD", "url": "https://onesync.music/pricing.html", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Service", "name": "White-Glove Release" } },
+        { "@type": "Offer", "name": "White-Glove Major Label Campaign", "price": "2500.00", "priceCurrency": "USD", "url": "https://onesync.music/pricing.html", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Service", "name": "White-Glove Major Label Campaign" } }
       ]
     }
   }
