@@ -101,23 +101,31 @@
       .cluster-links ul{grid-template-columns:1fr}
     }
     /* Print stylesheet */
+    .print-only{display:none}
+    .print-watermark{display:none}
     @media print {
-      body{background:#fff !important;color:#000 !important}
-      .navbar-component, .footer, .ss-actions, .ss-header p, .content-section, .cta-section, .quick-presets, .alert, .icon-btn, .mobile-pages-dropdown{display:none !important}
+      @page{margin:0.6in}
+      body{background:#fff !important;color:#000 !important;position:relative}
+      .navbar-component, .footer, .ss-actions, .ss-header p, .content-section, .cta-section, .quick-presets, .alert, .icon-btn, .mobile-pages-dropdown, .ss-header h1{display:none !important}
       .ss-wrap{padding:0;max-width:100%}
-      .ss-header h1{color:#000;font-size:22pt;margin-bottom:6px}
-      .ss-header{margin-bottom:18px;text-align:left}
-      .ss-card{background:#fff !important;border:1px solid #ccc;color:#000;padding:18px;page-break-inside:avoid}
+      .ss-header{margin-bottom:14px;text-align:left;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #000;padding-bottom:10px}
+      .print-only{display:block !important}
+      .print-only.print-title{font-size:24pt;font-weight:800;color:#000;letter-spacing:-0.02em;margin:0}
+      .print-only.print-logo{height:38px;width:auto}
+      .ss-card{background:#fff !important;border:1px solid #ccc;color:#000;padding:18px;page-break-inside:avoid;box-shadow:none}
       .ss-card h2{color:#000}
       .field label{color:#555}
-      .field input, .field textarea, .ss-table input, .ss-table select{background:#fff !important;border:1px solid #999;color:#000 !important;-webkit-text-fill-color:#000}
+      .field input, .field textarea, .ss-table input, .ss-table select{background:#fff !important;border:1px solid #999;color:#000 !important;-webkit-text-fill-color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}
       .ss-table th{color:#000}
-      .totals-row{background:#f4f4f4 !important}
+      .totals-row{background:#f4f4f4 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
       .totals-row .lbl{color:#000}
       .totals-row .val{color:#000}
-      #signLines{display:block !important;margin-top:24px}
+      #signLines{display:block !important;margin-top:24px;page-break-inside:avoid}
+      #signLines h3{color:#000 !important}
       #signLines .sig{display:flex;justify-content:space-between;border-bottom:1px solid #000;margin:30px 0 4px;padding-bottom:2px;font-size:10pt;color:#444}
       .print-footer{display:block !important;margin-top:30px;font-size:8pt;color:#666;border-top:1px solid #ccc;padding-top:8px}
+      .print-watermark{display:block !important;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-28deg);width:55%;max-width:560px;opacity:0.06;pointer-events:none;z-index:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .ss-wrap > *{position:relative;z-index:1}
     }
     #signLines, .print-footer{display:none}
   </style>
@@ -128,8 +136,11 @@
 
     <section class="section">
       <div class="ss-wrap">
+        <img class="print-watermark" src="images/ONESYNC-LOGO-blk-copy.png" alt="" aria-hidden="true">
         <div class="ss-header">
           <h1>Songwriter Split Sheet Generator</h1>
+          <h1 class="print-only print-title">Split Sheet</h1>
+          <img class="print-only print-logo" src="images/ONESYNC-LOGO-blk-copy.png" alt="OneSync">
           <p>Free split sheet template for songwriters and producers. Set master and publishing percentages, validate totals, then print, download, or share. No signup required.</p>
         </div>
 
@@ -370,7 +381,16 @@
       recalc();
     });
 
-    document.getElementById('printBtn').addEventListener('click', () => window.print());
+    document.getElementById('printBtn').addEventListener('click', () => {
+      const s = snapshot();
+      const orig = document.title;
+      const safeTitle = (s.title || 'Untitled').replace(/[\\\/:*?"<>|]/g,'').trim() || 'Untitled';
+      document.title = 'Split Sheet — ' + safeTitle;
+      const restore = () => { document.title = orig; window.removeEventListener('afterprint', restore); };
+      window.addEventListener('afterprint', restore);
+      setTimeout(restore, 8000);
+      window.print();
+    });
 
     document.getElementById('downloadBtn').addEventListener('click', () => {
       const s = snapshot();
