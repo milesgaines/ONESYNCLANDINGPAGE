@@ -85,6 +85,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Music video cluster pages -->
+  <url>
+    <loc>https://onesync.music/music-video-distribution.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://onesync.music/how-to-distribute-a-music-video.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Educational cluster pages -->
   <url>
     <loc>https://onesync.music/music-distribution-guide.html</loc>
