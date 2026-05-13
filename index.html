@@ -912,6 +912,15 @@
         gap: 25px;
       }
     }
+    /* Suppress browser-native play button on background videos */
+    .hero-background-video::-webkit-media-controls,
+    .hero-background-video::-webkit-media-controls-start-playback-button,
+    .hero-background-video::-webkit-media-controls-play-button,
+    .hero-background-video::-webkit-media-controls-panel {
+      display: none !important;
+      -webkit-appearance: none;
+    }
+
     /* Hide page content until user selects */
     .page-content {
       opacity: 0;
@@ -2590,31 +2599,29 @@
     });
 
     // ===== SITE PRELOADER - SKIP ENTRY CHOICE, GO STRAIGHT TO CONTENT =====
-    window.addEventListener('load', function() {
+    function revealPage() {
       const preloader = document.getElementById('sitePreloader');
       const pageContent = document.getElementById('pageContent');
-      
-      // Show loader briefly then reveal content directly (no entry choice step)
-      setTimeout(function() {
-        if (preloader) {
-          preloader.classList.add('loaded');
-        }
-        if (pageContent) {
-          pageContent.classList.add('visible');
-        }
-      }, 1200);
+      if (preloader) preloader.classList.add('loaded');
+      if (pageContent) pageContent.classList.add('visible');
+      // Force-play the first hero video now that it's visible
+      const heroVideo = document.getElementById('hero-video-1');
+      if (heroVideo) {
+        heroVideo.play().catch(function() {
+          document.querySelector('.hero-video-wrapper').style.background =
+            'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)';
+        });
+      }
+    }
+
+    window.addEventListener('load', function() {
+      setTimeout(revealPage, 1200);
     });
 
-    // Fallback: show content after 5 seconds max if loading fails
+    // Fallback: reveal after 5 seconds max if loading stalls
     setTimeout(function() {
       const preloader = document.getElementById('sitePreloader');
-      const pageContent = document.getElementById('pageContent');
-      if (preloader && !preloader.classList.contains('loaded')) {
-        preloader.classList.add('loaded');
-        if (pageContent) {
-          pageContent.classList.add('visible');
-        }
-      }
+      if (preloader && !preloader.classList.contains('loaded')) revealPage();
     }, 5000);
 
     // Video error handling to prevent question marks
